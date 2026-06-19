@@ -21,6 +21,9 @@ Issued: April 1991
 1-1. Features------------------------------------------------3
 1-2. Specifications-----------------------------------------6
 1-3. Block Diagram----------------------------------------8
+
+![1-3. Block Diagram----------------------------------------8](figures/x68000_service_manual/serv_-000001.png)
+
 1-4. System Configuration-------------------------------9
 2. Names of Each Part------------------------------------10
 2-1. Front of the Computer Body---------------------11
@@ -348,6 +351,9 @@ Sprite	Sprite	Pattern Definition	Size	16 x 16 dot pattern
 1-3. Block Diagram
 
 [Textual summary of the fold-out block diagram. Component names and clock values
+
+![Textual summary of the fold-out block diagram. Component names and clock values](figures/x68000_service_manual/serv_-000008.png)
+
 were read directly from the source page); the original is a
 large interconnected diagram that cannot be linearised exactly. The original text layer
 of this page was unrecoverable noise and has been replaced.]
@@ -1067,6 +1073,9 @@ Reset Sequence:
 2. At the beginning of the IPL ROM 1, there are two long words that store the program counter and stack pointer values for the 68000 MPU reset exception process.
 3. Once the reset signal is removed, the MPU fetches the long word data from the ROMs shown at the top of the memory map.
 4. At this time, the MPU executes instructions based on the program counter. Meanwhile, the IPL ROM 1 image disappears, and the system goes into the state shown in figure 3-2.
+
+![4. At this time, the MPU executes instructions based on the program counter. Meanwhile, the IPL ROM 1 image disappears, and the system goes into the state shown in figure 3-2.](figures/x68000_service_manual/serv_-000024.png)
+
 > Note: The value of the program counter stored in the IPL ROM 1 must point within the address range of IPL ROM 1. This is because the hardware is designed so that accessing addresses (FF0000H-FFFFFFFH) makes the IPL ROM 1 image disappear from the top of the memory map. 
 > The ROM image appears in the memory map upon power-on reset or manual reset (Figure 3-1). (The ROM image does not appear for the 68000 MPU reset command execution.)
 
@@ -1083,6 +1092,8 @@ This machine has three independent screens: text, graphics, and sprite. Control 
 When accessing the screen, set the CRTC and sprite controller numbers regardless of whether they are used or not.
 
 (Figure showing screen control block diagram)
+
+![Figure showing screen control block diagram](figures/x68000_service_manual/serv_-000025.png)
 
 **1) Text Screen (Bitmap Method)**
 
@@ -1446,6 +1457,8 @@ Regarding the control of the mouse and TV control, please use either control on 
 
 Figure 6-1 Keyboard and Mouse Surrounding Block Diagram
 
+![Figure 6-1 Keyboard and Mouse Surrounding Block Diagram](figures/x68000_service_manual/serv_-000036.png)
+
 <Keyboard>
 This keyboard uses the 80C51 as the sub-CPU, and performs the following roles:
 
@@ -1501,6 +1514,8 @@ D7 D6 D5 D4 D3 D2 D1 D0
 1-byte data from 80C51 to MFP
 Key code reference is in figure 3-2
 
+![Key code reference is in figure 3-2](figures/x68000_service_manual/serv_-000039.png)
+
 CZ-634C-TN
 CZ-644C-TN
 
@@ -1509,6 +1524,8 @@ CZ-644C-TN
 This machine uses the YM2151 as the FM sound source LSI and the MSM6258 as the voice synthesis LSI.
 
 Fig. 7-1 Sound System Block Diagram
+
+![Fig. 7-1 Sound System Block Diagram](figures/x68000_service_manual/serv_-000040.png)
 
 Labels in the diagram:
 
@@ -1581,6 +1598,8 @@ In this book, the 63450 is used as the DMAC. This is an independent 4-channel DM
 |             |                 |               | Link Array Chain Mode  |
 
 **Figure 8-1 DMAC Block Diagram**
+
+![**Figure 8-1 DMAC Block Diagram**](figures/x68000_service_manual/serv_-000042.png)
 
 - 68000  
 - Address Bus
@@ -1658,6 +1677,9 @@ Transfer Request Methods
 In this device, it is possible to optionally use the floating-point arithmetic co-processor (hereinafter abbreviated as FPU) MC68881 (16.67MHz).
 
 ![Diagram of FPU signal block]
+
+![!Diagram of FPU signal block](figures/x68000_service_manual/serv_-000044.png)
+
 **MC68881 Main Features**
 ● 8 80-bit floating-point data registers
 ● 67-bit arithmetic device
@@ -1773,6 +1795,8 @@ DTACK**
 
 **Figure 8-3 MFP Block Diagram**
 
+![Figure 8-3 MFP Block Diagram](figures/x68000_service_manual/serv_-000046.png)
+
 Page 46
 
 <Features>
@@ -1851,6 +1875,8 @@ Stop 1 bit
 
 Fig. 8-6 MFP USART System Block Diagram
 
+![Fig. 8-6 MFP USART System Block Diagram](figures/x68000_service_manual/serv_-000048.png)
+
 Table 8-4 Details of MFP Channels
 
 | Channel No. | Function Details                                                                            |
@@ -1919,6 +1945,8 @@ Mouse Connector Pinout
 Bottom Center:
 Fig. 8-7 SCC Block Diagram
 
+![Fig. 8-7 SCC Block Diagram](figures/x68000_service_manual/serv_-000052.png)
+
 Bottom Center:
 
 Other Labels in the Diagram:
@@ -1944,6 +1972,8 @@ MSDATA
 **8-5. SCC**
 
 In this manual, the RS-232C serial communication controller is used to support the mouse. We use the Z8530 SCC for the Z8000 family. The block diagram is shown in Fig. 8-7.
+
+![In this manual, the RS-232C serial communication controller is used to support the mouse. We use the Z8530 SCC for the Z8000 family. The block diagram is shown in Fig. 8-7.](figures/x68000_service_manual/serv_-000053.png)
 
 <Features>
 This SCC has 2 independent full-duplex channels, each with 14 write registers and 7 read registers, and a baud rate generator.
@@ -2067,6 +2097,8 @@ This RP5C15 has the following features with the same READ/WRITE sequence of the 
 
 *Figure 8-9 RTC Block Diagram*
 
+![*Figure 8-9 RTC Block Diagram*](figures/x68000_service_manual/serv_-000054.png)
+
 *Page -54-*
 
 (10) 1Hz Clock Output
@@ -2079,6 +2111,8 @@ The 1Hz clock is output from the CLK OUT terminal and connected to the MFPO/GPIO
 9. Peripheral
 9-1. Disk
 The device is equipped with two data-sided FDD (floppy disk drives). This FDD is controlled by FDC and µPD72065 is used. For SCSI interface machines, 80MBHDD is controlled by SCSI controller MB89352. Please refer to figure 9-1.
+
+![The device is equipped with two data-sided FDD floppy disk drives. This FDD is controlled by FDC and µPD72065 is used. For SCSI interface machines, 80MBHDD is controlled by SCSI controller MB89352. Please refer to figure 9-1.](figures/x68000_service_manual/serv_-000055.png)
 
 Table 9-1 Floppy Disk Specifications
 
@@ -2158,6 +2192,8 @@ MOTOR ON
 READ DATA
 
 Figure 9-1 FDD/HDD Peripheral Block Diagram
+
+![Figure 9-1 FDD/HDD Peripheral Block Diagram](figures/x68000_service_manual/serv_-000057.png)
 
 The labels next to specific arrows relate to signals or commands connecting different components in a hard disk and floppy disk drive control system.
 
@@ -2323,6 +2359,8 @@ Address -------> portA ------------> Joystick No.1
 ```
 
 Figure 9-2 Joystick Block Diagram
+
+![Figure 9-2 Joystick Block Diagram](figures/x68000_service_manual/serv_-000062.png)
 
 Register Address  | D7 D6 D5 D4 D3 D2 D1 D0
 ------------------|------------------------
@@ -2755,6 +2793,8 @@ CZ-644C-TN
 
 "11. Main Circuit Diagram (1)"
 
+!["11. Main Circuit Diagram 1"](figures/x68000_service_manual/serv_-000073.png)
+
 On the bottom left corner, it says:
 
 "- 75 -"
@@ -2765,11 +2805,17 @@ On the bottom right corner, it says:
 
 "12. Main basic wiring diagram (2)"
 
+!["12. Main basic wiring diagram 2"](figures/x68000_service_manual/serv_-000074.png)
+
 The numbers at the bottom of the page, "- 77 -" and "- 78 -", probably indicate the page numbers in the document.
 
 "13. Main Basic Circuit Diagram (3)"
 
+!["13. Main Basic Circuit Diagram 3"](figures/x68000_service_manual/serv_-000075.png)
+
 "14. Main basic wiring diagram (4)"
+
+!["14. Main basic wiring diagram 4"](figures/x68000_service_manual/serv_-000076.png)
 
 "— 81 —" 
 
@@ -2781,11 +2827,15 @@ CZ-644C-TN
 
 15. Main Basic Wiring Diagram (5)
 
+![15. Main Basic Wiring Diagram 5](figures/x68000_service_manual/serv_-000077.png)
+
 [Main board schematic diagram]
 
 16. Control Basic Wiring Diagram
 
 (Schematic diagram — all labels are signal names, component designators, and part numbers in English/alphanumeric.)
+
+![Schematic diagram — all labels are signal names, component designators, and part numbers in English/alphanumeric.](figures/x68000_service_manual/serv_-000078.png)
 
 "17. Control Board"
 
@@ -2796,6 +2846,8 @@ CZ-634C-TN
 CZ-644C-TN
 
 (Schematic diagram — all labels are connector pin names, signal names, component designators, and part numbers in English/alphanumeric.)
+
+![Schematic diagram — all labels are connector pin names, signal names, component designators, and part numbers in English/alphanumeric.](figures/x68000_service_manual/serv_-000080.png)
 
 19. FD, I/O, SCSI Connector, Power LED, Eject, FD-LED Baseboard
 
@@ -2829,6 +2881,8 @@ CZ-644C-TN
 
 (Schematic diagram labeled "ANALOG" — all remaining labels are signal names, pin names, component designators, transistor/IC part numbers, and component values in English/alphanumeric.)
 
+![Schematic diagram labeled "ANALOG" — all remaining labels are signal names, pin names, component designators, transistor/IC part numbers, and component values in English/alphanumeric.](figures/x68000_service_manual/serv_-000083.png)
+
 — 93 —    — 94 —
 
 CZ-634C-TN
@@ -2852,6 +2906,8 @@ PTC, CE, RM401
 Top-left corner:
 "22. Power Supply Unit Basic Circuit Diagram"
 
+!["22. Power Supply Unit Basic Circuit Diagram"](figures/x68000_service_manual/serv_-000085.png)
+
 Below the title:
 "The parts marked (triangle mark, square mark) are safety critical parts.
 When replacing, please use the specified parts at the specified locations to ensure safety and performance."
@@ -2868,6 +2924,8 @@ CZ-634C-TN
 CZ-644C-TN
 
 24. Keyboard basic wiring diagram
+
+![24. Keyboard basic wiring diagram](figures/x68000_service_manual/serv_-000087.png)
 
 [Keyboard schematic diagram.]
 

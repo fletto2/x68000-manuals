@@ -47,6 +47,9 @@ Chapter 1 Overview of the System  1
 1 Features of the System  1
 2 Specifications  3
 3 Block Diagram  7
+
+![Block Diagram........................7](figures/x68000_technical_guide/tech_-000215.png)
+
 4 Memory Map  8
 ```
 
@@ -431,6 +434,8 @@ Title:
 Note:
 Figure 3.1 Block Diagram
 
+![Figure 3.1 Block Diagram](figures/x68000_technical_guide/tech_-000019.png)
+
 Top left:
 
 Heading:
@@ -499,6 +504,8 @@ EBFFFFH
 Bottom right:
 Figure 1-2 Memory Map
 
+![Figure 1-2 Memory Map](figures/x68000_technical_guide/tech_-000020.png)
+
 **Chapter 2**
 **Screen Control**
 
@@ -524,6 +531,8 @@ The scroll on the graphics screen is a spherical surface scroll.
 As a display screen mode, it supports high resolution (horizontal synchronization frequency 31.5 kHz) and standard resolution (horizontal synchronization frequency 15.98 kHz).
 
 Figure 2-3 Graphic Screen
+
+![Figure 2-3 Graphic Screen](figures/x68000_technical_guide/tech_-000022.png)
 
 3) Sprite Screen
 This is the screen for moving sprite patterns smoothly dot by dot, as used in Famicom or MSX.
@@ -558,6 +567,8 @@ MSB           16-bit          LSB
 
 Figure 2-4. Memory Map of VRAM for Text
 
+![Figure 2-4. Memory Map of VRAM for Text](figures/x68000_technical_guide/tech_-000023.png)
+
 **Chapter 2: Screen Control**
 
 1-3 Text Real Screen Address Layout
@@ -575,6 +586,8 @@ T0 Plane
 Text Palette Address for each Bit
 
 **Figure 2-5** Text Real Screen Address Layout
+
+![**Figure 2-5** Text Real Screen Address Layout](figures/x68000_technical_guide/tech_-000024.png)
 
 1-4 Text Palette Address
 
@@ -745,6 +758,8 @@ The characters `* * * * * * * *` represent "wildcards" or placeholders for unspe
 
 Figure 2-6 Address Mapping of Graphics Display Screen (1)
 
+![Figure 2-6 Address Mapping of Graphics Display Screen 1](figures/x68000_technical_guide/tech_-000029.png)
+
 (Left to right description)
 [Address] MSB
 2M Bytes (1M Word)
@@ -805,6 +820,8 @@ B2 ... B15
 
 Figure 2-7 Graphics Actual Screen Address Configuration (2)
 
+![Figure 2-7 Graphics Actual Screen Address Configuration 2](figures/x68000_technical_guide/tech_-000030.png)
+
 [Address] MSB 15~4   3  2  1  0 LSB
 don't care
 G03 G02 G01 G00
@@ -832,6 +849,8 @@ Table 2-5 Memory Map
 (3) 512×512 Dots (256 Colors, 2-Screen Mode)
 
 Figure 2-8: Address Configuration of Graphic Virtual Screens (3)
+
+![Figure 2-8: Address Configuration of Graphic Virtual Screens 3](figures/x68000_technical_guide/tech_-000031.png)
 
 Table 2-6: Memory Map
 
@@ -871,6 +890,8 @@ Page B0
 B1 B2 ... B15
 
 Figure 2-9 Graphics Actual Screen Address Configuration (4)
+
+![Figure 2-9 Graphics Actual Screen Address Configuration 4](figures/x68000_technical_guide/tech_-000032.png)
 
 [Address] MSB 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 LSB
 G15 G14 G13 G12 G11 G10 G09 G08 G07 G06 G05 G04 G03 G02 G01 G00
@@ -1390,6 +1411,8 @@ EB8000H - PCG area
 
 Figure 2-10. Sprite register address map
 
+![Figure 2-10. Sprite register address map](figures/x68000_technical_guide/tech_-000048.png)
+
 Page 36
 
 4-2 Sprite Register Address Map
@@ -1529,6 +1552,8 @@ Sprite Temporary Coordinates System
 
 Figure 2-11: Display screen and sprite temporary coordinates
 
+![Figure 2-11: Display screen and sprite temporary coordinates](figures/x68000_technical_guide/tech_-000052.png)
+
 4. Sprite
 
 (2) PRV (Priority) Set the display priority order between sprite and background (2 planes).
@@ -1541,6 +1566,8 @@ Figure 2-11: Display screen and sprite temporary coordinates
 |   1  |  1   |  SP > BGO > BG1        |
 
 **Figure 2-17** Display Priority Order
+
+![**Figure 2-17** Display Priority Order](figures/x68000_technical_guide/tech_-000053.png)
 
 When the color data B, R, G, I in the PCG area is 0000H, it is considered transparent and the lower priority plane is displayed.
 
@@ -1591,6 +1618,8 @@ H Res.=01
 Background 0 Display Screen
 
 Figure 2-12 Text Area Dimensions
+
+![Figure 2-12 Text Area Dimensions](figures/x68000_technical_guide/tech_-000055.png)
 
 In 512-dot display mode, only the background 0 face is displayed, and the settings for the background 1 face are ignored.
 
@@ -1717,6 +1746,8 @@ Sprites are always of a 16x16 dot pattern configuration, but backgrounds can be 
 Therefore, when the background is in a 16x16 dot pattern configuration, it is possible for the sprite code and background code to share the same pattern. However, when the background is in an 8x8 dot pattern configuration, attention is required because the sprite code and background code differ.
 Also, the background dot pattern configuration (16x16 dot pattern or 8x8 dot pattern) is determined by the screen mode. In horizontal 512 dot mode, it is a 16x16 dot pattern configuration, and in horizontal 256 dot mode, it is an 8x8 dot pattern configuration (refer to Figure 2-13 for details).
 
+![Also, the background dot pattern configuration 16x16 dot pattern or 8x8 dot pattern is determined by the screen mode. In horizontal 512 dot mode, it is a 16x16 dot pattern configuration, and in horizontal 256 dot mode, it is an 8x8 dot pattern configuration refer to Figure 2-13 for details.](figures/x68000_technical_guide/tech_-000059.png)
+
 BG: 16x16 dot pattern configuration
 16 dots   ⎡ ⎤
           ⎢SP Code = 0⎥
@@ -1825,6 +1856,8 @@ BG: 8x8-dot/pattern structure     BG: 16x16-dot/pattern structure
 
 Figure 2-14  Address Layout of Text Area 0
 
+![Figure 2-14  Address Layout of Text Area 0](figures/x68000_technical_guide/tech_-000062.png)
+
 4. Sprite
 
 (2) Address layout of the PCG in Text Area 1 (EBE000H~EBFFFEH; 4K words)
@@ -1834,6 +1867,8 @@ Figure 2-14  Address Layout of Text Area 0
 64 patterns
 
 Figure 2-15 Address Layout of Text Area 1
+
+![Figure 2-15 Address Layout of Text Area 1](figures/x68000_technical_guide/tech_-000063.png)
 
 4-8 CPU Access Methods
 
@@ -1867,6 +1902,8 @@ The readout time for registers for display use is as follows (although there may
 
 Figure 2-17 Register Readout Timing
 
+![Figure 2-17 Register Readout Timing](figures/x68000_technical_guide/tech_-000064.png)
+
 Therefore, if you want to write to the sprite scroll registers during the V blanking period, you need to rewrite 2 lines before V-DISP. Also, if you want to write during the H blanking period, you need to rewrite up to 4 characters or clock cycles before H-DISP. Please note that the sprited scroll register changes will take effect 3 lines after being written.
 
 *In superimpose mode at high resolution, H blanking period part QD can stop when overlapping occurs during CPU access and potential delays may happen (the worst being around 60µs).
@@ -1884,6 +1921,8 @@ However, regarding the bit information below, since there is only one stage of r
 The period required to transfer the CPU registers to the internal registers is approximately as follows:
 
 [Figure 2-18 Register Transfer Timing]
+
+![Figure 2-18 Register Transfer Timing](figures/x68000_technical_guide/tech_-000065.png)
 
 Consequently, for example, if the background scroll registers are rewritten for each line, writing during the H display period before one line is sufficient (However, it should be completed by 3-4 QD before H-DISP).
 
@@ -1911,6 +1950,8 @@ Communication timing within 1 line:
 - H Sync Period: ~1.8ms or ~1.4ms
 
 Figure 2-20 Register Read Timing
+
+![!Figure 2-20 Register Read Timing#](figures/x68000_technical_guide/tech_-000066.png)
 
 Therefore, when rewriting PCG and text within the V-Synchronization period, it must be rewritten up to 1 line before V-DISP. During the H-Synchronization period, rewrites should be minimized (the display will be almost in the screen mode).
 
@@ -2014,6 +2055,8 @@ Most preferred graphics page number:
 1. Graphics Actual Screen 1024×1024
 In a mode with an actual screen of 1024×1024 dots, the graphics screen page number is assigned as shown in Figure 2-21. The display page has only one side, and this represents the priority of the values of graphics screen page numbers.
 
+![In a mode with an actual screen of 1024×1024 dots, the graphics screen page number is assigned as shown in Figure 2-21. The display page has only one side, and this represents the priority of the values of graphics screen page numbers.](figures/x68000_technical_guide/tech_-000069.png)
+
 Diagram labels:
 G00 G01 G02 G03
 Page 0   Page 1
@@ -2028,6 +2071,8 @@ D07 D06 D05 D04 D03 D02 D01 D00
 
 2. Graphics Actual Screen 512 x 512
 In this mode, the graphics screen page numbers are assigned as shown in Figure 2-22.
+
+![In this mode, the graphics screen page numbers are assigned as shown in Figure 2-22.](figures/x68000_technical_guide/tech_-000070.png)
 
 Diagram labels:
 SC0 SC1 SC2 SC3
@@ -2197,6 +2242,8 @@ Display Omitted
 
 Figure 2-23 Examples of overlapping displays in graphics screen layers of 4 layers mode
 
+![Figure 2-23 Examples of overlapping displays in graphics screen layers of 4 layers mode](figures/x68000_technical_guide/tech_-000076.png)
+
 In the upper byte of Register 3, half-transparency mode and special priority function settings are performed.
 
 | D15 | D14 | D13 | D12 | D11 | D10 | D09 | D08 |
@@ -2249,6 +2296,8 @@ It refers to D13="1" of register 3. Essentially, if bit D12 and D11 of the video
 
 Figure 2-24 illustrates the concept of transparent mode.
 
+![Figure 2-24 illustrates the concept of transparent mode.](figures/x68000_technical_guide/tech_-000077.png)
+
 ```
               ----
 
@@ -2290,6 +2339,8 @@ Picture of a boat on a graphical, text (sprite) screen
 Screen combined with text displays the contents and transparency of palette address 00H.
 
 Figure 2-25: Transparency Mode (1)
+
+![Figure 2-25: Transparency Mode 1](figures/x68000_technical_guide/tech_-000078.png)
 
 [2] The transparency is performed between the graphic page screen and text (sprite) screen. Although the domain where the transparency is conducted is designated on the graphics screen, in this case, it requires that the graphic page is displayed on screen with the highest priority. If the priority of the text (sprite) screen is higher and does not transparently overlap, the text (sprite) screen is displayed as-is. Additionally, if transparency is performed, the colors of the graphic will become half.
 
@@ -2347,6 +2398,8 @@ Illustrations:
 
 **Figure 2-28** Semi-transparency Mode (4)
 
+![**Figure 2-28** Semi-transparency Mode 4](figures/x68000_technical_guide/tech_-000079.png)
+
 Chapter 2: Screeng Control
 
 [6] This is the semi-transparent mode for superimposing. First, the function of [3] operates, and additionally, the semi-transparent function is performed in the same area as where the transparency function was already operating, with the TV and video signals.
@@ -2362,6 +2415,8 @@ Chapter 2: Screeng Control
 TV (Video) Screen
 
 Figure 2-29 Semi-transparent Mode (5)
+
+![Figure 2-29 Semi-transparent Mode 5](figures/x68000_technical_guide/tech_-000080.png)
 
 [7] The functions of both [5] and [6] operate.
 
@@ -2399,6 +2454,8 @@ Graphics screen page 0
 Text (sprite) screen
 
 Figure 2-30 Special Priority Mode
+
+![Figure 2-30 Special Priority Mode](figures/x68000_technical_guide/tech_-000081.png)
 
 - Special priority function area specification (using D10, which specifies semi-transparent or special priority functions) and screen display page setting are set in the graphics VRAM memory data of the graphics screen pages with higher priority. (If setting the semi-transparent area specifies, "1", then using this function specifies. As for this, text and sprites can be used normally.)
 
@@ -2439,6 +2496,8 @@ Graphical Face 2
 (Transparent display masking)
 
 Figure 2-32 Structure of the graphical screen's palette
+
+![Figure 2-32 Structure of the graphical screen's palette](figures/x68000_technical_guide/tech_-000083.png)
 
 (4) CMP-OUT (Ys) signal (Standard resolution superimposed pose)
 
@@ -2595,6 +2654,8 @@ FBFFEFH ────────────────────────
 
 Figure 2-34 CGROM Address Map
 
+![Figure 2-34 CGROM Address Map](figures/x68000_technical_guide/tech_-000087.png)
+
 6-3 Structure of CGROM Address
 
 (1) 8x8 Font
@@ -2616,6 +2677,8 @@ Figure 2-34 CGROM Address Map
 ASCII Code 00H Font
 
 Fig. 2-35 CGROM Address (1)
+
+![Fig. 2-35 CGROM Address 1](figures/x68000_technical_guide/tech_-000088.png)
 
 (2) 8x16 Font
 
@@ -2680,6 +2743,8 @@ Near the table on the right:
 Bottom:
 "Fig. 2-37 CGROM Address (3)"
 
+!["Fig. 2-37 CGROM Address 3"](figures/x68000_technical_guide/tech_-000089.png)
+
 (4) 12x12 Font
 
 <--12 Bits-->
@@ -2716,6 +2781,8 @@ Font of 00H
 
 Figure 2-38 CGROM Address (4)
 
+![Figure 2-38 CGROM Address 4](figures/x68000_technical_guide/tech_-000090.png)
+
 Page 78
 
 6.  CGROM
@@ -2736,6 +2803,8 @@ MSB        16 Bits         LSB
 ASCII Code 00H Font
 
 Figure 2-39 CGROM Address (5)
+
+![Figure 2-39 CGROM Address 5](figures/x68000_technical_guide/tech_-000091.png)
 
 (6)  24×24 Font
 
@@ -2772,6 +2841,8 @@ The X68000 supports the following computer screen display modes:
 
 Figure 2-25 Standard Resolution Mode
 
+![Figure 2-25 Standard Resolution Mode](figures/x68000_technical_guide/tech_-000092.png)
+
 [Overscan]
 [Normal Scan (usual display method)]
 
@@ -2800,6 +2871,8 @@ Table 2-26 Superimpose Mode
 
 Figure 2-42 Superimpose Mode
 
+![Figure 2-42 Superimpose Mode](figures/x68000_technical_guide/tech_-000093.png)
+
 [Conventional Superimpose Mode]      |         [Suspected High Resolution Superimpose Mode]
 
 CRT Screen                            |         CRT Screen
@@ -2824,6 +2897,8 @@ Page 81
 - The computer screen only displays in normal scan (however, on dedicated display sides it also supports over-scan).
 
 **Figure 2-43 High-Resolution Mode**
+
+![**Figure 2-43 High-Resolution Mode**](figures/x68000_technical_guide/tech_-000094.png)
 
 (Caption of the illustration)
 **Normal Scan**
@@ -2873,6 +2948,8 @@ line In
 
 Figure 3-1 Sound System Block Diagram
 
+![Figure 3-1 Sound System Block Diagram](figures/x68000_technical_guide/tech_-000095.png)
+
 Chapter 3: Sound Functions
 
 1. FM Sound Source
@@ -2895,6 +2972,9 @@ The X68000 uses YM2151 as the FM sound source LSI.
 
 ```
                      Each Slot Block Diagram
+
+![Each Slot Block Diagram](figures/x68000_technical_guide/tech_-000097.png)
+
                              +---------+
                              | Sin     |
                              | Table   |
@@ -3338,6 +3418,8 @@ When the output of the EG is given a key-on, this EG changes as shown in the fig
 
 Set 1 out of 16 data for each tone. One data consists of 5 bits. When a key-on is given to the EG, the envelope amount decreases, and after the TA time, the envelope amount reaches 0 db. This attack time (TA) can be set to 3-11, 3-12, etc., according to the AR. Additionally, AR is keyed by KEY CODE. Please refer to Figure 3-3 for scaling.
 
+![Set 1 out of 16 data for each tone. One data consists of 5 bits. When a key-on is given to the EG, the envelope amount decreases, and after the TA time, the envelope amount reaches 0 db. This attack time TA can be set to 3-11, 3-12, etc., according to the AR. Additionally, AR is keyed by KEY CODE. Please refer to Figure 3-3 for scaling.](figures/x68000_technical_guide/tech_-000107.png)
+
 - DIR: 1st DECAY RATE
 
 Set 1 out of 16 data for each tone. One data consists of 5 bits. When the EG's envelope amount is 0 db, it automatically reaches the fast decay level. This fast decay time (TD1) can be set according to the DIR to 3-11, 3-12, etc. Additionally, DIR is scaled by KEY CODE. Please refer to Figure 3-3.
@@ -3349,6 +3431,8 @@ Set 1 out of 16 data for each tone. One data consists of 5 bits. When the EG's e
 • RR: RELEASE RATE
 
 1 Set the data to 4 for the sound, 1 Data will be 4 bits as shown above. When the EG moves to release while the key is off, it decays towards the maximum attenuation level (96db). This release time (TR) can be set according to RR in Table 3-11 and Table 3-12. Additionally, RR is scaled by KEY CODE, so please refer to Figure 3-3. The RR has one less bit compared to D1R and D2R, so the resolution worsens.
+
+![1 Set the data to 4 for the sound, 1 Data will be 4 bits as shown above. When the EG moves to release while the key is off, it decays towards the maximum attenuation level 96db. This release time TR can be set according to RR in Table 3-11 and Table 3-12. Additionally, RR is scaled by KEY CODE, so please refer to Figure 3-3. The RR has one less bit compared to D1R and D2R, so the resolution worsens.](figures/x68000_technical_guide/tech_-000108.png)
 
 • KS: KEY SCALING
 
@@ -3377,6 +3461,8 @@ However, in this case, we discard the lower 2 bits of NOTE as shown in the figur
 Figure 3-3 Key Scaling
 
 Tables 3-11 and 3-12 divide the 6-bit rate after key scaling determined by Figure 3-3 into the upper 4 bits and the lower 2 bits.
+
+![Tables 3-11 and 3-12 divide the 6-bit rate after key scaling determined by Figure 3-3 into the upper 4 bits and the lower 2 bits.](figures/x68000_technical_guide/tech_-000109.png)
 
 (10% -> 90%) or (90% -> 10%)
 
@@ -3733,6 +3819,8 @@ D7 D6 D5 D4 D3 D2 D1 D0
 
 1 By setting one data for each sound, it consists of the three bits as shown above. Due to this CON, it is possible to take the FM-OP circuit structure (refer to Fig. 3-4) of 8 sounds, and to produce 8 different tones respectively.
 
+![1 By setting one data for each sound, it consists of the three bits as shown above. Due to this CON, it is possible to take the FM-OP circuit structure refer to Fig. 3-4 of 8 sounds, and to produce 8 different tones respectively.](figures/x68000_technical_guide/tech_-000114.png)
+
 [Diagram]
 Fig. 3-4 Configuration of FM-OP
 
@@ -3868,6 +3956,8 @@ Waveform diagram labels:
 3       (NOISE)                (NOISE)
 
 Figure 3-5 WAVE FORM
+
+![Figure 3-5 WAVE FORM](figures/x68000_technical_guide/tech_-000118.png)
 
 1. FM Sound Source
 
@@ -4109,6 +4199,8 @@ Also, due to changes in the system clock, the lowest pitch within the same octav
 
 Figure 3-6 Difference in frequency range due to clock frequency
 
+![Figure 3-6 Difference in frequency range due to clock frequency](figures/x68000_technical_guide/tech_-000125.png)
+
 2. Sound Synthesis
 
 The X68000 uses the MSM6258 in the ADPCM format as the sound synthesis LSI. In addition, PCM output control and sample rate switching are performed on port C of the 8255.
@@ -4272,6 +4364,8 @@ Table 4-1 DMAC Channel Assignment
 
 Diagram 4-1 DMAC Block Diagram
 
+![Diagram 4-1 DMAC Block Diagram](figures/x68000_technical_guide/tech_-000131.png)
+
 - 68000
 ```
   - Address Bus
@@ -4389,6 +4483,8 @@ Caption under the diagram:
 
 Fig 4-2 MFP Block Diagram
 
+![Fig 4-2 MFP Block Diagram](figures/x68000_technical_guide/tech_-000135.png)
+
 2-1 Features
 
 This MFP has the following features:
@@ -4425,6 +4521,8 @@ Encoders for decoding:
 ```
 
 Figure 4-3 MFP Interrupt Block Diagram
+
+![Figure 4-3 MFP Interrupt Block Diagram](figures/x68000_technical_guide/tech_-000136.png)
 
 TAI (CRTC's V-DISP signal)
 8-bit counter
@@ -4469,6 +4567,8 @@ Asynchronous Communication
 Start bit 1, Data 8 bits, No Parity, Stop bit 1
 
 Figure 4-5 MFP USART Series Block Diagram
+
+![Figure 4-5 MFP USART Series Block Diagram](figures/x68000_technical_guide/tech_-000137.png)
 
 Ch No.
 
@@ -4549,6 +4649,8 @@ Jump to RTC’s ALARM timer, turned ON by ALARM signal
 If (1) is not met, use GPIO2, GPIO1, and GPIO0 to create and check the power control loop. Then, write the system port EB800FH with "0H" "0H" "FH" to POWER OFF
 
 **Fig 4-6** Flowchart for checking power ON.
+
+![**Fig 4-6** Flowchart for checking power ON.](figures/x68000_technical_guide/tech_-000139.png)
 
 2-2 MFP Register Address Map
 
@@ -4954,6 +5056,8 @@ RS-232C
 
 Fig. 4-7 SCC Block Diagram
 
+![Fig. 4-7 SCC Block Diagram](figures/x68000_technical_guide/tech_-000152.png)
+
 Page 140
 
 3. SCC (Serial Communication Controller)
@@ -5002,6 +5106,8 @@ In X68000, the RP5C15 is used as the real-time clock.
 [Diagram]
 
 Figure 4-8 RTC Block Diagram
+
+![Figure 4-8 RTC Block Diagram](figures/x68000_technical_guide/tech_-000154.png)
 
 4-1 Features
 
@@ -5255,6 +5361,8 @@ An interrupt notification function during media insertion and ejection
 - READ DATA
 
 - Fig. 4-9 FDD Peripheral Block Diagram
+
+![- Fig. 4-9 FDD Peripheral Block Diagram](figures/x68000_technical_guide/tech_-000162.png)
 
 - MIN/STD
 - Vcc1
@@ -5545,6 +5653,8 @@ Page 156
 
 The X68000 uses the keyboard and mouse in the block structure as shown in Figure 5-1.
 
+![The X68000 uses the keyboard and mouse in the block structure as shown in Figure 5-1.](figures/x68000_technical_guide/tech_-000171.png)
+
 **[Main Unit]**
 
 **[Keyboard]**
@@ -5575,11 +5685,16 @@ Additionally, regarding repeat, you can control the delay time before entering r
 (2) TV control remote signal output (refer to Table 5-3, Figure 5-5)
 In the X1 and X1turbo series, the remote control signal was output from the main unit's 80C49 on P27 (pin 38), but in the X68000, the same signal is output from the keyboard's 80C51 T1 terminal. In the X68000, the method of outputting this TV control remote signal uses key operations on the keyboard (such as the SHIFT key) to send the 1-byte data to the MFP via the main unit or 80C51. Thus, depending on whether the main unit or the keyboard control is enabled, it allows you to send or invalidate the TV control code (refer to Figure 5-13).
 
+![In the X1 and X1turbo series, the remote control signal was output from the main unit's 80C49 on P27 pin 38, but in the X68000, the same signal is output from the keyboard's 80C51 T1 terminal. In the X68000, the method of outputting this TV control remote signal uses key operations on the keyboard such as the SHIFT key to send the 1-byte data to the MFP via the main unit or 80C51. Thus, depending on whether the main unit or the keyboard control is enabled, it allows you to send or invalidate the TV control code refer to Figure 5-13.](figures/x68000_technical_guide/tech_-000172.png)
+
 Page 160
 
 > 6 reference). Also, TV control by OPT.2 keys and CFG on keys can be enabled or disabled in the same way (Figure 5-13 reference).
 > 
 > Additionally, if the keyboard is not connected to the main unit's connector, TV control will be possible even if a remote control signal is sent with software-based timing management while using the system port E8E003H D03 as "0". Conversely, if the keyboard is connected to the main unit, TV control is possible only when the system port E8E003H D03 is set to "0". For normal use, please set it to "0" (Figure 5-2 reference). The only available functions when entering TV control from the keyboard with a repeat enabled are volume up, volume down, channel up, and channel down.
+
+![> Additionally, if the keyboard is not connected to the main unit's connector, TV control will be possible even if a remote control signal is sent with software-based timing management while using the system port E8E003H D03 as "0". Conversely, if the keyboard is connected to the main unit, TV control is possible only when the system port E8E003H D03 is set to "0". For normal use, please set it to "0" Figure 5-2 reference. The only available functions when entering TV control from the keyboard with a repeat enabled are volume up, volume down, channel up, and channel down.](figures/x68000_technical_guide/tech_-000173.png)
+
 > 
 > (3) Keyboard LED control (Figure 5-8 reference)
 > 
@@ -5601,6 +5716,9 @@ By sending 1 byte of data from the main unit’s MFP to the 80C51, it is possibl
 Normally, the main loop scans the keys and outputs the key data, but if the main unit’s MFP settings are not performed and the RDY (MFP’s RR pin level) signal is fixed to "L" or when the system port E8E007H D01 is "0", the DMAC will transfer busily, and the 80C51 will neither send key data nor halt key scanning, resulting in a stop state. Naturally, in such a state, TV control and other operations cannot be performed. However, in the case of the X68000, by sending 1 byte of data to the main unit’s MFP with this data send/receive code, the 80C51 prevents the data from being unsendable and ensures that the key scan will not be halted (RDY signal "H" or system port E8E007H D01 “1” enables key sending).
 
 (6) Special Control Keys in Compact TV Mode (Refer to Fig. 5-11)
+
+![6 Special Control Keys in Compact TV Mode Refer to Fig. 5-11](figures/x68000_technical_guide/tech_-000174.png)
+
 As shown in Table 5-2, 1 byte of data is sent from the MFP to the 80C51 regarding the control keys to use as TV controller keys on the X1 Compact.
 
 | Operation Key | X68000                                | X1 Compact Mode                     |
@@ -5617,6 +5735,8 @@ Table 5-2 X1 Compact TV Controller Code
 
 From 8051 to MFP, 1 byte data
 The key correspondence code is as shown in Figure 5-4
+
+![The key correspondence code is as shown in Figure 5-4](figures/x68000_technical_guide/tech_-000175.png)
 
 Key Correspondence Code
 0: Key is pressed
@@ -5747,6 +5867,8 @@ D7   D6   D5   D4   D3   D2   D1   D0
 
 Figure 5-6 TV control code control code format from this book
 
+![Figure 5-6 TV control code control code format from this book](figures/x68000_technical_guide/tech_-000177.png)
+
 MFP to 8051 1-byte data
 All flags are cleared upon reset, and the LED lighting request code FFH is sent from 8051 to MFP.
 
@@ -5776,6 +5898,8 @@ D7 D6 D5 D4 D3 D2 D1 D0
 1: Dark
 
 Figure 5-8 LED Key Brightness Adjustment Format
+
+![Figure 5-8 LED Key Brightness Adjustment Format](figures/x68000_technical_guide/tech_-000178.png)
 
 MFP to 8051 1-byte data
 * is invalid
@@ -5832,6 +5956,8 @@ N (Note: set integer value from 0 to 15)
 N (Note: set integer value from 0 to 15)
 
 Fig 5-12 Repeat start delay time and setting code format for repeat interval time
+
+![Fig 5-12 Repeat start delay time and setting code format for repeat interval time](figures/x68000_technical_guide/tech_-000179.png)
 
 ![Diagram]
 
@@ -5960,6 +6086,8 @@ Return
 
 Figure 5-14 Receive Buffer Full Interrupt Routine Flowchart
 
+![Figure 5-14 Receive Buffer Full Interrupt Routine Flowchart](figures/x68000_technical_guide/tech_-000183.png)
+
 Page: 171
 
 Receive Status Register (E8802BH) Read
@@ -5992,6 +6120,8 @@ Return
 
 Figure 5-15 Receive Error Interrupt Routine Flowchart
 
+![Figure 5-15 Receive Error Interrupt Routine Flowchart](figures/x68000_technical_guide/tech_-000184.png)
+
 Note: 
 
 Transmit status register (E8802DH) read
@@ -6011,11 +6141,15 @@ Under-run error processing
 
 Figure 5-16 Transmit Error Interrupt Routine Flow Chart
 
+![Figure 5-16 Transmit Error Interrupt Routine Flow Chart](figures/x68000_technical_guide/tech_-000185.png)
+
 2. Mouse
 
 In the X68000, both the main unit and the keyboard have their own mouse connectors, which can send coordinate data when requested from the main unit. Therefore, control signals from the main unit and data lines from the mouse are synchronized with two procedures.
 
 As shown in the block diagram of figure 1, in the case of the main unit connector, the mouse control (MSCTRL) is controlled by the SCC B channel RTSB signal, and in the case of the keyboard connector, it is controlled by the 80C51. In either connector, mouse data (MSDATA) is connected to the RXDB terminal of SCC B channel.
+
+![As shown in the block diagram of figure 1, in the case of the main unit connector, the mouse control MSCTRL is controlled by the SCC B channel RTSB signal, and in the case of the keyboard connector, it is controlled by the 80C51. In either connector, mouse data MSDATA is connected to the RXDB terminal of SCC B channel.](figures/x68000_technical_guide/tech_-000186.png)
 
 (Note: This might refer to the Sharp X68000, a personal computer sold in Japan.)
 
@@ -6073,6 +6207,8 @@ Page 174
 (1) When the main unit requests data from the mouse, the mouse control (MSCTRL) is set from "H" to "L". The mouse detects this signal change and transmits one block (3 bytes) of data to the main unit. Note that if there is no change in the mouse control (MSCTRL: "L"), the mouse will not output anything.
 
 Figure 5-18 Mouse data transfer
+
+![Figure 5-18 Mouse data transfer](figures/x68000_technical_guide/tech_-000187.png)
 
 Tc1 > 500 µs
 Tc > 500 µs
@@ -6198,6 +6334,8 @@ Port B: Joystick No.2
 Port C: Sound synthesis PCM control
 
 Figure 5-19 Joystick Block Diagram
+
+![Figure 5-19 Joystick Block Diagram](figures/x68000_technical_guide/tech_-000191.png)
 
 3-1 Address Map of Joystick Register
 
