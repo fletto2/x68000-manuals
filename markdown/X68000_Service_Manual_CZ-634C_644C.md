@@ -1,10 +1,6 @@
-# X68000 Service Manual (CZ-634C/644C)
+# X68000 Service Manual (CZ-634C / CZ-644C)
 
-*English translation from the Japanese original — 95 pages.*
-
----
-
-## serv_-000001
+*English translation from the Japanese original*
 
 **SHARP**
 Service Manual
@@ -90,12 +86,6 @@ Ensure trust... Issue without fail.
 **Sharp Corporation**
 Electronics Systems Division, Product Production Center
 
----
-
-## serv_-000002
-
----
-
 1. Hardware Configuration
 
 1-1. Features
@@ -150,13 +140,7 @@ A simple function to initialize SRAM has been added to this machine. Without boo
 
 Note: Specifications and external appearance are subject to change without notice.
 
----
-
 ***
-
----
-
-## serv_-000003
 
 CZ-623C to major changes
 
@@ -189,14 +173,6 @@ For electronic controlled substrates, print substrate modules are subdivided as 
 | SCSI controller substrate unit | (CZ-644C)  |                                           |
 | SCSI controller substrate unit | (CZ-634C)  |                                           |
 
--3-
-
----
-
-## serv_-000004
-
----
-
 **1-2. Specifications**
 **<Hardware>**
 
@@ -224,21 +200,11 @@ For electronic controlled substrates, print substrate modules are subdivided as 
 |                | iX1094CEZZ       | Video data selector |
 |                | iX1096CEZZ       | Video clock controller |
 
----
-
 Note: CEZZ appears to be suffix for LSI chip codes, specifics can be machine dependent.
-
----
-
-## serv_-000005
-
----
 
 **Item** | **Category** | **Name/Type** | **Content** | **Remarks**
 
----
-
-### Memory
+**Memory**
 
 **ROM** | **CG ROM (combined IPL ROM)** | 1M byte (JIS first and second standards) | - |  
 
@@ -256,16 +222,12 @@ Note: CEZZ appears to be suffix for LSI chip codes, specifics can be machine dep
 
 **S-RAM** | 16K byte | - | - |  
 
----
-
-### Media Storage
+**Media Storage**
 
 - Inbuilt 3.5-inch hard disk 80M byte (Optional for CZ-634C) 
 - Expansion floppy disk drive for disk expansion 
 
----
-
-### Interface
+**Interface**
 
 - **Floppy Disk Interface:** - 
 - **SCSI Interface:** - 
@@ -279,9 +241,7 @@ Note: CEZZ appears to be suffix for LSI chip codes, specifics can be machine dep
 - **Audio Input/Output Connector:** Line in/output, headphone output. 
 - **Video Input Connector:** For optional color image unit. 
 
----
-
-### Additional Connections
+**Additional Connections**
 
 - **Other:** EXPWON, VHT
 - **Expansion Slots:** 2 Slots
@@ -289,13 +249,7 @@ Note: CEZZ appears to be suffix for LSI chip codes, specifics can be machine dep
 - **Frequency:** 50/60Hz
 - **Power Consumption:** CZ-644C: 46W, CZ-634C: 41W 
 
----
-
 **Page 5**
-
----
-
-## serv_-000006
 
 <Functionality>
 
@@ -349,12 +303,6 @@ Size       Graphics Screen   1024 x 1024 dots  4-plane        Bitmap Method
                                                                                                                                                                               the left specified size.
 ```
 
--6-
-
----
-
-## serv_-000007
-
 CZ-634C-TN
 CZ-644C-TN
 
@@ -397,12 +345,6 @@ Sprite	Sprite	Pattern Definition	Size	16 x 16 dot pattern
 				32 sprites / line
 ```
 
--7-
-
----
-
-## serv_-000008
-
 1-3. Block Diagram
 
 [Textual summary of the fold-out block diagram. Component names and clock values
@@ -443,26 +385,20 @@ Peripherals
 - MFP (MC68901)
 - System controller, I/O control bus
 
----
-
-## serv_-000009
-
----
-
-### 1-4. System Configuration
+# 1-4. System Configuration
 
 This diagram shows the system expansion centered around the main unit.
 
-#### Main Unit
+**Main Unit**
 - X68000
 ```
   CZ-63AC-TN
   CZ-64AC-TN
 ```
 
-#### Exclusive Display TV
+**Exclusive Display TV**
 
-##### Expansion Board
+**Expansion Board**
 - Expansion RAM Board (2M)
 ```
   CZ-6BE2 Expansion RAM (2M)
@@ -471,34 +407,34 @@ This diagram shows the system expansion centered around the main unit.
 - Expansion RAM Board 2 (4M)
   CZ-6BE4
 
-##### Universal I/O Card
+**Universal I/O Card**
 - CZ-6BU1
 
-##### GP-IB Board
+**GP-IB Board**
 - CZ-6BG1
 
-##### Joystick Card
+**Joystick Card**
 - CZ-8NJ1
 
-##### Device RS-232C Card
+**Device RS-232C Card**
 - CZ-6BF1
 
-##### Device Processor Board
+**Device Processor Board**
 - CZ-6BP1
 
-##### Device Control Board
+**Device Control Board**
 - CZ-6BP2
 
-##### FAX Board
+**FAX Board**
 - CZ-6BC1
 
-##### MIDI Board
+**MIDI Board**
 - CZ-6BM1
 
-##### Sound Amplifier Speaker
+**Sound Amplifier Speaker**
 - AN-S100
 
-##### Peripherals
+**Peripherals**
 - Intelligent Joy Unit Controller
   CZ-8NU2
 
@@ -508,7 +444,7 @@ This diagram shows the system expansion centered around the main unit.
 - Mouse Trackball
   CZ-8NM3
 
-##### Network
+**Network**
 - Module Unit Controller
   CZ-8TM2
 
@@ -525,7 +461,7 @@ This diagram shows the system expansion centered around the main unit.
   CZ-6BL2 (Including Adapter and TAP)
 ```
 
-##### Imaging and Image Input/Output Switch
+**Imaging and Image Input/Output Switch**
 - Color Image Copier
   CZ-6VT1
 
@@ -535,30 +471,30 @@ This diagram shows the system expansion centered around the main unit.
 - Video Capture Card
   CZ-6BV1
 
-##### Printer
+**Printer**
 - 24-Dot Matrix Color/Monochrome Printer
   CZ-8PC3
 
 - 48-Dot Matrix Color Printer
   CZ-8PC4
 
-##### Display Section
+**Display Section**
 - RGB System Selector
   CZ-6TU
 
-##### File Section
+**File Section**
 - Removable Mass Storage Disc System (594MB)
   CZ-6MO1
 
-##### Print Buffer
+**Print Buffer**
 - Constant Print Buffer
   CZ-6EB1
 
-##### System Rack
+**System Rack**
 - System Rack
   CZ-6SD1
 
-##### 24-Pin Dot Impact (13 Color)
+**24-Pin Dot Impact (13 Color)**
   CZ-8PG1
 
 - 24-Pin Dot Impact (13 Color)
@@ -573,19 +509,11 @@ This diagram shows the system expansion centered around the main unit.
 - Color Image Printer
   I/O-735X I/O-735X-B
 
-##### 24-Pin Dot (13 Color) with Scanner
+**24-Pin Dot (13 Color) with Scanner**
   CZ-8PK10
 
-##### CRT Filter
+**CRT Filter**
   BF-6BP10 (14/15 inches)
-
----
-
----
-
-## serv_-000010
-
----
 
 2. Names of Each Part
 
@@ -606,15 +534,7 @@ This diagram shows the system expansion centered around the main unit.
 13. Interrupt switch (INTERRUPT)  
 14. Carrying handle  
 
----
-
 Page 10
-
----
-
-## serv_-000011
-
----
 
 2-2. Rear View of Computer Unit
 
@@ -636,14 +556,6 @@ Page 10
 16. Service Connector (AC 100V OUT)
 17. External Floppy Disk Drive Connector (EXPANSION FDD)
 18. SCSI Connector
-
----
-
----
-
-## serv_-000012
-
----
 
 **CZ-634C-TN
 CZ-644C-TN
@@ -679,21 +591,11 @@ CZ-644C-TN
 - **TEXT VRAM**: Text Video RAM
 - **SUPERVISOR AREA**: Supervisor Area (User Area)
 
----
-
 Additional labels within blocks:
 - **06B0000H**: (Hexadecimal address), etc.
 - **00FFFFFFH**: (Hexadecimal address limit)
 
----
-
 Note: The addresses provided (like 06B0000H, 00CFFFFF, etc.) appear to be hexadecimal memory addresses used in the context of the system's memory map.
-
----
-
-## serv_-000013
-
----
 
 3-2 I/O Port Address List
 
@@ -746,14 +648,6 @@ Note: The addresses provided (like 06B0000H, 00CFFFFF, etc.) appear to be hexade
 | Cont-| E82500H      | Priority Setting |
 | roller|E82600H      | Special Mode, Screen Display Control | Special Priority (Semi-Transparent) |
 
----
-
----
-
-## serv_-000014
-
----
-
 **CZ-634C-TN  
 CZ-644C-TN**
 
@@ -795,14 +689,6 @@ CZ-644C-TN**
 | P | E88071H | R/W | Type A Data Register |
 |   | E88081H | R/W | Type B Data Register |
 |   | E880E1H | R/W | Type C Data Register |
-
----
-
----
-
-## serv_-000015
-
----
 
 | Item | Port Address | Function | Remarks |
 |------|--------------|----------|---------|
@@ -849,13 +735,7 @@ CZ-644C-TN**
 |                  | E92003H | R/W | ADPCM Data Register (IN/OUT) | |
 |                  | E9A005H | W | ADPCM Output, Sampling Frequency Switching Register | 8255 Port C |
 
----
-
 This is a translation of the table containing port addresses, their functions, and remarks.
-
----
-
-## serv_-000016
 
 | Item          | Port Address | Function                                                      | Remarks                      |
 |---------------|--------------|---------------------------------------------------------------|------------------------------|
@@ -904,10 +784,6 @@ This is a translation of the table containing port addresses, their functions, a
 |               | E9E01CH R/W  | Operand Address Register High Word                            |                              |
 |               | E9E01EH R/W  | Operand Address Register Lower Word                           |                              |
 
----
-
-## serv_-000017
-
 CZ-634C-TN
 CZ-644C-TN
 
@@ -953,14 +829,6 @@ Sprite text area	EBC000H R/W	Text area 0
 	EBE000H R/W	Text area 1
 	EBFFFEH R/W
 ```
-
--17-
-
----
-
-## serv_-000018
-
----
 
 **3-3. Area Set**
 
@@ -1024,17 +892,8 @@ D7  D6  D5  D4  D3  D2  D1  D0
        (Lower 8 bits are valid)
 ```
 
--- 18 -- 
-
----
-
 Note: H means hexadecimal in the context of memory and register addresses.
 
----
-
-## serv_-000019
-
----
 Writing data of the 2-bit lower digit corresponds to each 256K byte memory region. Writing 0 addresses it to Supervisor-only region, and writing 1 addresses to Supervisor & User region. The initial state is set to Supervisor & User region.  
 (Example) When EAFB| | HC-07 bit is written to the supervisor mode,  
 200000 to 2BFFFFH: Supervisor Mode  
@@ -1054,14 +913,6 @@ Writing data of the 2-bit lower digit corresponds to each 256K byte memory regio
 The above is valid when the optional 2M byte unit memory board is installed via the internal port connector. 
 For example, in the case of expanding by 2M bytes, respond to each memory region 400000~5FFFFH and 600000~7FFFFH.   Note: EAFP83H and EAFP85H may become inactive.
 Note) Models CZ-6BE2, 4/2/4M byte memory have the same port and function as the built-in ports.
-
----
-
----
-
-## serv_-000020
-
----
 
 3-4. System Ports
 
@@ -1102,13 +953,7 @@ Note) Models CZ-6BE2, 4/2/4M byte memory have the same port and function as the 
 | D02 | NMI Reset     |                 |
 | D03 | Key Ready     | Key Jack Status |
 
----
-
 Page -20-
-
----
-
-## serv_-000021
 
 .D01 is usually used for switching the dot clock, so usually set it to “0.”
 Turn the NMI switch ON, and the MPU processes the highest priority interrupt (NMI interrupt). 
@@ -1137,13 +982,7 @@ When “1" is written, SRAM Write Enable is set, and by writing any other value,
 When entering 00H --> 0FH ---> 0FH in that sequence, the power (Vcc1 OFF) will be turned off.
 Any other code sequence will be invalid. By doing so, it ensures that the power is not easily turned off.
 
-- 21 -
-
----
-
-## serv_-000022
-
-### 3-5 Interrupts
+# 3-5 Interrupts
 < MPU68000 Interrupts >
 
 | Level | Source | Description | Reason |
@@ -1176,12 +1015,6 @@ Any other code sequence will be invalid. By doing so, it ensures that the power 
 | 2 | 0010 | ON/OFF detection by POWER switch | General Purpose Interrupt 2(2) |
 | 1 | 0001 | ON/OFF detection by EXPWON signal from expansion I/O slot | General Purpose Interrupt 1(1) |
 | Low 0 | 0000 | ON/OFF detection by ALARM signal from RTC | General Purpose Interrupt 0(0) | 
-
-— 22 —
-
----
-
-## serv_-000023
 
 <Interrupt Vector Settings>
 
@@ -1225,13 +1058,7 @@ Floppy            E9C003H                     Set
 
 (Note: "MFP," "SCC," "DMAC," "FDC," "FDD," and the like typically refer to specific hardware components or functionalities in computing, e.g., Multi-Function Peripheral, Serial Communication Controller, Direct Memory Access Controller, Floppy Disk Controller, Floppy Disk Drive, etc.)
 
----
-
-## serv_-000024
-
----
-
-## 3-6. IPL
+# 3-6. IPL
 - **IPL ROM address**: FC0000H - FFFFFFFH (256 KB)
 - **Access**:
 ```
@@ -1253,11 +1080,6 @@ Diagram 3-1 Diagram 3-2
 | 00000H                    | --|
 | 00FFFFEH                 | Main Memory 
 
----
-
-## serv_-000025
-
----
 **4. Screen Configuration and Control**  
 **4-1. Screen Configuration**  
 
@@ -1273,13 +1095,6 @@ When accessing the screen, set the CRTC and sprite controller numbers regardless
 - Scrolling of the text screen is cylindrical scrolling
 - As a display mode, it supports both high resolution (horizontal scan frequency 31.5kHz) and low resolution (horizontal scan frequency 15.98kHz)
 
----
-
----
-
-## serv_-000026
-
----
 2) Graphics Screen
 - A screen for performing graphics processing such as line drawing or painting.
 - The display data settings are performed in the background.
@@ -1309,15 +1124,7 @@ This CRTC has the capabilities to support the dual port DRAM (MB81461) used in t
 
 Note that it can temporarily interrupt the CPU access to VRAM, depending on the need for V-DISP signal period (at MFPG0 GPIP4*="0"). Moreover, concerning DRAM's SAM (Serial and Control Merge) refresh cycle, it is controlled by the CRTC during the horizontal blanking period.
 
----
-
 Page 26
-
----
-
-## serv_-000027
-
----
 
 **● CRTC Specifications and Internal Registers**
 
@@ -1337,8 +1144,6 @@ Page 26
 | Back Porch (4)|         4.14          |     4.94             |      1.111      |   0.876           |
 | Front Porch (5)|        2.07          |     1.65             |      0.476      |   0.187           |
 
----
-
 **[Diagram]**
 
 (1) Video Signal
@@ -1350,15 +1155,7 @@ Page 26
 * Video Signal: Analog 0.7Vp-p (75Ω termination) positive polarity
 * Synchronization Signal: TTL level negative polarity
 
----
-
 **Note**: The numbers `(1), (2), (3), (4), (5)` correspond to the parts of the diagram provided below the table in the original document.
-
----
-
-## serv_-000028
-
----
 
 **Special CRT Controller Features (Text)**
 The text screen has the following features:
@@ -1377,12 +1174,6 @@ The Graphics screen has the following features:
 (1) Scroll
 Performs scrolling on the display screen. Specifically, setting the names of R12 (E80018H) and R13 (E8001AH) for the actual display 1024x1024 in terms of left and right scroll registers and vertical register in terms of dot units, scrolling is performed at that location. In the case of actual screen size of 512x512, the register (R12-R19) data corresponding to the graphics screen data is set to perform scrolling.
 
----
-
----
-
-## serv_-000029
-
 (2) High-Speed Clear
 
 A function to clear the contents of the graphic VRAM at high speed. Specifically, the graphic display plane for high-speed clear of D00 to D02 is selected by R21 (E8002AH), and the graphic VRAM is cleared at high speed using E80480H D01. In this high-speed clear, the rising edge of the VDISP signal of E80480H D01 is latched, and the CRTC writes '0' (that is, clears the data) to the memory in the graphic VRAM every 1 horizontal blanking period by using the SAM (raster unit of the memory) inside the CRTC, resulting in the end of the period (2 vertical periods in the case of interlace).
@@ -1392,10 +1183,6 @@ A function to clear the contents of the graphic VRAM at high speed. Specifically
 The function to capture TV and video images by connecting a digital sync tip option and using E80480H D00. That is, this image input is latched on the rising edge of the VDISP signal of E80480H D00 bit and the CRTC writes the image data of 1 screen to the graphic VRAM in the memory SAM (raster unit) inside the CRTC every 1 horizontal blanking period, ending at 1 vertical period (2 vertical periods in the case of interlace). However, this image input will not stop unless '0' is written to E80480H D00.
 
 Page 29
-
----
-
-## serv_-000030
 
 4-3. Sprite
 <Sprite Features>
@@ -1450,12 +1237,6 @@ Table 4-2 Sprite Specifications
 |           | (These features can be set    |                               |
 |           |  on a per BG basis.)            |                               |
 
- - 30 -
-
----
-
-## serv_-000031
-
 4-4. Video Controller
 This device's video controller has three internal registers, each having the following functions:
 
@@ -1486,12 +1267,6 @@ This device supports the following two display modes:
 | 256×256                                 | Approximately 236×236      |
 | 512×512                                 | Approximately 471×471      |
 
-—31—
-
----
-
-## serv_-000032
-
 [Overscan] | [Normal Scan] (Traditional Display Method)
 
 (Note: The dotted line represents the overscanned computer screen.)
@@ -1509,14 +1284,6 @@ This device supports the following two display modes:
 (Note: The dotted line represents the overscanned computer screen.)
 Access the same memory data in both the odd and even fields of television scan lines.
 Access different memory data in the odd and even fields of television scan lines.
-
--32-
-
----
-
-## serv_-000033
-
----
 
 (2) High-resolution image mode (horizontal sync frequency: 31.5kHz, vertical sync frequency: 55.46Hz)
 
@@ -1556,14 +1323,6 @@ Notes:
 1) If you switch during operation (Vcc1 ON), the mode does not change. 
 2) When you perform a reset switch during operation, you can change the mode, but normal operation of the system thereafter is not guaranteed.
 3) The reset operation by software cannot change the mode.
-
----
-
----
-
-## serv_-000034
-
----
 
 Inspection results of power supply systems: In particular, the V1c1 may be turned ON due to the MPF1C failure and can be recognized.
 
@@ -1608,15 +1367,7 @@ OFF     OFF                            OFF
 
 - Indicating the internal hard disk access. It lights up during read/write operations of the hard disk.
 
----
-
 Page - 34 -
-
----
-
-## serv_-000035
-
----
 
 (D) Floppy Disk Drive LED
 
@@ -1634,22 +1385,16 @@ Page - 34 -
 | - | - | - | - | - | - | - | - |
 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
+```
 0 - Port C (lower 4 bits) output (sound synthesis)  
 1 - Port B input (joystick No.2)  
 0 - Port C (upper 4 bits) output (joystick control)  
 1 - Port A input (joystick No.1)
-
----
+```
 
 Page 35
 
----
-
-## serv_-000036
-
----
-
-## 6. Keyboard and Mouse
+# 6. Keyboard and Mouse
 This device uses the keyboard and mouse in the following block configuration.
 
 <Main Body>
@@ -1707,12 +1452,6 @@ Regarding the control of the mouse and TV control, please use either control on 
 
 Figure 6-1 Keyboard and Mouse Surrounding Block Diagram
 
----
-
----
-
-## serv_-000037
-
 <Keyboard>
 This keyboard uses the 80C51 as the sub-CPU, and performs the following roles:
 
@@ -1731,12 +1470,6 @@ Transmitting one-byte data from the keyboard’s MFPA to 80C51 allows control of
 (5) Key Scan Data Transmission Error Code
 80C51 outputs scan data directly via main and interrupt loops. However, if certain error prevention mechanisms within the MFPA or during the RR signal for data reading are unsuitable (triggering issues such as the system board E8E007HJ D01 becoming inactive), then key data transmission by 80C51 is invalid. In such a case, the keyboard enters an idle state until the data becomes acceptable for system board E8E007HJ D01 acknowledgment. This error state is resolved when the RDY signal transitions from a "0" state, in which 1-byte data transmission is permissible.
 
-- 37 -
-
----
-
-## serv_-000038
-
 **Image Translation:**
 
 Table 6-1 Key Data Transmission Format
@@ -1749,14 +1482,6 @@ Key Data Transmission Sequence (Serial Transmission Asynchronous Communication)
 | Data Length | 8 |
 | Stop Bit   | 1 |
 | Parity None |   |
-
--38-
-
----
-
-## serv_-000039
-
----
 
 (6) Key Assignment for X1 Control in Designated TV Control Keys
 
@@ -1776,19 +1501,13 @@ Table 6-2 Key Scan Data Format:
 
 D7 D6 D5 D4 D3 D2 D1 D0
 | Key Scan Code |
+```
 0 - Key pressed state
 1 - Key not pressed state
+```
 
 1-byte data from 80C51 to MFP
 Key code reference is in figure 3-2
-
-- 39 -
-
----
-
----
-
-## serv_-000040
 
 CZ-634C-TN
 CZ-644C-TN
@@ -1819,14 +1538,6 @@ Labels in the diagram:
 - L TV AUDIO
 - line In
 
--40-
-
----
-
-## serv_-000041
-
----
-
 7-1. FM Tone Generation
 
 ● LSI YM2151
@@ -1855,15 +1566,7 @@ This system uses MSM6258 in ADPCM method as the voice synthesis LSI. PCM's outpu
 (7) Built-in DA converter: 10-bit
 (8) DA output format: A class (voltage type)
 
----
-
 (End of page 41)
-
----
-
-## serv_-000042
-
----
 
 **CZ-634C-TN**  
 **CZ-644C-TN**  
@@ -1915,14 +1618,6 @@ This DMAC has the following features. Also, Table 8-2 shows the DMAC transfer re
 (6) Maximum 5 MBytes/sec. (10MHz)
 (7) Compatible with the 68000 bus.
 
----
-
----
-
-## serv_-000043
-
----
-
 **Table 8-2: DMAC Transfer Request Methods**
 
 Transfer Request Methods
@@ -1949,8 +1644,6 @@ Transfer Request Methods
 
 - Auto Request (only transfers the first operand) + External Transfer Request (transfers operand from the 2nd one onward)
 
----
-
 **Table 8-3: DMAC Data Block Transfer Methods**
 
 - Single Data Block Transfer
@@ -1968,20 +1661,12 @@ Transfer Request Methods
     - Creates a link array table in main memory.
 ```
 
----
-
----
-
-## serv_-000044
-
----
-
 8-2. Floating-Point Arithmetic Co-Processor
 
 In this device, it is possible to optionally use the floating-point arithmetic co-processor (hereinafter abbreviated as FPU) MC68881 (16.67MHz).
 
 ![Diagram of FPU signal block]
-### MC68881 Main Features
+**MC68881 Main Features**
 ● 8 80-bit floating-point data registers
 ● 67-bit arithmetic device
 ● 67-bit barrel shifter and high-speed shifter
@@ -1999,13 +1684,7 @@ In this device, it is possible to optionally use the floating-point arithmetic c
 The IC slots on the FPU-compatible motherboards detect the presence of an FPU or not, and automatically judge whether an FPU is installed in the motherboard IC slot. If the FPU is not installed in the motherboard IC slot, connecting it to the corresponding CPU socket on the CZ-6BP1 expansion slot will enable proper function.
 However, if the FPU is installed on both the motherboard and the I/O slot processor board, the system will recognize the FPU on the motherboard as the priority and operate accordingly. Therefore, ensure not to have duplicate installations.
 
----
-
 Note: The image contained a diagram illustrating the connections to the MC68881 FPU, which is referenced in the translated text but not described in detail here.
-
----
-
-## serv_-000045
 
 8-3 Expansion Main Memory
 (1) Internal Expansion Board (CZ-6BE2A, CZ-6BE2B)
@@ -2046,23 +1725,13 @@ If this function is not used and the internal expansion board is not used, the p
  
 (Note) IO slot memory boards are inaccessible in non-wait state at 16MHz mode. (Possible at 10MHz mode)
 
--45-
-
----
-
-## serv_-000046
-
----
-
-### 8-4. MFP
+# 8-4. MFP
 
 In this unit, we use the 68901 from the 68000 family for data transmission and reception with the keyboard, timer functions, and various interrupt controls.
 
----
+**[Diagram Translation]**
 
-#### [Diagram Translation]
-
-#### CLK RESET Vcc1 Vss (4MHz)
+**CLK RESET Vcc1 Vss (4MHz)**
 
 **Internal Control Logic**
 
@@ -2114,19 +1783,9 @@ DTACK**
 
 **CPU Bus I/O**
 
----
-
-#### Figure 8-3 MFP Block Diagram
-
----
+**Figure 8-3 MFP Block Diagram**
 
 Page 46
-
----
-
-## serv_-000047
-
----
 
 <Features>
 This MFP has the following features:
@@ -2177,13 +1836,7 @@ Figure 8-4 MFP interrupt block diagram
 
 Figure 8-5 MFP timer block diagram
 
----
-
 Note: The block diagrams depicted in the image consist of symbols and schematics outlining the logical flow of signals and counters within the MFP system. Translation of the labels within the diagrams remains consistent with the surrounding textual content.
-
----
-
-## serv_-000048
 
 CZ-634C-TN
 CZ-644C-TN
@@ -2212,12 +1865,6 @@ Stop 1 bit
 
 Fig. 8-6 MFP USART System Block Diagram
 
--48-
-
----
-
-## serv_-000049
-
 Table 8-4 Details of MFP Channels
 
 | Channel No. | Function Details                                                                            |
@@ -2235,10 +1882,6 @@ Table 8-4 Details of MFP Channels
 | TimerC      | Generates an interrupt when the internal clock (4MHz) is input (delay mode), and uses the arbitrary set prescaler and BCD counter when the BCD counter reaches 00H. |
 | TimerD      | Generates an interrupt when the internal clock (4MHz) is input (delay mode), and uses the arbitrary set prescaler and BCD counter when the BCD counter reaches 00H. |
 
----
-
-## serv_-000050
-
 Channel No.  / Function Details
 
 GPIP3
@@ -2252,12 +1895,6 @@ Reads whether the computer power (Vcc1) is ON by using the EXPWON signal from th
 
 GPIPO  
 Uses RTC ALARM timer to generate ALARM signals, and determines if the computer's power (Vcc1) is ON with the ALARM signal. "H" on power ON remains "H" without ALARM signals. After a minute, it goes "L". Monitoring GPIP0 within 1 minute reveals if power was ON or OFF. This signal, combinable with 1Hz and 16Hz clock pulses, can generate any status changes based on the signal power.
-
----
-
-## serv_-000051
-
----
 
 Additionally, regarding GPIP0 to GPIP3, it checks from where the computer power was turned ON. The flowchart is shown below.
 
@@ -2283,13 +1920,7 @@ Turned ON by the EXPWON signal from the expansion I/O slot        Check MFP's GP
 ```
 Turned ON by the ALARM signal from the RTC ALARM timer         Recheck GPIP2, GPIP1, and GPIP0. After final verification, write “00H” to system port E8E00FH to “OFF” and turn off power
 
----
-
 The page number at the bottom reads "51." The model numbers mentioned at the top right are CZ-634C-TN and CZ-644C-TN.
-
----
-
-## serv_-000052
 
 Top Left:
 CZ-634C-TN
@@ -2303,7 +1934,6 @@ Bottom Center:
 Fig. 8-7 SCC Block Diagram
 
 Bottom Center:
-– 52 –
 
 Other Labels in the Diagram:
 TxDA, RTSA, DTRA, D/C, A/B, RxDA, CTSA, DCDA, RxCA, CTCA, CTCS, DCDB, DTRB, CE, RD, WR, DO-D7, PCLK, TRxCA, RTSB, RxDB, IRQ, INT, INT ACK, IEI, GND, Vcc
@@ -2326,10 +1956,6 @@ Keyboard
 MSDATA
 
 Note: Some text from the image was repeated and translated groupwise.
-
----
-
-## serv_-000053
 
 **8-5. SCC**
 
@@ -2379,12 +2005,6 @@ This SCC has 2 independent full-duplex channels, each with 14 write registers an
     - Data Bus: RXDB
     - Control Bus: RTSB
 ```
-
----
-
-## serv_-000054
-
----
 
 **(3) SCC Register Details**
 
@@ -2463,17 +2083,10 @@ This RP5C15 has the following features with the same READ/WRITE sequence of the 
 
 *Figure 8-9 RTC Block Diagram*
 
----
-
 *Page -54-*
-
----
-
-## serv_-000055
 
 The provided text translates to the following in English:
 
----
 (10) 1Hz Clock Output
 In particular, this device uses the RP5C15’s alarm feature and clock output as follows.
 - Alarm Feature (Alarm Interrupt)
@@ -2502,14 +2115,6 @@ Automatically lights up the drive activity LED of the designated drive.
 Green – Indicates media has been inserted into the specified drive.
 Red (lights up when drive select and operation is ON)
 
-- 55 -
----
-
----
-
-## serv_-000056
-
----
 CZ-634C-TN CZ-644C-TN
 
 | Front POWER SW | Activity LED | Eject LED |
@@ -2528,14 +2133,6 @@ CZ-634C-TN CZ-644C-TN
 
 6. Interruption Feature
    Function for interruption during media insertion or ejection
-
--56-
-
----
-
----
-
-## serv_-000057
 
 Address Bus
 Data Bus
@@ -2584,10 +2181,6 @@ Figure 9-1 FDD/HDD Peripheral Block Diagram
 
 The labels next to specific arrows relate to signals or commands connecting different components in a hard disk and floppy disk drive control system.
 
----
-
-## serv_-000058
-
 Table 9-2 Internal FDD Specifications
 
 | Specification                          | Details                                                                                             |
@@ -2605,12 +2198,6 @@ Table 9-2 Internal FDD Specifications
 | External Dimensions (mm)               | 27.0 (H) × 148.0 (W) × 198.0 (D)                                                                     |
 | Weight                                 | 900g                                                                                                |
 | Others                                 | Auto Clamp Eject Mechanism, Auto Carriage Return Mechanism, VFO (SED9420AC)                          |
-
--58-
-
----
-
-## serv_-000059
 
 Table 9-3 Internal HDD Specifications
 
@@ -2641,7 +2228,6 @@ Track Density (TPI):
   1,300
 
 Number of Heads:
-  4
 
 Recording Method:
 ```
@@ -2653,10 +2239,6 @@ Other:
 ```
 
 (Page 59)
-
----
-
-## serv_-000060
 
 <CZ-634C-TN
 CZ-634C-TN
@@ -2698,14 +2280,6 @@ To send a byte of data to the printer from this machine, control signals and BUS
 
 This machine can accept BUSY signal interrupt requests, allowing software masks. Using this function avoids the need to request BUSY signal checks, knowing printer status through interrupts.
 
--60-
-
----
-
-## serv_-000061
-
----
-
 Table 9-5 Printer Register Map
 
 Register Address | D07 | D06 | D05 | D04 | D03 | D02 | D01 | D00 | Remarks
@@ -2740,14 +2314,6 @@ E9C**1H | | | | | (Read Operation Only)
 ```
 
 E9C**3H | Interrupt Vector | → | 1 | 1 | Printer Busy Interrupt Vector
-
---- 
-
-- 61 -
-
----
-
-## serv_-000062
 
 <Printer Access>
 (1) Check Printer BUSY signal
@@ -2788,10 +2354,6 @@ E9A005H           | IOC7 IOC6 IOC5 IOC4 Sampling Rate PCM PAN
 
 Table 9-6 Joystick Register Address Map
 
----
-
-## serv_-000063
-
 <Joystick Access>
 
 (1) Set 8255 to mode 92H to specify E9A007H B921.
@@ -2806,12 +2368,6 @@ Table 9-6 Joystick Register Address Map
   - However, depending on the board, subtle timing differences in the hardware and software might cause operational issues, so caution is necessary.
 ```
 (2) If the device on the expansion I/O slot becomes bus master and accesses the system's devices, all signals given by the board to the system must be in the same timing as at the time of 10MHz mode.
-
-—63—
-
----
-
-## serv_-000064
 
 Extension I/O Socket Terminal (A)
 
@@ -2870,10 +2426,6 @@ Extension I/O Socket Terminal (A)
 
 (Page - 64 -)
 
----
-
-## serv_-000065
-
 | Terminal No. | Symbol Name | I/O | Remarks                                               |
 |--------------|-------------|-----|------------------------------------------------------|
 | 1            | GND         |     | Ground                                               |
@@ -2928,12 +2480,6 @@ Extension I/O Socket Terminal (A)
 | 50           | Vcc1        |     | +5V                                                  |
 
 This table appears to reference the pin designations and functions for an expansion I/O slot.
-
----
-
-## serv_-000066
-
----
 
 **CZ-634C-TN**
 **CZ-644C-TN**
@@ -2993,15 +2539,10 @@ This table appears to reference the pin designations and functions for an expans
 | 14      | Vcc1        | Out | +5V                           |
 | 15      | GND         | --  | Ground                        |
 
----
-
 (Page - 66)
 
----
-
-## serv_-000067
-
 **Terminal No. | Signal Name | I/O | Remarks | Notes**
+```
 16 | Vcc3 | Out | +12V
 17 | CD4 | Out | Computer control signal
 18 | CD3 | Out | Computer control signal
@@ -3012,11 +2553,13 @@ This table appears to reference the pin designations and functions for an expans
 23 | ADD14 | In | Analog/Digital conversion data
 24 | ADD13 | In | Analog/Digital conversion data
 25 | ADD12 | In | Analog/Digital conversion data
+```
 
 **Printer Connector**
 **(Pins diagram)**
 
 **Terminal No. | Signal Name | I/O | Remarks | Notes**
+```
 1 | STROBE | Out | Negative polarity print output strobe signal
 2 | PA0 | Out | Parallel data bus
 3 | PA1 | " | " 
@@ -3031,36 +2574,39 @@ This table appears to reference the pin designations and functions for an expans
 12 | N.C | - | Not connected
 13 | GND | Out | Ground
 14 | GND | Out | Ground
+```
 
 **SEE THROUGH COLOR**
 **(Pins diagram)**
 
 **Terminal No. | Signal Name | I/O | Remarks | Notes**
+```
 1 | VHT | Out | Video Half Tone (semi-transparent color)
 2 | GND | Out | Ground
+```
 
 **LINE IN**
 **(Pins diagram)**
 
 **Terminal No. | Signal Name | I/O | Remarks | Notes**
+```
 1 | GND | Out | Ground
 2 | LINEIN | In | Audio synthesis input
 3 | N.C | - | Not connected
+```
 
 **LINE OUT**
 **(Pins diagram)**
 
 **Terminal No. | Signal Name | I/O | Remarks | Notes**
+```
 1 | GND | Out | Ground
 2 | L | Out | Audio (left output)
 3 | R | Out | Audio (right output)
+```
 
----
-
-## serv_-000068
-
-### Joystick Connector
-#### Joystick 1
+**Joystick Connector**
+**Joystick 1**
 
 | Pin No. | Signal Name | I/O   | Remarks               |
 |---------|-------------|-------|-----------------------|
@@ -3074,7 +2620,7 @@ This table appears to reference the pin designations and functions for an expans
 | 8       | IOC4        | Out   | PC4                   |
 | 9       | GND         | Out   | Ground                |
 
-#### Joystick 2
+**Joystick 2**
 
 | Pin No. | Signal Name | I/O   | Remarks               |
 |---------|-------------|-------|-----------------------|
@@ -3088,7 +2634,7 @@ This table appears to reference the pin designations and functions for an expans
 | 8       | IOC5        | Out   | PC5                   |
 | 9       | GND         | Out   | Ground                |
 
-### RS-232C Connector
+**RS-232C Connector**
 
 | Pin No. | Signal Name | I/O   | Remarks                           | Pin No. | Signal Name | I/O   | Remarks                            |
 |---------|-------------|-------|-----------------------------------|---------|-------------|-------|-----------------------------------|
@@ -3108,11 +2654,7 @@ This table appears to reference the pin designations and functions for an expans
 
 (Note: "-" denotes that the pin is not used or not connected.)
 
----
-
-## serv_-000069
-
-### Key Jack
+**Key Jack**
 
 | Pin No. | Signal Name | I/O | Remarks          |
 |---------|-------------|-----|------------------|
@@ -3124,7 +2666,7 @@ This table appears to reference the pin designations and functions for an expans
 | 6       | REMOTE      | In  | Remote Signal    |
 | 7       | GND         | Out | Ground           |
 
-### Headphone
+**Headphone**
 
 | Pin No. | Signal Name | I/O | Remarks            |
 |---------|-------------|-----|--------------------|
@@ -3132,7 +2674,7 @@ This table appears to reference the pin designations and functions for an expans
 | 2       | L           | Out | Audio Signal (Left)|
 | 3       | R           | Out | Audio Signal (Right)|
 
-### Mouse Port
+**Mouse Port**
 
 | Pin No. | Signal Name | I/O | Remarks              |
 |---------|-------------|-----|----------------------|
@@ -3142,8 +2684,8 @@ This table appears to reference the pin designations and functions for an expans
 | 4       | GND         | Out | Ground              |
 | 5       | GND         | Out | Ground              |
 
-### 3D Terminal
-### External Floppy Disk Connection Connector 
+**3D Terminal**
+**External Floppy Disk Connection Connector**
 
 | Pin No. | Signal Name          | I/O | Remarks                |
 |---------|----------------------|-----|------------------------|
@@ -3158,10 +2700,6 @@ This table appears to reference the pin designations and functions for an expans
 | 9       | DIRECTION            | Out | Head Move Direction Signal  |
 | 10      | STEP                 | Out | Head Move Signal       |
 | 11      | WRITE DATA           | Out | Write Data Signal      |
-
----
-
-## serv_-000070
 
 **(CZ-634C-TN / CZ-644C-TN)**
 
@@ -3211,12 +2749,6 @@ This table appears to reference the pin designations and functions for an expans
 | 11      | GND         | 36      | N.C         | -   | -                      |
 | 12      | GND         | 37      | N.C         | -   | -                      |
 
-—70—
-
----
-
-## serv_-000071
-
 | Pin | Signal | Pin | Signal |     |      |
 |-----|--------|-----|--------|-----|------|
 | 13  | NC     | 38  | TMPWR  | Out | Termination circuit use power |
@@ -3235,10 +2767,6 @@ This table appears to reference the pin designations and functions for an expans
 
 The image also includes a diagram showing the layout of the connector pins.
 
----
-
-## serv_-000072
-
 CZ-634C-TN
 CZ-644C-TN
 CZ-644C-TN
@@ -3246,12 +2774,6 @@ CZ-644C-TN
 10. Main Board
 
 [Main board component-layout diagram]
-
-—72—
-
----
-
-## serv_-000073
 
 The main text on the image translates to:
 
@@ -3265,35 +2787,19 @@ On the bottom right corner, it says:
 
 "- 78 -"
 
----
-
-## serv_-000074
-
 "12. Main basic wiring diagram (2)"
 
 The numbers at the bottom of the page, "- 77 -" and "- 78 -", probably indicate the page numbers in the document.
 
----
-
-## serv_-000075
-
 "13. Main Basic Circuit Diagram (3)"
 
 The codes or alphanumeric text at the top do not need translation as they seem to represent part numbers or identifiers that remain the same in English.
-
----
-
-## serv_-000076
 
 "14. Main basic wiring diagram (4)"
 
 "— 81 —" 
 
 "— 82 —"
-
----
-
-## serv_-000077
 
 CZ-634C-TN
 CZ-644C-TN
@@ -3303,27 +2809,13 @@ CZ-644C-TN
 
 [Main board schematic diagram]
 
-—77—
-
----
-
-## serv_-000078
-
 16. Control Basic Wiring Diagram
 
 (Schematic diagram — all labels are signal names, component designators, and part numbers in English/alphanumeric.)
 
----
-
-## serv_-000079
-
 "17. Control Board"
 
 Additional text such as component labels on the board itself is typically technical and consists of component identifiers that usually do not need translation.
-
----
-
-## serv_-000080
 
 18. I/O, FD Connector, SCSI Connector, LED Basic Wiring Diagram
 
@@ -3332,12 +2824,6 @@ CZ-634C-TN
 CZ-644C-TN
 
 (Schematic diagram — all labels are connector pin names, signal names, component designators, and part numbers in English/alphanumeric.)
-
----
-
-## serv_-000081
-
----
 
 19. FD, I/O, SCSI Connector, Power LED, Eject, FD-LED Baseboard
 
@@ -3353,13 +2839,7 @@ CZ-644C-TN
 
 ●SCSI Connector Baseboard
 
----
-
 (Note: The "FD" in the text likely stands for "Floppy Disk")
-
----
-
-## serv_-000082
 
 CZ-634C-TN
 CZ-644C-TN
@@ -3370,12 +2850,6 @@ CZ-644C-TN
 
 (PCB component-layout diagrams — all remaining labels are component designators and part values in English/alphanumeric.)
 
-— 92 —
-
----
-
-## serv_-000083
-
 CZ-634C-TN
 CZ-644C-TN
 
@@ -3384,10 +2858,6 @@ CZ-644C-TN
 (Schematic diagram labeled "ANALOG" — all remaining labels are signal names, pin names, component designators, transistor/IC part numbers, and component values in English/alphanumeric.)
 
 — 93 —    — 94 —
-
----
-
-## serv_-000084
 
 CZ-634C-TN
 CZ-644C-TN
@@ -3407,12 +2877,6 @@ Variable resistors: VR401, VR402, VR403
 ICs: IC401, IC482
 PTC, CE, RM401
 
--96-
-
----
-
-## serv_-000085
-
 Top-left corner:
 "22. Power Supply Unit Basic Circuit Diagram"
 
@@ -3422,19 +2886,11 @@ When replacing, please use the specified parts at the specified locations to ens
 
 (Note: The symbols, "triangle mark, square mark" are substituted for visual symbols in the actual text.)
 
----
-
-## serv_-000086
-
 "23. Circuit Board"
 
 "KYOSAN"
 
 "AQ1716PA011D"
-
----
-
-## serv_-000087
 
 CZ-634C-TN
 CZ-644C-TN
@@ -3461,16 +2917,9 @@ Connector: keyboard cable / mouse connector
 
 -101-          -102-
 
----
-
-## serv_-000088
-
 "25. Keyboard Component Board"
 
 The numbers at the bottom indicate page numbers.
-
-- 103 -
-- 104 -
 
 The text located in the upper center of the image reads:
 
@@ -3478,10 +2927,6 @@ The text located in the upper center of the image reads:
 CZ-644C-TN
 CZ-634C-TN
 CZ-644C-TN"
-
----
-
-## serv_-000089
 
 "26. IC Pin Signal (1)
 
@@ -3502,12 +2947,6 @@ Legend:
 - (solid circle) VSS (GND)
 
 - 105 -"
-
----
-
-## serv_-000090
-
----
 
 Top left diagram:
 CZ-634C-TN
@@ -3570,13 +3009,6 @@ Function:
 ```
 
 Page number:
--106-
-
----
-
----
-
-## serv_-000091
 
 CZ-634C-TN
 CZ-644C-TN
@@ -3601,24 +3033,12 @@ RH-IX1094CEZZ
 G/ARRAY
 (CATHY)
 
--107-
-
----
-
-## serv_-000092
-
 CZ-634C-TN
 CZ-644C-TN
 
 RH-IX1093CEZZ
 G/ARRAY
 (V/CON)
-
-108
-
----
-
-## serv_-000093
 
 CZ-634C-TN
 CZ-644C-TN
@@ -3660,33 +3080,14 @@ X68000 Exe card
 Packing case
 NO. label
 
--110-
-
----
-
-## serv_-000094
-
----
 28. Procedure for Disassembling the Circuit Board
 
 Please remove the screws and connectors marked with circles in the order of the numbers.
 
-1
-2
-3
-4
-
 CZ-634C-TN
 CZ-644C-TN
 
-- 111 -
----
-
 Note: Numbers 1 through 9 in the image seem to reference specific steps or components in the disassembly process depicted without descriptive text.
-
----
-
-## serv_-000095
 
 1. Top case screws
 2. Floppy Disk Drive fixing screws

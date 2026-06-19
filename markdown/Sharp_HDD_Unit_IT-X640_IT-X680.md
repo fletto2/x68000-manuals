@@ -1,10 +1,6 @@
-# Sharp HDD Unit IT-X640/IT-X680 User's Manual
+# Sharp Hard Disk Unit IT-X640 / IT-X680 — User's Manual
 
-*English translation from the Japanese original — 64 pages.*
-
----
-
-## man_-000001
+*English translation from the Japanese original*
 
 SHARP X68000 supported
 HARD DISK UNIT
@@ -13,10 +9,6 @@ IT-X640/IT-X680
 User's Manual
 itec
 i-tec Co., Ltd.
-
----
-
-## man_-000002
 
 **HARD DISK UNIT**
 40MB/80MB Hard Disk
@@ -29,10 +21,6 @@ IT-X640/IT-X680
 2. The contents of this document may be changed without notice.
 3. We have taken great care to ensure the accuracy of the contents of this document; however, if you notice any errors or omissions, please contact the store where you purchased the product or our customer support.
 4. We do not assume responsibility for any consequential impact resulting from the use of this product, so please acknowledge this in advance.
-
----
-
-## man_-000003
 
 **Introduction**
 
@@ -56,15 +44,7 @@ This manual does not explain the usage of application programs related to the TX
 
 * Note: The external terminator (terminator resistor) is sold separately.
 
----
-
-## man_-000004
-
 *(Blank page in the original.)*
-
----
-
-## man_-000005
 
 **Table of Contents**
 
@@ -97,15 +77,7 @@ Chapter 7: Maintenance Guide ...................................................
 
 Appendix: OS-9/X68000 Supplemental User Manual
 
----
-
-## man_-000006
-
 *(Blank page in the original.)*
-
----
-
-## man_-000007
 
 **Chapter 1 Characteristics and Precautions**
 
@@ -145,12 +117,6 @@ X68000
 │
 └── HDD
     └── Additional HDD
-
-- 1 -
-
----
-
-## man_-000008
 
 In the X68000 series, it is possible to connect up to 16 hard disks. (Using Human68k Ver. 2.0)
 
@@ -213,12 +179,6 @@ Device Number = 13
 Additional HDD
 Device Number = 15
 
--2-
-
----
-
-## man_-000009
-
 2. Precautions for Use
 
 1. When taking the box out of storage, please confirm immediately that there are no missing items against the accessory list. Delays in checking may cause issues later. If you discover any missing items upon confirmation, please contact the store where you purchased the product without delay.
@@ -254,17 +214,9 @@ Device Number = 15
 
 ※ To clean the ITX series, use a soft cloth with neutral detergent and wipe gently. Do not use benzene or thinner as it may cause discoloration or deformation.
 
----
-
-## man_-000010
-
 "MEMO"
 
 There is no other text in Japanese on the image.
-
----
-
-## man_-000011
 
 Chapter 2     Names and Functions of Each Part
 
@@ -289,10 +241,6 @@ Front and Rear of the ITX Series
 8 Cooling Fan
     Fan for cooling the drive and power supply.
 
----
-
-## man_-000012
-
 The text on the image is already in English.
 
 It says: 
@@ -302,10 +250,6 @@ It says:
 and at the bottom:
 
 "- 6 -"
-
----
-
-## man_-000013
 
 Chapter 3: Connecting to a Computer
 
@@ -341,12 +285,6 @@ External Terminator
       |
 ```
 External Terminator 
-
-— 7 —
-
----
-
-## man_-000014
 
 ● When connecting with IT-X403 mixed in
 
@@ -385,12 +323,6 @@ X68000                      IT-X680
 
 * If 80MB will be supported in the future, the setting will be changed to 80MB if the short jumper plug for Drive JP1 is removed. 
 
-— 8 —
-
----
-
-## man_-000015
-
 Chapter 4  Format
 
 The ITX series cannot be used without performing a process called formatting. Here, we will explain the basics for using Human 68K Ver 2.0 on OS-9.
@@ -398,10 +330,12 @@ The ITX series cannot be used without performing a process called formatting. He
 1. Human 68K Ver 2.0
 
 ◎Procedure
+```
 1 Turn on the power to the peripheral devices, then turn on the power to the computer itself.
 2 Start Human 68K Ver 2.0.
 3 When the window is displayed, match the mouse cursor to "COMMAND. X" and click (press) the left button twice.
 4 When prompted, enter "SWITCH" and press the key.
+```
 
 A> SWITCH
 
@@ -418,12 +352,6 @@ Device number = ID number x 2
 * For sub-machines
 
 Device number = main machine's ID number x 2 + 1
-
-—9—
-
----
-
-## man_-000016
 
 **SWITCH for X68000 Version 2.01 Copyright 1989 SHARP / Hudson**
 
@@ -467,12 +395,6 @@ Please specify the number of connected hard disks (maximum device number + 1).
 
 The cursor will move as above, so use the cursor keys (↑↓) to set the value to the connected hard disk's maximum device number + 1.
 
----
-
-## man_-000017
-
----
-
 Press the Return key, then move the cursor to the next point and press the Return key.
 
 Do you want to save the changes to the memory switch? Is this okay?
@@ -497,19 +419,7 @@ Please specify the item
 
 Use the cursor key to move the cursor to "Hard Disk" and press the Return key.
 
-0
-1
-2
-
 * In the case of device number 0, the first device (ID number = 0) is IT-X640, and the second device (ID number = 1) is IT-X640. If the device number 1 is not connected here, it will be an error if selected for initialization.
-
----
-
----
-
-## man_-000018
-
----
 
 6Select "Device Initialization"
 
@@ -544,12 +454,6 @@ Initialize the entire device. Is this okay?
 (Execute) (N: Return) ESC (Return)
 
 Press "Y" here to start initialization. To cancel, press the "ESC" key. You will return to the previous screen.
-
----
-
----
-
-## man_-000019
 
 FORMAT for X68000 Version 2.01 Copyright 1989 SHARP/Hudson
 
@@ -596,12 +500,6 @@ Free Capacity: 40 MB
 Specify Item
 (Select) (Confirm) (ESC: Go Back)
 
-- 13 -
-
----
-
-## man_-000020
-
 Move the cursor with the cursor key and press the return key to select "Domain Secure".
 
 ● Specify the Capacity
@@ -617,7 +515,6 @@ Move the cursor with the cursor key and press the return key to select "Capacity
 Specify the capacity to secure.
 
 ESC: (Return to previous)
-40
 
 If you want to secure the entire hard disk capacity as a domain, enter "40" and press the return key. If you want to partition the domain, enter the capacity to partition.
 
@@ -636,12 +533,6 @@ Specify the volume name.
 ESC: (Return to previous)
 
 Enter the volume name and press the return key.
-
-- 14 -
-
----
-
-## man_-000021
 
 ● Specifying System Transfer
 
@@ -671,14 +562,6 @@ Are you sure you want to secure the area? Is that okay?
 :: Execute: (Y) ESC: (Go back)
 Confirmation message will appear. Press the "Y" key. 
 
-- 15 -
-
----
-
-## man_-000022
-
----
-
 **FORMAT for X68000 Version 2.01 Copyright 1989 SHARP/Hudson**
 
 Device Name: Hard Disk
@@ -700,8 +583,6 @@ Free Capacity: 40 MB
 
 A message will be displayed with a horizontal bar graph during area confirmation. It will be completed if it reaches 100%.
 
----
-
 **FORMAT for X68000 Version 2.01 Copyright 1989 SHARP/Hudson**
 
 Device Name: Hard Disk
@@ -718,18 +599,8 @@ Total Device Capacity: 40 MB
 Maximum Usable Capacity: 0 MB
 Free Capacity: 0 MB
 
----
-
 Please specify an item
 ↑↓(Select) ¥(Confirm) ESC(Return to previous)
-
-— 16 —
-
----
-
-## man_-000023
-
----
 
 As mentioned above, "(1) Auto-boot: Human68K" will be ensured. 
 
@@ -757,13 +628,7 @@ You cannot use the hard disk immediately after formatting it. When the above mes
 Note:
 If you want to change the boot device number, change the BOOT in the SWITCH command.
 
----
-
 Page 17
-
----
-
-## man_-000024
 
 2. OS-9/X68000
 
@@ -795,15 +660,9 @@ Copyright 1987,88 SHARP Corp. / ACCESS CO., LTD.
 
 $ init-hd-40m
 
-- 18 -
+**If not yet initialized**
 
----
-
-## man_-000025
-
-### If not yet initialized
-
-#### shell      win0
+**shell      win0**
 
 Japanese Front Processor ASK68K for X68000 version 1.10  
 Copyright 1987,88 SHARP Corp. / ACCESS CO., LTD.
@@ -826,11 +685,9 @@ Free space: 39 MB
 
 For a newly purchased hard disk, it is not initialized yet. As shown above, enter "Y" and press the return key twice, then proceed to (1) Secure area.
 
----
+**If already used with Human68K**
 
-### If already used with Human68K
-
-#### shell      win0
+**shell      win0**
 
 ★★★  System area management information is as follows ★★★  
 Total installation capacity: 40 MB  
@@ -841,14 +698,8 @@ Free space: 0 MB
 
 If it has already been used with Human68K, the allocated area will be displayed as shown above. Release the area as shown below.
 
----
 Page 19
 
----
-
-## man_-000026
-
----
 1: Domain Confirmation  2: Domain Release  3: Disk Reap Creation  4: End  : 2
 
 Please enter the partition number. (1,2,3,4..15) : 1
@@ -875,13 +726,6 @@ Free domain 0 MB
 
 1: Domain Confirmation  2: Domain Release  3: Disk Reap Creation  4: End  :
 
----
-
----
-
-## man_-000027
-
-#####  
 6. Create a disk script. Enter '3' and press the return key to select 'Create Disk Script', then enter the partition number to create and the disk script file name as shown in the diagram below.
 
 1: Confirm Region 2: Release Region 3: Create Disk Script 4: End : 3
@@ -897,15 +741,7 @@ Free region: 0 MB
 
 1: Confirm Region 2: Release Region 3: Create Disk Script 4: End : 
 
--21-
-
 #####
-
----
-
-## man_-000028
-
----
 
 7 Finally, enter "4: End" and press the return key. The hard disk with device number "0" will be automatically formatted.
 
@@ -944,14 +780,6 @@ $ iniz h0
 
 — Page 22 —
 
----
-
----
-
-## man_-000029
-
----
-
 ※If you want to boot the OS-9 system from the hard disk with device number "0," please input the following.
 
 $ make.h0.xxx
@@ -984,16 +812,6 @@ $ copy init_hd.40m init_h1.40m
 
 $ EDT init_h1.40m
 
----
-
-- 23 -
-
----
-
-## man_-000030
-
----
-
 4) Use the string replacement command to change the device number. Please enter "c* h0 hl".
 
 *0001	-t
@@ -1018,6 +836,7 @@ E: 0001
 *0001	-t
 E: /13
 *0001	-t
+```
 0002	tmode nopause -w=1
 0003	chd CMDS/BOOTOBJS
 0004	load -d rbhddrv h1.40m
@@ -1029,6 +848,7 @@ E: /13
 0010	y
 0011	y
 0012	y
+```
 E:
 
 7) If the device number has been correctly changed, please enter "Q". init.hl1.40m is saved and restored to the original prompt state.
@@ -1039,15 +859,8 @@ E: Q
 
 $ chd ..
 
----
-
 Page 24
 
----
-
-## man_-000031
-
----
 Above, by executing "init.h1.40m", it is possible to initialize the hard disk of device number 1.
 
 * If you use the hard disk of device number "1 - 3" as data disks, please change the device number h0 as below.
@@ -1074,21 +887,11 @@ Important Notes:
 - When using the IT-X640 with MSX2 HD Interface, make sure to always set the ID number of IT-X640 to "0".
 - IT-X680 cannot be connected to and used with MSX2 HD Interface.
 
----
-
----
-
-## man_-000032
-
 "M E M O"
 
 And at the bottom of the page:
 
 "— 26 —"
-
----
-
-## man_-000033
 
 Chapter 5: Steps to Take During Troubles
 
@@ -1113,23 +916,11 @@ In case of trouble, please carefully read this chapter and re-confirm the issue.
 - Are the terminators correctly attached?
 - Is the memory switch setting correct?
 
--27-
-
----
-
-## man_-000034
-
 The text is:
 
 MEMO
 
-— 28 —
-
 This text does not appear to be in Japanese; it is in English.
-
----
-
-## man_-000035
 
 Chapter 6 Basic Specifications of the ITX Series
 
@@ -1160,12 +951,6 @@ Chapter 6 Basic Specifications of the ITX Series
 | Track Density (TPI) | 850    | 1,175  |
 | Interface      | SASI   | SASI   |
 
--29-
-
----
-
-## man_-000036
-
 **External Specifications**
 
 | Product Name | IT-X640 | IT-X680 |
@@ -1183,12 +968,6 @@ Chapter 6 Basic Specifications of the ITX Series
 | Temperature Gradient | 10°C/H | No condensation | 10°C/H | 10°C/H |
 | Relative Humidity | 8~80% | No condensation | 5~80% | 5~90% |
 | Shock        | 2G      | 40G        | 2G      | 50G        |
-
-— 30 —
-
----
-
-## man_-000037
 
 **Chapter 7: Maintenance Information**
 
@@ -1219,13 +998,6 @@ Thank you for purchasing our product from Aitek Corporation. We take every measu
 | **Parts Charges** | **Actual Cost** |
 | **Shipping Cost** | **Customer's Responsibility** |
 
-— 31 —
-
----
-
-## man_-000038
-
----
 ※ The ownership rights of defective parts replaced during the repair will belong to Aitec Co., Ltd.
 
 7. For those who wish to receive a replacement machine due to the convenience of the customer, we have prepared a 40MB hard disk as follows.
@@ -1233,28 +1005,12 @@ Thank you for purchasing our product from Aitek Corporation. We take every measu
 | Within the Warranty Period | Up to 1 week after the repaired product arrives at the customer's place is free After that, an additional 1500 yen per day |
 | Outside the Warranty Period | The first week is 5,000 yen. After that, an additional 1,500 yen per day |
 
-— 32 — 
-
----
-
----
-
-## man_-000039
-
 Appendix
 
 User's Manual
 OS-9/X68000 Supplement Edition
 
----
-
-## man_-000040
-
 (blank page)
-
----
-
-## man_-000041
 
 **Introduction**
 
@@ -1279,17 +1035,7 @@ Postal code 162  8 Ichigaya-Yawatacho, Shinjuku-ku, Tokyo
 Sharp Corporation, TV Business Division, Product Planning Department 4 
 Phone: (03) 260-1161
 
----
-
-## man_-000042
-
 (blank page)
-
----
-
-## man_-000043
-
----
 
 Table of Contents
 
@@ -1326,15 +1072,7 @@ Chapter 5: System Reconfiguration ............................................ 1
 ■Precautions When Creating a Project File .................................. 16
 ■How to Execute a Project File .................................................. 17
 
----
-
-## man_-000044
-
 *(Blank page in the original.)*
-
----
-
-## man_-000045
 
 Chapter 1  Precautions for Using OS-9/X68000
 
@@ -1367,12 +1105,6 @@ The procedure files related to hard disk devices provided on the OS-9 system dis
                       Device Number "0"          Device Number "2"
                       Device Number "1"          No Device Number "3"
 ```
-
-— 1 —
-
----
-
-## man_-000046
 
 ● When connecting two IT-X680 units
 
@@ -1408,18 +1140,12 @@ X68000 (Built-in HDD)   Device number "0"                    X68000 (Built-in HD
 When connecting IT-X640, please note that the next device number will be empty.
 Even if the device number is empty for logical drive purposes in Human68K (Ver. 2.0), it will automatically become A, B, C, etc. in order. However, in OS-9, empty device numbers cannot be used for specifying fixed drives. 
 
-                                                        -2-
-
----
-
-## man_-000047
-
-### Chapter 2: How to Initialize the Additional Hard Disk
+# Chapter 2: How to Initialize the Additional Hard Disk
 
 When initializing a hard disk (device number "0"), use `init_hd_xx.x`. 
 (For detailed instructions, refer to the IT-X640/IT-X680 User Manual.)
 
-#### 2.1 Precautions (For device number "0")
+# 2.1 Precautions (For device number "0")
 
 **1. If connected to the ITX series in the X68000 series:**
 
@@ -1431,7 +1157,7 @@ When initializing a hard disk (device number "0"), use `init_hd_xx.x`.
 - Perform initialization using `init_hd_20m`.
 - Input the disk descriptor file `h0_20mh0_p1`.
 
-#### 2.2 How to Initialize a Device Numbered "1"
+# 2.2 How to Initialize a Device Numbered "1"
 
 **Note:** When connected with IT-X680 and ID number is "0" in the X68000 series. Internal type hard disks in the X68000 series do not include a "1" device number.
 
@@ -1446,14 +1172,6 @@ When initializing a hard disk (device number "0"), use `init_hd_xx.x`.
 
 3. In EDT (Line Editor), change the device number of `init_h1_40m`.
    $ EDT init_h1_40m
-
--3-
-
----
-
-## man_-000048
-
----
 
 4 Convert the device number using the string substitution command. Please enter "0 0 0 1", "c:* " h0" h1" ".
 *0001 - t
@@ -1492,15 +1210,7 @@ When initializing a hard disk (device number "0"), use `init_hd_xx.x`.
  0012 y
  E:
 ```
-- 4 -
 
----
-
----
-
-## man_-000049
-
----------------
 7 If the device number has been changed correctly, please enter "q". init_h1_40m will be saved and will return to the original prompt state.
 
     E: q
@@ -1531,14 +1241,6 @@ When initializing a hard disk (device number "0"), use `init_hd_xx.x`.
 
     $ EDT init_h2_40m
 
----------------
-
----
-
-## man_-000050
-
----
-
 4 Use the string substitution command to replace the device number. Enter "fc* h0" h2".
 
 *0001 -t
@@ -1563,6 +1265,7 @@ E:0001
 *0001 -t
 E:113
 *0001 -t
+```
 0002 tmode nopause -w=1
 0003 chd CMDS/BOOTOBJS
 0004 load -d rbhddrv h2_40m
@@ -1574,17 +1277,10 @@ E:113
 0010 y
 0011 y
 0012 y
+```
 E:
 
----
-
 Page 6
-
----
-
-## man_-000051
-
----
 
 7 If the device number has been correctly replaced, input 'q' and press enter. init_h2_40m will be saved, and the state will be returned to the original prompt.
 E: q
@@ -1609,18 +1305,6 @@ $ copy init_hd_40m init_h3_40m
 
 3 Edit (line editor) init_h3_40m to change the device number.
 $ EDT init_h3_40m
-
----
-
--7-
-
----
-
----
-
-## man_-000052
-
----
 
 4. Use the string replacement command to change the device number. Enter "fc* "h0" "h3"".
 
@@ -1665,14 +1349,6 @@ $ EDT init_h3_40m
  E:
 ```
 
----
-
----
-
-## man_-000053
-
----
-
 7 If the device number has been correctly changed, enter "q". init_h3_40m will be saved and return to the original prompt state.
 ```
 Example: 
@@ -1693,12 +1369,6 @@ If you add -nv to the format within init_h3_40m, verify (bad sector detection) w
 *0008   format   /h3    -rv=OS-9/68000    -nv
 
 When rebuilding the system, it is necessary to perform reinitialization, so the above options are convenient.
-
----
-
----
-
-## man_-000054
 
 Chapter 3: How to Register the Additional Hard Disk System
 
@@ -1735,14 +1405,6 @@ In the case of Device Number "0", if you execute "make_h0_xxx", h0 will be regis
    *0023
    E: q
 ```
-
----10---
-
----
-
-## man_-000055
-
----
 
 4 Check the modified StartUp file with the list command.
 
@@ -1786,14 +1448,6 @@ $ chd SYS
 
 $ EDT InitHD
 
----
-
----
-
-## man_-000056
-
----
-
 *Please enter the initial line.*
 
 chd C:\MDS\BOOTOBOJS
@@ -1820,12 +1474,6 @@ iniz h2
 load  -d rbhddrv h3=_p1
 iniz h3
 
--12-
-
----
-
-## man_-000057
-
 Example 1
 
 When connecting two IT-X640 units (ID numbers "0" and "1") in the X68000 series and booting from the OS-9 system floppy disk
@@ -1843,7 +1491,6 @@ E: iniz h0
 E: load -d rbhddrv h2_p1
 *0005
 E: iniz h2
-0006
 E: q
 
 Example 2
@@ -1868,11 +1515,7 @@ E: iniz h3
 *0007
 E: q
 
----
-
-## man_-000058
-
-### Example 3
+**Example 3**
 
 ※ When connecting IT-X640 (ID number is "1") to the built-in hard disk type X68000 series and booting OS-9 from the built-in hard disk device
 
@@ -1888,7 +1531,7 @@ E: : iniz h2
 * 0004
 E: q
 
-### Example 4
+**Example 4**
 
 ※ When connecting IT-X680 (ID number is "1") to the built-in hard disk type X68000 series and booting from the OS-9 system floppy disk
 
@@ -1914,10 +1557,6 @@ E: q
 
 Please make sure to copy the file h×_p1 created when running init_h×_40m to the device's CMDS/BOOTOBJS where InitHD is located.
 
----
-
-## man_-000059
-
 Chapter 4: How to Handle Mixing Human 68K (Ver2.0)
 
 If you prioritize Human 68K area verification first and then prioritize OS-9 area verification, the following message may be displayed, indicating that OS-9 area verification cannot be performed. In that case, please perform the area verification with OS-9 first, then verify the area with Human 68K later.
@@ -1940,20 +1579,14 @@ When OS-9 and Human 68K are mixed, a menu screen will be displayed during boot, 
 
 X68000 HARD DISK IPL MENU
 
+```
 1 OS-9/68K
 2 Human 68K
+```
 
 Select with the cursor key and press the return key
 
-—15—
-
----
-
-## man_-000060
-
-### Chapter 5: Method for System Reconstruction
-
----
+# Chapter 5: Method for System Reconstruction
 
 **5.1 Method for System Reconstruction**
 
@@ -1971,7 +1604,7 @@ Because OS-9 fixes the device drive, you cannot reconstruct the system simply fo
 
 Typically, you can copy the procedure file operating on device number "0" and run it on device number "1".
 
-#### Notes When Creating Procedure Files
+**Notes When Creating Procedure Files**
 
 You can execute procedure files by removing the drive specification and including only the current data directory, so if you are creating a new procedure file, ensure that no drive specification is included.
 
@@ -1984,13 +1617,7 @@ chd /d0/CMDS/BOOTOBJS
 load -d rbhddrv h2_p1
 iniz h2
 
----
-
 Page: 16
-
----
-
-## man_-000061
 
 ● The hard disk device is fixed to "0".
 
@@ -2025,17 +1652,7 @@ This usage method explained in the OS-9/X68000 supplementary manual is explained
 
 In practical use with the OS-9 hard disk environment: The use of OS-9 to facilitate the management of files and data is encouraged.
 
-                            — 17 —
-
----
-
-## man_-000062
-
 *(Blank page in the original.)*
-
----
-
-## man_-000063
 
 itec
 
@@ -2048,10 +1665,6 @@ TEL 06-532-0120
 FAX 06-532-0543
 
 User Support 06-532-0320
-
----
-
-## man_-000064
 
 "i tec
 Itec Corporation"
