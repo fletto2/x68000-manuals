@@ -735,8 +735,6 @@ CZ-644C-TN**
 |                  | E92003H | R/W | ADPCM Data Register (IN/OUT) | |
 |                  | E9A005H | W | ADPCM Output, Sampling Frequency Switching Register | 8255 Port C |
 
-This is a translation of the table containing port addresses, their functions, and remarks.
-
 | Item          | Port Address | Function                                                      | Remarks                      |
 |---------------|--------------|---------------------------------------------------------------|------------------------------|
 | Floppy Disk   | E94**1H R    | FDCA Status Register (IN)                                     |                              |
@@ -1470,8 +1468,6 @@ Transmitting one-byte data from the keyboard’s MFPA to 80C51 allows control of
 (5) Key Scan Data Transmission Error Code
 80C51 outputs scan data directly via main and interrupt loops. However, if certain error prevention mechanisms within the MFPA or during the RR signal for data reading are unsuitable (triggering issues such as the system board E8E007HJ D01 becoming inactive), then key data transmission by 80C51 is invalid. In such a case, the keyboard enters an idle state until the data becomes acceptable for system board E8E007HJ D01 acknowledgment. This error state is resolved when the RDY signal transitions from a "0" state, in which 1-byte data transmission is permissible.
 
-**Image Translation:**
-
 Table 6-1 Key Data Transmission Format
 
 Baud Rate: 2400 baud
@@ -1726,8 +1722,6 @@ If this function is not used and the internal expansion board is not used, the p
 # 8-4. MFP
 
 In this unit, we use the 68901 from the 68000 family for data transmission and reception with the keyboard, timer functions, and various interrupt controls.
-
-**[Diagram Translation]**
 
 **CLK RESET Vcc1 Vss (4MHz)**
 
@@ -2991,8 +2985,6 @@ Function:
    9 OUT1
    10 AB
 ```
-
-Page number:
 
 CZ-634C-TN
 CZ-644C-TN

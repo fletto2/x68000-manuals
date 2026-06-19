@@ -81,8 +81,6 @@ Chapter 2 Screen Control  9
   4-4 Background Control Register and Screen Mode Register  42
 ```
 
-This is a rough translation from Japanese to English of the provided table of contents.
-
 Table of Contents
 
 4-5   PCG Area ................................................................. 47
@@ -357,8 +355,6 @@ Expansion I/O Slot   2 slots
 
 Table 1-1 Hardware Specifications
 
-The translation aims to be as accurate as possible, considering varying translations for some technical terms.
-
 **<Specifications>**
 
 | Specification | Value |
@@ -391,8 +387,6 @@ Table 1-2 Hardware Specifications
 |   | Raster Mode |   | High resolution mode | 512 x 512 dots |
 |   |   |   | Medium resolution mode 1 | 512 x 256 (2 pages) |
 |   |   |   | Medium resolution mode 2 | 256 x 256 (4 pages) |
-
-(Note: The terms "high resolution mode", "medium resolution mode", and "raster mode" are used here for translation purposes. The exact original terms may vary slightly.)
 
 Chapter 1 System Overview
 
@@ -588,8 +582,6 @@ Text Palette Address for each Bit
 
 **Figure 2-5** Text Real Screen Address Layout
 
-The numbers and the alphabetic characters in the diagram represent memory addresses and are not translated as they are typically kept in their original form.
-
 1-4 Text Palette Address
 
 [READ/WRITE Permissible]
@@ -781,8 +773,6 @@ LSB [Coordinates on Screen]
 (x1023, y1023)
 
 Table 2-4 Memory Map
-
-(Page number: 17)
 
 Chapter 2 Screen Control
 
@@ -1530,8 +1520,6 @@ Note: The maximum values of the sprite code and background code are determined b
 | EBBFFE   |      | VR   | HR  | O   | COLOR (BG)       | BG Code  |
 
 Table 2-16 Sprite Register Address Map (3)
-
-This translation retains the original structure and meaning of the Japanese text.
 
 Chapter 2: Screen Control
 
@@ -2335,8 +2323,6 @@ Green (D15-D11)           Red (D10-D06)           Blue (D05-D01)
 
 Figure 2-24 Transparent Mode
 
-This translation maintains the subject-related terminology to ensure clarity in the technical context.
-
 Chapter 2: Screen Control
 
 Let's explain the details of various transparency modes below.
@@ -2413,8 +2399,6 @@ Illustrations:
 
 **Figure 2-28** Semi-transparency Mode (4)
 
-Page Number: 67
-
 Chapter 2: Screeng Control
 
 [6] This is the semi-transparent mode for superimposing. First, the function of [3] operates, and additionally, the semi-transparent function is performed in the same area as where the transparency function was already operating, with the TV and video signals.
@@ -2467,8 +2451,6 @@ Graphics screen page 0
 Text (sprite) screen
 
 Figure 2-30 Special Priority Mode
-
-Page number: 69
 
 Chapter 2: Screen Control
 
@@ -4741,8 +4723,6 @@ In the above, "P" denotes "programmable."
 
 **Table 4-7 MFP Register Reset Values**
 
-*Note: The above translation may involve technical terms that need to be interpreted within the context of the specific electronics/system it refers to.*
-
 Chapter 4 Peripheral LSI
 
 2-3 Detailed Information on MFP Registers
@@ -5453,8 +5433,6 @@ Other                       Auto clamp eject mechanism, auto retract plate funct
 
 Table 4-13 Specifications of built-in FDD
 
-Page number "151" is visible at the bottom of the page.
-
 Chapter 4 Peripheral LSI
 
 5-2 Characteristics of the FDC
@@ -5476,8 +5454,6 @@ MB8877A
 - Sometimes, if there is no response to an error, the command continues. (e.g., during a read/write, when a media defect is detected, and sometimes the head keeps spinning without stopping.)
 
 Table 4-14 Comparison points between µPD72065 and MB8877A
-
-**Translation:**
 
 # 5. FDC (Floppy Disk Controller)
 
@@ -5948,8 +5924,6 @@ MFP to 8051 1-byte data
 
 Figure 5-9 Mouse Control Code Format
 
-Page number: 166
-
 1. Keyboard
 
 ![Diagram]
@@ -6163,8 +6137,6 @@ Return
 Figure 5-15 Receive Error Interrupt Routine Flowchart
 
 Note: 
-- The symbol "Y" is translated as "Yes".
-- The symbol "N" is translated as "No".
 
 1. Keyboard
 
@@ -6914,8 +6886,6 @@ Appendix
 
 - When input in the order of 00H→01H→FFH, only POWER OFF (Vcc1 OFF) will be effective, and any other code will be invalid. In other words, this makes it so that POWER OFF cannot be easily executed.
 
-Page number: 194
-
 4. Interrupts
 
 4-1 Interrupts of the 68000 MPU
@@ -7034,8 +7004,6 @@ Only when the ROM image is powered on, or during manual reset, the use of the me
 [Figure descriptions:]
 Figure A-2: Reset time map
 Figure A-3: Reset processing map
-
-Note: Some specialized terminology has been maintained from the original text for accuracy.
 
 # 6. Character Code Table
 
