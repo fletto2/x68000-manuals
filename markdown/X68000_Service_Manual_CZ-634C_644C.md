@@ -1034,7 +1034,6 @@ DMAC              E84025H                     Set
 DMAC              E84065H                     Set
 (Channel 1)                                   (Normal Interrupt Vector)
 (Hard Disk)          E84067H                     Set
-                                                (Error Interrupt Vector)
 
 DMAC              E840E5H                     Set
 (Channel 2)                                   (Normal Interrupt Vector)
@@ -1044,7 +1043,6 @@ DMAC              E840E5H                     Set
 DMAC              E840A5H                     Set
 (Channel 3)                                   (Normal Interrupt Vector)
 (Audio Synthesis)   E840E7H                     Set
-                                                (Error Interrupt Vector)
 
 Floppy            E9C003H                     Set
 ·Printer                                      FDC Interrupt       0 0
@@ -1408,9 +1406,7 @@ GND
 RDY
 
 CPU System Board (EBE007H) 
-Data Bus
 Control Bus
-Address Bus
 
 MFP
 RR
@@ -2129,8 +2125,6 @@ Hard Disk Data Bus
 HD (Hard Disk)
 FD (Floppy Disk)
 
-Address Bus
-Data Bus
 I/O Controller
 FDD Option Control
 

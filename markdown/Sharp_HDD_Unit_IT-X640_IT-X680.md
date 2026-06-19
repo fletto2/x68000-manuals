@@ -15,8 +15,6 @@ i-tec Co., Ltd.
 
 IT-X640/IT-X680
 
-**User's Manual**
-
 1. It is prohibited to reproduce any part or all of this document without permission.
 2. The contents of this document may be changed without notice.
 3. We have taken great care to ensure the accuracy of the contents of this document; however, if you notice any errors or omissions, please contact the store where you purchased the product or our customer support.
@@ -158,25 +156,18 @@ Slave Side:
 Additional HDD
 Device Number = 1
 
-Additional HDD
 Device Number = 3
 
-Additional HDD
 Device Number = 5
 
-Additional HDD
 Device Number = 7
 
-Additional HDD
 Device Number = 9
 
-Additional HDD
 Device Number = 11
 
-Additional HDD
 Device Number = 13
 
-Additional HDD
 Device Number = 15
 
 2. Precautions for Use
@@ -407,7 +398,6 @@ A>FORMAT
 FORMAT for X68000 Version 2.01 Copyright 1989 SHARP/Hudson
 
 Floppy Disk
-*Floppy Disk*
 End
 
 Please specify the item

@@ -20,7 +20,6 @@ ASCII Publishing"
 
 **PERSONAL WORKSTATION**
 **X68000**
-**Technical Data Book**
 
 **Supervised by Sharp Corporation Television Business Division**
 **Compiled by ASCII Publishing Department Tech Write Section**
@@ -239,8 +238,6 @@ Chapter 1 System Overview
 
 (7) Equipped with a priority function that allows text, graphics, and sprites to be ordered by priority.
 
-Chapter 1 System Overview
-
 (8) Semi-transparent color specification and special priority are possible.
 
 (9) Standard resolution, overscan, superimpose functions (with support for pseudo high resolution in interlace mode).
@@ -388,8 +385,6 @@ Table 1-2 Hardware Specifications
 |   |   |   | Medium resolution mode 1 | 512 x 256 (2 pages) |
 |   |   |   | Medium resolution mode 2 | 256 x 256 (4 pages) |
 
-Chapter 1 System Overview
-
 Styles
 
 Pattern Definition
@@ -437,7 +432,6 @@ Note:
 Figure 3.1 Block Diagram
 
 Top left:
-Chapter 1 System Overview
 
 Heading:
 4. Memory Map
@@ -616,8 +610,6 @@ In this case, the palette address for the D01 bit (horizontal 14 dots, vertical 
 
 Page 13
 
-Chapter 2: Screen Control
-
 2. Graphic Screen Composition
 
 2-1 Composition of Display Screen
@@ -703,8 +695,6 @@ G03  G02  G01  G00
 
 Graphic Address
 
-Chapter 2 Screen Control
-
 (3) Actual Screen 512×512, 256 Colors, 2 Screen Mode (* is invalid)
 (Note: D represents a data bit)
 
@@ -773,8 +763,6 @@ LSB [Coordinates on Screen]
 (x1023, y1023)
 
 Table 2-4 Memory Map
-
-Chapter 2 Screen Control
 
 (2) 512 x 512 Dots (16 Colors, 4-Plane Mode)
 
@@ -846,8 +834,6 @@ Table 2-5 Memory Map
 Figure 2-8: Address Configuration of Graphic Virtual Screens (3)
 
 Table 2-6: Memory Map
-
-Chapter 2 Screen Control
 
 (4) 512 x 512 Dots (65536 Colors, Single-Plane Mode)
 
@@ -956,8 +942,6 @@ The CRTC of the X68000 is a custom CRTC that supports dual-port DRAM (MB81461) u
 
 The CPU can always access the data in VRAM, but for setting scrolling registers and the like inside the CRTC, perform it during the blanking period of the V-DISP signal (when "0" on MFP or GPIP4 port). Also, the SAM (Serial Access Memory) in dual-port DRAM is controlled by the CRTC during horizontal blanking.
 
-Chapter 2 Screen Control
-
 3-1 Specifications and Internal Registers of CRTC
 
 | Display Mode | High Resolution | High Density |
@@ -1018,8 +1002,6 @@ Table: CRTC register map. The dots (•) in the original mark which bits of the 
 | R22 | E8002CH  | Source raster / Destination raster             | Raster address |
 | R23 | E8002EH  | Bit-mask register                              | Mask data |
 | —   | E80480H  | (operation port)                               | CRTC operation port |
-
-Chapter 2 Screen Control
 
 DISPTMG
 SYNC
@@ -1084,8 +1066,6 @@ Set the display start address for scrolling the graphics screen (circular scroll
 
 The setting range for R12~R13 is 0~1023.
 The setting range for R14~R19 is 0~511 as these registers are only used in 512×512 dot display mode.
-
-Chapter 2: Screen Control
 
 (6) R20-R21 (Control Registers)
 - R20 (Upper Byte)
@@ -1169,8 +1149,6 @@ Page 28
 1024 - Text planes T0, T1, T2, and T3 representation
 
 This covers the main text content on the page.
-
-Chapter 2: Screen Control
 
 <When Rapidly Clearing a Graphics Real Screen 1024×1024 (Valid When R20 and D10 are 1)>
 
@@ -1262,8 +1240,6 @@ D03  D02 D01 D00
 ```
 Additionally, in 256 color 2 screen mode and 65536 color 1 screen mode, if data other than the above is set, the corresponding bit screen display area will be high-speed cleared.
 
-Chapter 2 Screen Control
-
 (7) CRTC Operation Mode Setting Port (E80480H)
 The CRTC operates various functions through dual port DRAM or SAM (Serial Access Memory). Each function has a different meaning depending on the read or write operation.
 
@@ -1331,8 +1307,6 @@ Use simultaneous access or raster copy for high-speed clear of the text screen. 
 
 Page 33
 
-Chapter 2 Screen Control
-
 3-4 CRTC Special Feature Details (Graphics)
 
 The graphics screen offers the following features:
@@ -1380,8 +1354,6 @@ Priority (this function can be set for each sprite)
 - (SP0 > SPn > SP127)
 
 The above text is a detailed breakdown of the capabilities and functions of the sprite feature in the X68000, detailing pattern sizes, display counts, color limits, and other notable features such as flipping and priority settings.
-
-**Chapter 2 Screen Control**
 
 EB0000H - 16 bit
 EB0002H - Sprite scroll register
@@ -1454,8 +1426,6 @@ Page 36
 
 Table 2-14 Sprite Register Address Map (1)
 
-Chapter 2 Screen Control
-
 [PCG Area] (All registers READ/WRITE possible)
 
 | Name     | Address | D 15 | D 14 | D 13 | D 12 | D 11 | D 10 | D 09 | D 08 | D 07 | D 06 | D 05 | D 04 | D 03 | D 02 | D 01 | D 00 | Remarks                        |
@@ -1521,8 +1491,6 @@ Note: The maximum values of the sprite code and background code are determined b
 
 Table 2-16 Sprite Register Address Map (3)
 
-Chapter 2: Screen Control
-
 4-3 Details of Sprite Scroll Registers
 
 (1) X Coordinate (SP), Y Coordinate (SP)
@@ -1578,8 +1546,6 @@ When the color data B, R, G, I in the PCG area is 0000H, it is considered transp
 
 (3) For details on SP Code, COLOR (SP), H inversion (SP), and V inversion (SP), please refer to "4-6 Texture Area (1)" in this chapter.
 
-Chapter 2 Screen Control
-
 4-4 Background Scroll Registers and Screen Mode Registers
 
 (1) X Coordinate (BG) and Y Coordinate (BG)
@@ -1605,8 +1571,6 @@ Sets the display starting position of the background surface in the text coordin
 
 The size of the text coordinate system changes depending on the value set in the "H Res." bit (D01, D00 of EB0810H) in the screen mode registers.
 
-4. Sprite
-
 [Top left]
 H Res.=00
 (256 Dot Mode)
@@ -1629,8 +1593,6 @@ Background 0 Display Screen
 Figure 2-12 Text Area Dimensions
 
 In 512-dot display mode, only the background 0 face is displayed, and the settings for the background 1 face are ignored.
-
-Chapter 2 Screen Control
 
 (2) DISP/CPU (EB0808H on D09)
 
@@ -1708,8 +1670,6 @@ EB0810H
 
 Page 45
 
-Chapter 2 Screen Control
-
 | Screen Mode Register | High Resolution | Standard Resolution |
 |----------------------|-----------------|---------------------|
 |                      | 512×512         | 256×256 2 colors/dot | 2 colors/dot | 256×256 |
@@ -1772,8 +1732,6 @@ BG: 8x8 dot pattern configuration
 SP Code = n, BG Code = 4n, 4n+1, 4n+2, 4n+3
 
 Figure 2-13 PCG Pattern Configuration
-
-Chapter 2 Screen Control
 
 The correspondence between PCG addresses and PCG codes is as follows.
 
@@ -1901,8 +1859,6 @@ Figure 2-15 Address Layout of Text Area 1
      high-speed RAM access; sprite and background display are halted.
 ```
 
-Chapter 2: Screen Control
-
 All screen displays are cut off during the V blanking period. Therefore, upon entering the V blanking period, first set the “DISP/CPU” bit to “0” (display cut off), and then you can efficiently access the sprite registers (refer to section “4-4 Background Scroll Registers and Screen Mode Registers”).
 
 Figure 2-16 CPU Access Timing
@@ -1934,8 +1890,6 @@ Consequently, for example, if the background scroll registers are rewritten for 
 If there is a collision with the CPU not finishing the write cycle during the transfer period, a wait will occur on the CPU side. There is no wait for read cycles.
 
 ● Access to Background Scroll Registers and Screen Mode Registers of CPU is not affected during superimpose.
-
-# Chapter 2: Screen Control
 
 ● PCG and Text
 Access is possible throughout the display period. 
@@ -2060,8 +2014,6 @@ Most preferred graphics page number:
 1. Graphics Actual Screen 1024×1024
 In a mode with an actual screen of 1024×1024 dots, the graphics screen page number is assigned as shown in Figure 2-21. The display page has only one side, and this represents the priority of the values of graphics screen page numbers.
 
-Chapter 2 Screen Control
-
 Diagram labels:
 G00 G01 G02 G03
 Page 0   Page 1
@@ -2183,8 +2135,6 @@ Turning off the second graphic page display 0 1 1 0
 However, if the palette address is 00H for any dot on the higher priority graphic page, the palette data of the palette address 00H will be output. Note that if the palette data of the palette address 00H is 0000H, it will become transparent.
 
 Page 61
-
-Chapter 2: Screen Control
 
 Secondary Graphic Display Page OFF
 
@@ -2323,8 +2273,6 @@ Green (D15-D11)           Red (D10-D06)           Blue (D05-D01)
 
 Figure 2-24 Transparent Mode
 
-Chapter 2: Screen Control
-
 Let's explain the details of various transparency modes below.
 
 [1] Regardless of screen color mode, transparency is performed between the graphics screen and a text (sprite) screen to merge with the content at palette address 00H.
@@ -2452,8 +2400,6 @@ Text (sprite) screen
 
 Figure 2-30 Special Priority Mode
 
-Chapter 2: Screen Control
-
 - Special priority function area specification (using D10, which specifies semi-transparent or special priority functions) and screen display page setting are set in the graphics VRAM memory data of the graphics screen pages with higher priority. (If setting the semi-transparent area specifies, "1", then using this function specifies. As for this, text and sprites can be used normally.)
 
 Using the graphics VRAM bit of the memory data (LSB) as an area specification (when D10="1")
@@ -2484,8 +2430,6 @@ Note: If area specification is performed at the LSB of graphics VRAM memory data
 
 Page 70
 
-5. Video Controller
-
 Graphical Face 1
 (Even Palette)
 (Specified by transparent display)
@@ -2508,13 +2452,9 @@ Computer screen
 
 Black (transparent)
 
-Superimposed Pose
-
 [2] D15="0"
 
 CRT screen
-
-Superimposed Pose
 
 TV, Video screen
 
@@ -2523,8 +2463,6 @@ TV, Video screen
 Figure 2-33 CMP-OUT signals
 
 Page 71
-
-Chapter 2 Screen Control
 
 (5) Palette Address
 [1] Text (Sprite) Palette Address
@@ -2588,8 +2526,6 @@ FEH FFH | E821FEH |
 Table 2-24 Graphic Palette Address (2)
 
 * As a rule, enter the palette address value into the data of each palette register address.
-
-Chapter 2: Screen Control
 
 6. CGROM
 
@@ -2659,8 +2595,6 @@ FBFFEFH ────────────────────────
 
 Figure 2-34 CGROM Address Map
 
-Chapter 2: Screen Control
-
 6-3 Structure of CGROM Address
 
 (1) 8x8 Font
@@ -2705,8 +2639,6 @@ Fig. 2-35 CGROM Address (1)
         F3A810H       0     1
 ```
 
-ASCII Code 00H Font
-
 Fig. 2-36 CGROM Address (2)
 
 Page 76
@@ -2747,8 +2679,6 @@ Near the table on the right:
 
 Bottom:
 "Fig. 2-37 CGROM Address (3)"
-
-Chapter 2 Screen Control
 
 (4) 12x12 Font
 
@@ -2826,8 +2756,6 @@ Figure 2-40 CGROM Address (6)
 
 This document seems to be describing the CGROM (Character Generator ROM) addresses for different font sizes and associated character codes.
 
-Chapter 2 Screen Control
-
 7. Superimpose and Overscan
 
 The X68000 supports the following computer screen display modes:
@@ -2890,8 +2818,6 @@ Scanline of the below fields          |         Even field scanline
 [Access different memory data for both odd and even fields as with the TV monitor]
 
 Page 81
-
-**Chapter 2: Screen Control**
 
 (2) High-Resolution Mode (Horizontal synchronization frequency: 31.5 kHz, Vertical synchronization frequency: 55.46 Hz)
 - As a display mode, it only supports computer screen displays and does not support Super Impose screen displays.
@@ -3131,8 +3057,6 @@ Note: Each channel is controlled individually in two paths המשך כל הער�
 
 Diagram 3-2 FM Sound Source Block Diagram
 
-Chapter 3: Sound Functions
-
 1-3 Structure of FM Sound Source Registers
 
 | Item       | Register     | Function                                             |
@@ -3256,8 +3180,6 @@ This slot turns into a noise slot when Noise is ENABLE (NE=1).
 
 *Table 3-5: Relationship between Channel and Slot*
 
-Chapter 3 Sound Functions
-
 1-6 Details of FM Sound Registers
 
 <KON: KEY ON>
@@ -3325,8 +3247,6 @@ D7~D2  | 0 1 ... 16 17 ... 32 33 ... 48 49 ... 63 0
 KF(cent)| 0   ...      ...      ...        ... 100 0
 
 Table 3-6 Relationship between OCT and NOTE (at 4 MHz clock)
-
-Chapter 3 Sound Functions
 
 • MUL: PHASE MULTIPLY
 
@@ -3422,8 +3342,6 @@ Set 1 out of 16 data for each tone. One data consists of 5 bits. When a key-on i
 
 Set 1 out of 16 data for each tone. One data consists of 5 bits. When the EG's envelope amount is 0 db, it automatically reaches the fast decay level. This fast decay time (TD1) can be set according to the DIR to 3-11, 3-12, etc. Additionally, DIR is scaled by KEY CODE. Please refer to Figure 3-3.
 
-Chapter 3 Sound Functions
-
 • D2R: 2nd DECAY RATE
 
 1 Set the data to 4 for the sound, 1 Data will be 5 bits as shown above. When the EG shifts to the second decay while passing through the fast decay level, this state will continue until the EG turns off. This second decay time (TD2) can be set according to D2R in Table 3-11 and Table 3-12. Additionally, D2R is scaled by KEY CODE, so please refer to Figure 3-3.
@@ -3459,8 +3377,6 @@ However, in this case, we discard the lower 2 bits of NOTE as shown in the figur
 Figure 3-3 Key Scaling
 
 Tables 3-11 and 3-12 divide the 6-bit rate after key scaling determined by Figure 3-3 into the upper 4 bits and the lower 2 bits.
-
-Chapter 3 Sound Functions
 
 (10% -> 90%) or (90% -> 10%)
 
@@ -3750,8 +3666,6 @@ Note: "infinity" denotes an infinite time in msec.
 
 Table 3-12 ATTACK, DECAY TIME (2)
 
-Chapter 3 Sound Functions
-
 • D1L: 1st DECAY LEVEL
 
 | D7 D6 D5 D4 D3 D2 D1 D0 |
@@ -3862,8 +3776,6 @@ The relationship between NFRQ and noise is
 fNoise = fM (kHz) / 32 * (NFRQ)
 
 Note: fM = 4000 kHz (YM2151 additional clock frequency).
-
-Chapter 3 Sound Functions
 
 In other words, it can be changed between approximately 4.0 kHz to 125 kHz. The noise period at this time is:
 
@@ -3987,8 +3899,6 @@ TEST is a signal provided for testing purposes. Among these, when "1" is written
 
 Receiving the L and R control signals from the register, the musical sound signal data from the OP is accumulated in the L series, R series, or both series simultaneously. The accumulated L and R signals are output as two-series signals alternately, with a mantissa part of 10 bits (including the sign bit) and an offset of the exponent part of 3 bits, in binary format, serially from the LSB.
 
-Chapter 3: Sound Functions
-
 - LR: LEFT CH. ENABLE/RIGHT CH. ENABLE
 
 ```
@@ -4067,8 +3977,6 @@ Using 2 bits, controls the start/stop of Timers A and B. "1" to start, "0" to st
 
 These 2 bits reset the contents of the flag register indicating that each timer described above has overflowed (reset with "1").
 
-Chapter 3 Sound Functions
-
 - IRQEN
 
 14H:
@@ -4129,8 +4037,6 @@ The YM2151's tone scale is determined by the KC (KEY CODE; FM tone generator int
 |  0   |  1   |  2  |  3   |  4  |  5  | 6  |  7  | 8  |  9   | 10 | 11| 12|   
 
 However, if you change the system clock, the tone scale value indicated will deviate.
-
-Chapter 3: Sound Functions
 
 log (fMX/fM) × 1200 [cents]
 
@@ -4203,8 +4109,6 @@ Also, due to changes in the system clock, the lowest pitch within the same octav
 
 Figure 3-6 Difference in frequency range due to clock frequency
 
-Chapter 3: Sound Functions
-
 2. Sound Synthesis
 
 The X68000 uses the MSM6258 in the ADPCM format as the sound synthesis LSI. In addition, PCM output control and sample rate switching are performed on port C of the 8255.
@@ -4266,8 +4170,6 @@ Table 3-19 Sound Synthesis Register Address Map
 1: ADPCM RECORD started
 
 Page 115
-
-Chapter 3 Sound Functions
 
 (3) ADPCM Sound Data (READ/WRITE)
 E92003H
@@ -4455,8 +4357,6 @@ Multiple Data Blocks Transfer:
 
 Page 121
 
-Chapter 4 Peripheral LSI
-
 | Ch No. | Register Address | D07 (D15) | D06 (D14) | D05 (D13) | D04 (D12) | D03 (D11) | D02 (D10) | D01 (D09) | D00 (D08) | Notes |   |
 |--------|------------------|------------|------------|------------|------------|--------------|--------------|--------------|--------------|---------|---|
 |        |                  |            |            |            |            |             |             |             |             |         |   |
@@ -4488,8 +4388,6 @@ The X68000 uses the 68901, which belongs to the 68000 family, for data communica
 Caption under the diagram:
 
 Fig 4-2 MFP Block Diagram
-
-Chapter 4 Peripheral LSI
 
 2-1 Features
 
@@ -4527,8 +4425,6 @@ Encoders for decoding:
 ```
 
 Figure 4-3 MFP Interrupt Block Diagram
-
-2. MFP (Multi Function Peripheral)
 
 TAI (CRTC's V-DISP signal)
 8-bit counter
@@ -4654,8 +4550,6 @@ If (1) is not met, use GPIO2, GPIO1, and GPIO0 to create and check the power con
 
 **Fig 4-6** Flowchart for checking power ON.
 
-Chapter 4 Peripheral LSI
-
 2-2 MFP Register Address Map
 
 | Register Address | D07 | D06 | D05 | D04 | D03 | D02 | D01 | D00 | Remarks |
@@ -4722,8 +4616,6 @@ E8802FH | P | . | . | P | 0 | P | 0 | 0 | USART Data Register (UDR)
 In the above, "P" denotes "programmable."
 
 **Table 4-7 MFP Register Reset Values**
-
-Chapter 4 Peripheral LSI
 
 2-3 Detailed Information on MFP Registers
 
@@ -4813,8 +4705,6 @@ D7    D6    D5    D4    D3    D2    D1    D0
 1 : GPIP0 Interrupt Enable/Disable
 ```
 
-Chapter 4 Peripheral LSI
-
 - Interrupt Enable Register B (E88009H)
 ```
   a. When the corresponding bit is set (1)
@@ -4871,8 +4761,6 @@ By the same, if the bit of the interrupt vector register D03 bit becomes 1 durin
 In this way, the registered bit remains set (1). The interrupt processing does not end until the software ends the interrupt process by setting the corresponding bit manually to 0.
 For the interrupt requests of high priority which are waiting for the acceptance among other interrupt requests, the corresponding channels' interrupt enabling register is set (1) while NMI executes the ongoing interrupt process, the higher priority's interrupt's pending register set (1) and further interrupt processing will proceed for subsequent requests till it completes at the software end accordingly.
 
-Chapter 4 Peripheral LSI
-
 If a channel Mi requests the MPU, and the request is accepted, the interrupt processing is executed. If however, there is no "1" in the bit of the interrupt service system for the corresponding interrupt, other interrupts are not accepted.
 
 b. When the corresponding bit is cleared (0)
@@ -4898,8 +4786,6 @@ The interrupt vector is 7 bits.
 (The bottom 4 bits correspond automatically to the MEP (0-16) for each interrupt channel number)
 
 However, when reset all bits are set to 0.
-
-2. MFP (Multi Function Peripheral)
 
 (3) Timer
 
@@ -4936,8 +4822,6 @@ D7 D6 D5 D4 D3 D2 D1 D0
 However, when resetting, all bits will be 0.
 
 Page 135
-
-Chapter 4 Peripheral LSI
 
 - Timer A Data Register (E8801FH): Set the down-counter value to generate an interrupt in Timer A (interrupt level 13). When an interrupt occurs, the register will be set to 00H.
 
@@ -4983,8 +4867,6 @@ When "1" is written, this register is in the "4F" readable state.
 | D7    | 1: Receive buffer full |
 
 Note that when D7 = "1" (buffer full), D6 = "1" (overrun error), or D5 = "1" (parity error), D3 = "1" (break detect) occurs, a Receive Error (MFP level 11 interrupt) occurs. Also, even if the receive error interrupt is disabled, the full receive buffer interrupt will still occur. However, all bits will be reset to 0 during reset.
-
-Chapter 4 Peripheral LSI
 
 - Transmission Status Register (E8802DH)
 
@@ -5054,8 +4936,6 @@ This SCC has two independent double channels, each with 14 write registers, seve
   Maximum 375 Kbps (FM character mode, DPLL) 
   Maximum 187 Kbps (NRZI character mode, DPLL)
 ```
-
-Chapter 4 Peripheral LSI
 
 (2) Channel B (Mouse)
 ● Asynchronous Communication
@@ -5148,8 +5028,6 @@ This is used to set the reservation time for turning on the computer's power (Vc
 - Clock Output
 1 Hz clock is output from the CLOCKOUT terminal and it is input into MFP or GPIO5 (Level Interrupt Input) terminals. This signal can also be input as an interrupt signal to the MFP. In addition, this 1 Hz signal is used for lighting and turning off the main body front panel's POWER LED and TIMER LED. For details on the LEDs, please refer to Chapter 5-3. Furthermore, for RP5C15 backup purposes, the normal battery for Vcc2 is connected, so if using the timer, do not turn off the rear power switch.
 
-Chapter 4 Peripheral LSI
-
 4-2  Address Map of the RTC Registers
 
 Tables 4-10 and 4-11 show the register address map of the RTC. Note that * indicates that the bit is invalid on WRITE and always reads as 0 on READ.
@@ -5203,8 +5081,6 @@ Table 4-10  RTC Register Address Map (1)
 Table 4-11  RTC Register Address Map (2)
 
 Page 145
-
-Chapter 4 Peripheral LSI
 
 4-3 Details of RTC Registers
 
@@ -5302,8 +5178,6 @@ The X68000 FDD is equipped with the following unique features:
 
 Page 148
 
-5. FDC (Floppy Disk Controller)
-
 | Power SW on the main unit | Activity LED | Eject LED | 
 |----------------------------|--------------|-----------|
 | ON State                   | If media is in the FDD  | - Normal lighting                      | Eject switch masking function ON: 
@@ -5332,8 +5206,6 @@ A function to detect media mis-insertion for each drive
 (6) Interrupt Function
 
 An interrupt notification function during media insertion and ejection
-
-Chapter 4 Peripheral LSI
 
 - I/O Controller
 - Hard Disk Control
@@ -5433,8 +5305,6 @@ Other                       Auto clamp eject mechanism, auto retract plate funct
 
 Table 4-13 Specifications of built-in FDD
 
-Chapter 4 Peripheral LSI
-
 5-2 Characteristics of the FDC
 
 In the X68000, the µPD72065 is used as the FDC to control the two installed FDDs. The following points differ when compared to the FDC MB8877A that was used in the conventional X1, X1turbo series.
@@ -5493,8 +5363,6 @@ Table 4-15: FDC Register Address Map
 ```
 
 Page 153
-
-Chapter 4 Peripheral LSI
 
 (3) Drive Control (Out) ... Option Signals
 - E94005H
@@ -5597,8 +5465,6 @@ D4:
 ```
 
 Page 155
-
-Chapter 4 Peripheral LSI
 
 (7) Interrupt Vector Numbers (Out)
 - E9C003H
@@ -5778,8 +5644,6 @@ OPTION 1 OPTION 2
 
 Figure 5-4 Key Code List
 
-Chapter 5 Other Hardware
-
 - From MFP to 8051, 1-byte data is sent.
 ```
   - If `SHIFT` is available, or by using `OPT. 2` key, TV control is performed.
@@ -5883,8 +5747,6 @@ D7   D6   D5   D4   D3   D2   D1   D0
 
 Figure 5-6 TV control code control code format from this book
 
-Chapter 5: Other Hardware
-
 MFP to 8051 1-byte data
 All flags are cleared upon reset, and the LED lighting request code FFH is sent from 8051 to MFP.
 
@@ -5982,8 +5844,6 @@ D1: Valid (Used as TV control key)
 
 Fig 5-13 OPT. TV control code format by 2 key and 2 signals
 
-Chapter 5 Other Hardware
-
 1-2 Key Data Processing Procedure
 
 (1) Initial Setting for Key Data Processing (Common for Input/Output)
@@ -6048,8 +5908,6 @@ Additionally, the output commands from the main unit MFP to the keyboard might i
 - Setting the delay and speed for repeat start time and subsequent repeat intervals 
 - TV control mode and mouse control mode control codes
 
-Chapter 5: Other Hardware
-
 Next, the following is a flowchart of each interrupt routine. Please refer to Chapter 4, Section 2 for MFP.
 
 Flowchart:
@@ -6104,8 +5962,6 @@ Figure 5-14 Receive Buffer Full Interrupt Routine Flowchart
 
 Page: 171
 
-Chapter 3 Sound Functions
-
 Receive Status Register (E8802BH) Read
 
 D05 Check "1"
@@ -6138,8 +5994,6 @@ Figure 5-15 Receive Error Interrupt Routine Flowchart
 
 Note: 
 
-1. Keyboard
-
 Transmit status register (E8802DH) read
 
 D04 Check
@@ -6156,8 +6010,6 @@ Under-run error processing
           Return
 
 Figure 5-16 Transmit Error Interrupt Routine Flow Chart
-
-Chapter 5: Other Hardware
 
 2. Mouse
 
@@ -6239,8 +6091,6 @@ Data B denotes relative data, where TB is designated relative X or Y mouse movem
 
 Note: For both X and Y coordinates, -129 or below means underflow (status data bit D7 or D5 is set to "1"), and +128 or above means overflow (status data bit D6 or D4 is set to "1").
 
-Chapter 5 Other Hardware
-
 Mouse Data (MSDATA)
 1st Byte: Status Data
 
@@ -6314,8 +6164,6 @@ Page 176
     Note: The timer interrupt loop serves to control the mouse control (MSCTRL), so please execute this program. At this time, it is unclear if both the keyboard and mouse are connected, so please set both mouse controls to "H" and then to "L" as follows.
 ```
 
-Chapter 5 Other Hardware
-
 [When using the main unit (SCC) mouse connector]
 Set SCC channel D write register WR5 to 60H, output to 500 µs or longer later, set 62H.
 [When using the keyboard (80C51) mouse connector]
@@ -6364,8 +6212,6 @@ E9A005H     IOC7 IOC6 IOC5 IOC4    S.R.  PCM PAN
 Table 5-6 Joystick Register Address Map
 
 (S.R. = Sampling Rate)
-
-Chapter 5: Other Hardware
 
 3-2 Details of the Joystick Register
 
@@ -6448,8 +6294,6 @@ The X68000, like the X1 and X1turbo series, is equipped with a Centronics-standa
 To send 1 byte of data to the printer from this device, a control signal, the BUSY signal, and the STROBE signal are used. The BUSY signal is the input signal from the printer, and no data can be sent when this signal is at "H" level. In other words, when the BUSY signal is at "H" level, the device waits until it goes down to "L" level before sending. Also, the STROBE signal is the output signal to the printer from the device, and by sampling data on this STROBE signal, the printer receives the data. However, before the STROBE signal is output, the data should be latched into the data register of E8C001H.
 
 In the X68000, in addition to the printing functions of the X1 and X1turbo series, a feature has been added that allows the software to mask the BUSY signal interrupt. By using this feature, there is no need to check the BUSY signal, and the status of the printer can be known through interrupts.
-
-Chapter 5 Other Hardware
 
 Register Address
 
@@ -6578,8 +6422,6 @@ When Vcc1 is ON, the LED automatically lights up in the high-resolution mode (ho
 
 Page 185
 
-Chapter 5 Other Hardware
-
 5-4 8255 Port
 
 In X68000, ports A and B of the 8255 are used as input ports for the joystick 2 port, and port C is used as an output port for sound synthesis output control and sampling frequency switching. Therefore, by using the control word register of this 8255, it is necessary to specify port A, B input, and port C output in mode 0.
@@ -6635,8 +6477,6 @@ Appendix
 |                   | E82323H       | R/W   | Sprite Color Table 1 Palette                     | Sprite Palette |
   
 Page 187
-
-Appendix
 
 |  Item  | Port Address | Function | Notes |
 |--------|--------------|----------|-------|
@@ -6875,8 +6715,6 @@ Table A-3 System Port Register E8E003H
 
 Table A-4 System Port Register E8E007H
 
-Appendix
-
 (5) EB00DDH [WRITE]
 
 - Normally, SRAM is Read-Only, but this port is designed to protect the contents of SRAM from being destroyed during program runaway.
@@ -7111,8 +6949,6 @@ SRAM ...............................184
 <U>
 USART .....................124, 125, 126, 136 
 USART control register ............136
-
-Index
 
 <V>
 V-DISP .................... 23
@@ -7356,8 +7192,6 @@ First Horizontal Character..........................180
 Second Horizontal Character.......................74
 
 Page 201
-
-Index
 
 <Ch>
 Channel......................................88,89,101,119,120,124,139,140
