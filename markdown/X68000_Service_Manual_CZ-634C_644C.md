@@ -1684,8 +1684,6 @@ In this device, it is possible to optionally use the floating-point arithmetic c
 The IC slots on the FPU-compatible motherboards detect the presence of an FPU or not, and automatically judge whether an FPU is installed in the motherboard IC slot. If the FPU is not installed in the motherboard IC slot, connecting it to the corresponding CPU socket on the CZ-6BP1 expansion slot will enable proper function.
 However, if the FPU is installed on both the motherboard and the I/O slot processor board, the system will recognize the FPU on the motherboard as the priority and operate accordingly. Therefore, ensure not to have duplicate installations.
 
-Note: The image contained a diagram illustrating the connections to the MC68881 FPU, which is referenced in the translated text but not described in detail here.
-
 8-3 Expansion Main Memory
 (1) Internal Expansion Board (CZ-6BE2A, CZ-6BE2B)
 * Expansion by 2MB units up to a maximum of 6MB (Actual maximum with internal extension of 8MB)
@@ -1836,8 +1834,6 @@ Figure 8-4 MFP interrupt block diagram
 
 Figure 8-5 MFP timer block diagram
 
-Note: The block diagrams depicted in the image consist of symbols and schematics outlining the logical flow of signals and counters within the MFP system. Translation of the labels within the diagrams remains consistent with the surrounding textual content.
-
 CZ-634C-TN
 CZ-644C-TN
 
@@ -1954,8 +1950,6 @@ MSCCTRL, MSDATA, GND
 
 Keyboard
 MSDATA
-
-Note: Some text from the image was repeated and translated groupwise.
 
 **8-5. SCC**
 
@@ -2084,8 +2078,6 @@ This RP5C15 has the following features with the same READ/WRITE sequence of the 
 *Figure 8-9 RTC Block Diagram*
 
 *Page -54-*
-
-The provided text translates to the following in English:
 
 (10) 1Hz Clock Output
 In particular, this device uses the RP5C15’s alarm feature and clock output as follows.
@@ -2765,8 +2757,6 @@ This table appears to reference the pin designations and functions for an expans
 | 24  | GND    | 49  | REQ    | In  | Data transfer request signal |
 | 25  | GND    | 50  | I/O    | In  | Input/output switching signal |
 
-The image also includes a diagram showing the layout of the connector pins.
-
 CZ-634C-TN
 CZ-644C-TN
 CZ-644C-TN
@@ -2774,8 +2764,6 @@ CZ-644C-TN
 10. Main Board
 
 [Main board component-layout diagram]
-
-The main text on the image translates to:
 
 "11. Main Circuit Diagram (1)"
 
@@ -2792,8 +2780,6 @@ On the bottom right corner, it says:
 The numbers at the bottom of the page, "- 77 -" and "- 78 -", probably indicate the page numbers in the document.
 
 "13. Main Basic Circuit Diagram (3)"
-
-The codes or alphanumeric text at the top do not need translation as they seem to represent part numbers or identifiers that remain the same in English.
 
 "14. Main basic wiring diagram (4)"
 
@@ -2814,8 +2800,6 @@ CZ-644C-TN
 (Schematic diagram — all labels are signal names, component designators, and part numbers in English/alphanumeric.)
 
 "17. Control Board"
-
-Additional text such as component labels on the board itself is typically technical and consists of component identifiers that usually do not need translation.
 
 18. I/O, FD Connector, SCSI Connector, LED Basic Wiring Diagram
 
@@ -3086,8 +3070,6 @@ Please remove the screws and connectors marked with circles in the order of the 
 
 CZ-634C-TN
 CZ-644C-TN
-
-Note: Numbers 1 through 9 in the image seem to reference specific steps or components in the disassembly process depicted without descriptive text.
 
 1. Top case screws
 2. Floppy Disk Drive fixing screws

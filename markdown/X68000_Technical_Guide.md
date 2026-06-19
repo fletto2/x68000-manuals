@@ -951,8 +951,6 @@ Table 2-9  Graphic Palette Address (2)
 
 ※In graphics 65536 color 1-surface mode, if the graphics VRAM memory data is, for example, 0101H, the palette register address at that time will be E82002H and E82000H as in Table 2-9, and the output palette data will be E82002H for D07-D00 and E82000H for D07-D00 combined. In other words, if E82000H is 3521H, and E82002H is 4CFFH, the palette output data will be FF21H.
 
-This translation captures the headings, table contents, and notes accurately from the original Japanese text.
-
 3. Control of Text and Graphics Screens (CRTC)
 
 The CRTC of the X68000 is a custom CRTC that supports dual-port DRAM (MB81461) used in text and graphics VRAM. This CRTC has 23 internal registers and provides the following screen control features:
@@ -1030,10 +1028,6 @@ Table: CRTC register map. The dots (•) in the original mark which bits of the 
 | R22 | E8002CH  | Source raster / Destination raster             | Raster address |
 | R23 | E8002EH  | Bit-mask register                              | Mask data |
 | —   | E80480H  | (operation port)                               | CRTC operation port |
-
-[Note: Transcribed and translated directly from the source page. Per-bit dot positions were not reproduced — only the valid field is named for each register.]
-
-> [consistency note: the CRTC addresses on this page (E800001H style, 7-digit) conflict with the authoritative map  elsewhere in this manual — R00=E80000H, even addresses, 2-byte stride. Treat the addresses here as suspect (garbled in the source).]
 
 Chapter 2 Screen Control
 
@@ -1343,7 +1337,6 @@ Also, for this raster copy, when raster copy execution occurs, data transfer is 
 (4) Bit Mask
 In the text VRAM data access of X68000, processing is performed in 16-bit units in the horizontal direction, but it is possible to mask the lowest 16-bit pitch out of those for efficient operation. Specifically, the bit mask can be set by writing "1" into the mask bits, using R21 (EB002AH) D09 for R23 (EB002EH) of D15-D00.
 
-[Note] High-speed Clear
 Use simultaneous access or raster copy for high-speed clear of the text screen. However, be aware that if raster copy is used, it must be valuable on the execution screen rather than the display screen.
 
 Page 33
@@ -1471,8 +1464,6 @@ Page 36
 
 Table 2-14 Sprite Register Address Map (1)
 
-Note: This is a technical document, likely referencing the registers of a graphics processing unit or similar hardware. Some abbreviations like VR, HR, and PRW are untranslated as they are specific technical terms.
-
 Chapter 2 Screen Control
 
 [PCG Area] (All registers READ/WRITE possible)
@@ -1599,8 +1590,6 @@ When the color data B, R, G, I in the PCG area is 0000H, it is considered transp
 
 (3) For details on SP Code, COLOR (SP), H inversion (SP), and V inversion (SP), please refer to "4-6 Texture Area (1)" in this chapter.
 
-This is the translation of the provided document text.
-
 Chapter 2 Screen Control
 
 4-4 Background Scroll Registers and Screen Mode Registers
@@ -1649,7 +1638,6 @@ H Res.=01
 [Bottom box]
 Background 0 Display Screen
 
-[Note]
 Figure 2-12 Text Area Dimensions
 
 In 512-dot display mode, only the background 0 face is displayed, and the settings for the background 1 face are ignored.
@@ -1823,8 +1811,6 @@ For BG: 16 x 16 + SP/Pattern For BG: 8 x 8 + SP/Pattern
 | EB81E0H     |             |         |         |         | 15 
 
 Table 2-19 Relationship between PCG address and code
-
-Note: The table has been represented in text format as best as possible.
 
 4-6 Details of the Text Area (1)
 
@@ -2590,8 +2576,6 @@ Table 2-22 Text (Sprite) Palette Address
 
 Table 2-23 Graphic Palette Address (1)
 (For the data of Palette Address 00H, please enter "0000H" as the initial value.)
-
-Note: Tables are represented in a simplified format due to text constraints.
 
 5. Video Controller
 
@@ -5184,8 +5168,6 @@ This is used to set the reservation time for turning on the computer's power (Vc
 - Clock Output
 1 Hz clock is output from the CLOCKOUT terminal and it is input into MFP or GPIO5 (Level Interrupt Input) terminals. This signal can also be input as an interrupt signal to the MFP. In addition, this 1 Hz signal is used for lighting and turning off the main body front panel's POWER LED and TIMER LED. For details on the LEDs, please refer to Chapter 5-3. Furthermore, for RP5C15 backup purposes, the normal battery for Vcc2 is connected, so if using the timer, do not turn off the rear power switch.
 
-(Note: Technical terms are often better left untranslated or partially translated to maintain accuracy, hence terms like "TIMER LED", "MFP", "SRAM", etc., remain in English.)
-
 Chapter 4 Peripheral LSI
 
 4-2  Address Map of the RTC Registers
@@ -5239,10 +5221,6 @@ Table 4-10  RTC Register Address Map (1)
 | E8A01FH | * | * | * | * | * | * | * | * | RESET Controller etc. (WRITE) |
 
 Table 4-11  RTC Register Address Map (2)
-
-[Remarks column corrected against the RP5C15 datasheet and the BANK 0 table: the
-original OCR shifted the labels down one row from E8A013H (12/24-select = E8A015H,
-leap-year = E8A017H, MODE = E8A01BH, TEST = E8A01DH).]
 
 Page 145
 
@@ -5658,8 +5636,6 @@ Chapter 4 Peripheral LSI
 |    |    |    |    |    |    |    |    | 1 0: Hard Disk interrupt
 |    |    |    |    |    |    |    |    |
 |    |    |    |    |    |    |    |    | 1 1: Printer interrupt
-
-(Vector number stored in the assigned register)
 
 5-5 FDC Access
 
@@ -6209,8 +6185,6 @@ Under-run error processing
 
 Figure 5-16 Transmit Error Interrupt Routine Flow Chart
 
-The image appears to depict a flowchart for handling errors during data transmission.
-
 Chapter 5: Other Hardware
 
 2. Mouse
@@ -6292,8 +6266,6 @@ Data B denotes relative data, where TB is designated relative X or Y mouse movem
   -128 (80H) to -1 (FFH), 0 (00H), +1 (01H) to +127 (7FH)
 
 Note: For both X and Y coordinates, -129 or below means underflow (status data bit D7 or D5 is set to "1"), and +128 or above means overflow (status data bit D6 or D4 is set to "1").
-
-Sure, here is the translation of the text on the image from Japanese to English.
 
 Chapter 5 Other Hardware
 
@@ -6654,8 +6626,6 @@ In X68000, ports A and B of the 8255 are used as input ports for the joystick 2 
 - 1 : Port A input (for Joystick No. 1)  
 
 For details on the joystick, refer to Chapter 6; for details on sound synthesis, refer to Chapter 4.
-
-> [consistency note: this appendix I/O-port list uses byte-level 7-digit addresses incompatible with the word-addressed CRTC map  elsewhere in this manual; field-to-offset mapping is off-by-one in places.]
 
 Appendix
 
@@ -7625,12 +7595,10 @@ Binding: Seishosha
 
 ISBN4-87148-426-2 C3055 ¥3000E
 
-There is no text on the image provided.
-
 *(Blank page in the original.)*
 
 ISBN4-87148-426-2 C3055 ¥3000E
 
 List Price: 3,000 yen
 
-The Japanese text on the image translates to "Technical Data Book."
+Technical Data Book.

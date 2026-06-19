@@ -216,8 +216,6 @@ Device Number = 15
 
 "MEMO"
 
-There is no other text in Japanese on the image.
-
 Chapter 2     Names and Functions of Each Part
 
 Names and Functions of Each Part of the ITX Series
@@ -240,8 +238,6 @@ Front and Rear of the ITX Series
     Supplies power to the ITX series.
 8 Cooling Fan
     Fan for cooling the drive and power supply.
-
-The text on the image is already in English.
 
 It says: 
 
