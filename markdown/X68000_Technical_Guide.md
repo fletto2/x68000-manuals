@@ -567,7 +567,37 @@ MSB           16-bit          LSB
 
 Figure 2-4. Memory Map of VRAM for Text
 
-![Figure 2-4. Memory Map of VRAM for Text](figures/x68000_technical_guide/tech_-000023.png)
+# 1. Text Screen Configuration
+
+# 1-1 Display Screen Configuration
+
+**Table 2-1  Text Screen Configuration**
+
+| Actual screen (H×V) | Simultaneous colors (palette colors) | Number of simultaneously displayed screens (overlay count) | Display screen (H×V) | Remarks |
+|---|---|---|---|---|
+| 1024×1024 | 16 (65536) | 1 | **High-resolution mode** <br> 768×512 <br> 512×512 <br> 512×256 <br> 256×256 | (512×256, 256×256: read twice) |
+| | | | **Standard-resolution mode (overstrike)** <br> 512×512 <br> 512×256 <br> 256×256 | Cursor display of overstrike characters; display of overstrike actual screen; screen size becomes smaller due to overstrike; interlace |
+
+# 1-2 Text VRAM Memory Map
+
+```
+            MSB        16 bits        LSB
+Text address
+E00000H  +-----------------------------+
+         |          T0 plane           |
+E1FFFFH  |                             |
+E20000H  +-----------------------------+
+         |          T1 plane           |
+E3FFFFH  |                             |
+E40000H  +-----------------------------+
+         |          T2 plane           |
+E5FFFFH  |                             |
+E60000H  +-----------------------------+
+         |          T3 plane           |
+E7FFFFH  +-----------------------------+
+```
+
+**Figure 2-4  Text VRAM Memory Map**
 
 **Chapter 2: Screen Control**
 
@@ -587,7 +617,20 @@ Text Palette Address for each Bit
 
 **Figure 2-5** Text Real Screen Address Layout
 
-![**Figure 2-5** Text Real Screen Address Layout](figures/x68000_technical_guide/tech_-000024.png)
+**Figure 2-5  Text screen address layout**
+
+The text screen consists of 4 planes (T0–T3). Each plane is accessed as 16-bit words, with 64 columns (0–63) horizontally and 1024 rows (0–1023) vertically.
+
+| Plane | Start address | End address |
+|-------|---------------|-------------|
+| T0    | E00000        | E1FFFE      |
+| T1    | E20000        | E3FFFE      |
+| T2    | E40000        | E5FFFE      |
+| T3    | E60000        | E7FFFE      |
+
+Within plane T0, the first words are: E00000, E00002, … E0007C, E0007E (row 0); E00080 … E000FE (row 1); … ; E1FF00 … E1FF7E (row 1022); E1FF80, E1FF82 … E1FFFC, E1FFFE (row 1023).
+
+Text palette address per bit (end addresses): T3 = E7FFFE, T2 = E5FFFE, T1 = E3FFFE, T0 = E1FFFE.
 
 1-4 Text Palette Address
 
@@ -1411,7 +1454,38 @@ EB8000H - PCG area
 
 Figure 2-10. Sprite register address map
 
-![Figure 2-10. Sprite register address map](figures/x68000_technical_guide/tech_-000048.png)
+**Figure 2-10  Sprite register area address map**
+
+| Address          | Contents                                  |
+|------------------|-------------------------------------------|
+| EB0000H–EB0002H  | Sprite Scroll Register                     |
+| EB0400H          | Reserved                                   |
+| EB0800H          | BG Scroll Register                         |
+| EB080AH          | Screen Mode Register                       |
+| EB0812H          | Reserved                                   |
+| EB8000H          | PCG Area                                    |
+| EBC000H          | Text Area 0                                 |
+| EBE000H          | Text Area 1                                 |
+| EBFFFFH          | (end)                                       |
+
+The register address block (EB0000H–) holds the sprite scroll register, BG scroll register, and screen mode register. The PCG address block (EB8000H–EBFFFFH) is divided into the PCG area, Text Area 0, and Text Area 1.
+
+The PCG area and the text areas share the same 16K-word address space (EB8000H–EBFFFFH). Depending on usage, it may be allocated as follows:
+
+```
+           Example 1        Example 2        Example 3
+EB8000H  +-----------+    +-----------+    +-----------+
+         | PCG area  |    | PCG area  |    | PCG area  |
+EBC000H  +-----------+    +-----------+    |           |
+         |Text area 0|    |           |    |           |
+EBE000H  +-----------+    |Text area 1|    |           |
+         |Text area 1|    |           |    |           |
+EBFFFFH  +-----------+    +-----------+    +-----------+
+```
+
+1. When both Text Area 0 and Text Area 1 are used, two backgrounds (BG0, BG1) can be displayed. Whether BG0/BG1 use which text area is set by the "TEXT SEL" bit.
+2. When only one background (e.g. BG0) is displayed, the remaining text area can be used as PCG area.
+3. When no background is displayed at all, both text areas can be used as PCG area, giving 16K words, for a maximum of 256 sprite patterns.
 
 Page 36
 
@@ -1552,7 +1626,14 @@ Sprite Temporary Coordinates System
 
 Figure 2-11: Display screen and sprite temporary coordinates
 
-![Figure 2-11: Display screen and sprite temporary coordinates](figures/x68000_technical_guide/tech_-000052.png)
+Relationship between the display screen mode and the sprite virtual coordinate system (example):
+
+| Display screen mode      | Display screen region          |
+|--------------------------|--------------------------------|
+| 512 dot × 512 line       | (16,16) – (527,527)            |
+| 256 dot × 256 line       | (16,16) – (271,271)            |
+
+(See Figure 2-11: the sprite virtual coordinate system spans (0,0) to (1023,1023); X and Y coordinates each range 0–1023.)
 
 4. Sprite
 
@@ -1567,7 +1648,18 @@ Figure 2-11: Display screen and sprite temporary coordinates
 
 **Figure 2-17** Display Priority Order
 
-![**Figure 2-17** Display Priority Order](figures/x68000_technical_guide/tech_-000053.png)
+**Table 2-17  Display priority (PRW priority)**
+
+Sets the display priority between sprites and the two background planes.
+
+| PR1 | PR0 | Display priority order      |
+|-----|-----|-----------------------------|
+| 0   | 0   | Sprites not displayed       |
+| 0   | 1   | BG0 > BG1 > SP              |
+| 1   | 0   | BG0 > SP > BG1              |
+| 1   | 1   | SP > BG0 > BG1             |
+
+When the color data B, R, G, I in the PCG area is 0000H, it is treated as transparent and the lower-priority plane is displayed.
 
 When the color data B, R, G, I in the PCG area is 0000H, it is considered transparent and the lower priority plane is displayed.
 
@@ -1746,7 +1838,20 @@ Sprites are always of a 16x16 dot pattern configuration, but backgrounds can be 
 Therefore, when the background is in a 16x16 dot pattern configuration, it is possible for the sprite code and background code to share the same pattern. However, when the background is in an 8x8 dot pattern configuration, attention is required because the sprite code and background code differ.
 Also, the background dot pattern configuration (16x16 dot pattern or 8x8 dot pattern) is determined by the screen mode. In horizontal 512 dot mode, it is a 16x16 dot pattern configuration, and in horizontal 256 dot mode, it is an 8x8 dot pattern configuration (refer to Figure 2-13 for details).
 
-![Also, the background dot pattern configuration 16x16 dot pattern or 8x8 dot pattern is determined by the screen mode. In horizontal 512 dot mode, it is a 16x16 dot pattern configuration, and in horizontal 256 dot mode, it is an 8x8 dot pattern configuration refer to Figure 2-13 for details.](figures/x68000_technical_guide/tech_-000059.png)
+**Figure 2-13  PCG pattern composition**
+
+```
+  16 dot                       16 dot
++---------+                  +----+----+
+|         |   SP code = 0    | 0  | 2  |   SP code = 0
+|    0    |   BG code = 0    +----+----+   BG code = 0,1,2,3
+|         |                  | 1  | 3  |
++---------+                  +----+----+
+
+BG: 16×16 dot/pattern         BG: 8×8 dot/pattern
+SP code = BG code = n          BG code = 4n, 4n+1, 4n+2, 4n+3
+(n = 0,1,…)
+```
 
 BG: 16x16 dot pattern configuration
 16 dots   ⎡ ⎤
@@ -2055,7 +2160,34 @@ Most preferred graphics page number:
 1. Graphics Actual Screen 1024×1024
 In a mode with an actual screen of 1024×1024 dots, the graphics screen page number is assigned as shown in Figure 2-21. The display page has only one side, and this represents the priority of the values of graphics screen page numbers.
 
-![In a mode with an actual screen of 1024×1024 dots, the graphics screen page number is assigned as shown in Figure 2-21. The display page has only one side, and this represents the priority of the values of graphics screen page numbers.](figures/x68000_technical_guide/tech_-000069.png)
+**Register 1 (E82400H)** — Sets the graphic memory real-screen size and color mode (set to the same value as bits D10–D08 of CRTC R20).
+
+Bits D02 D01 D00:
+
+| D02 | D01 | D00 | Mode |
+|-----|-----|-----|------|
+| 0 | 0 | 0 | Graphic 16-color, 4-page mode (valid when D02 = 0) |
+| 0 | 0 | 1 | Graphic 256-color mode (valid when D02 = 0) |
+| 0 | 1 | 1 | Graphic 65536-color mode (valid when D02 = 0) |
+| 1 | — | — | Graphic real-screen 512×512 mode (when D02 = 1, set D00–D01 to 1) |
+
+**Register 2 (E82500H)** — The lower byte (D07–D00) sets the priority between graphic screen pages.
+
+| Bits | Meaning |
+|------|---------|
+| D01–D00 | Graphic screen page number with the highest priority |
+| D03–D02 | Second priority graphic screen page number (specified the same way) |
+| D05–D04 | Third priority graphic screen page number (specified the same way) |
+| D07–D06 | Lowest priority graphic screen page number (specified the same way) |
+
+Page-number value for each field:
+
+| Value | Page |
+|-------|------|
+| 0 0 | Graphic screen page 0 |
+| 0 1 | Graphic screen page 1 |
+| 1 0 | Graphic screen page 2 |
+| 1 1 | Graphic screen page 3 |
 
 Diagram labels:
 G00 G01 G02 G03
@@ -2242,7 +2374,20 @@ Display Omitted
 
 Figure 2-23 Examples of overlapping displays in graphics screen layers of 4 layers mode
 
-![Figure 2-23 Examples of overlapping displays in graphics screen layers of 4 layers mode](figures/x68000_technical_guide/tech_-000076.png)
+**Register 3, upper byte (E82600H, D15–D08)** — Sets the semi-transparent mode and special priority function.
+
+Bit assignment (D15…D08): Ys, AH, VH, EO, HP, BP, GG, GT
+
+| Bit | Name | Setting |
+|-----|------|---------|
+| D08 | GT | 0: Normal mode. 1: Semi-transparent compositing between an area specified within the graphic palette data D12="1" and the TV/video screen. |
+| D09 | GG | 0: Normal mode. 1: Semi-transparent compositing between the highest-priority graphic screen page (semi-transparent-area-specified screen) D12="1" and the text (sprite) screen. |
+| D10 | BP | 0: Normal mode. 1: Special-priority enabled mode when D12="1". |
+| D11 | HP | 0: Normal mode. 1: Semi-transparent mode when D12="1". |
+| D12 | EO | Used together with the special-priority mode / semi-transparent mode. |
+| D13 | VH | 1: Semi-transparency between two graphic screen pages (the higher-priority page is the semi-transparent-area-specified page); the number of colors usable on a graphic screen is halved. Note: when semi-transparent (D12="1", D11="1"), the usable palette is halved. |
+| D14 | AH | Reserve. |
+| D15 | Ys | CMPCUT (Ys) signal control. 0: CMPCUT signal off. 1: CMPCUT signal on — displays the computer screen even in super-impose mode (cuts the TV screen). |
 
 In the upper byte of Register 3, half-transparency mode and special priority function settings are performed.
 
@@ -2654,7 +2799,25 @@ FBFFEFH ────────────────────────
 
 Figure 2-34 CGROM Address Map
 
-![Figure 2-34 CGROM Address Map](figures/x68000_technical_guide/tech_-000087.png)
+**Figure 2-34  CGROM address map**
+
+16 bits (MSB ... LSB)
+
+| Start address | Contents |
+|---|---|
+| F00000H | 16x16 font (non-kanji, 752 characters) |
+| F05E00H | 16x16 font (Level 1 kanji, 3008 characters) |
+| F1D600H | 16x16 font (Level 2 kanji, 3478 characters) |
+| F388C0H | (gap) |
+| F3A000H | 8x8 font (256 characters) |
+| F3A800H | 8x16 font (256 characters) |
+| F3B800H | 12x12 font (256 characters) |
+| F3D000H | 12x24 font (256 characters) |
+| F40000H | 24x24 font (non-kanji, 752 characters) |
+| F4D380H | 24x24 font (Level 1 kanji, 3008 characters) |
+| F82180H | 24x24 font (Level 2 kanji, 3478 characters) |
+| F8F380H | (end region) |
+| F8FFFEH | (last address) |
 
 6-3 Structure of CGROM Address
 
@@ -2678,7 +2841,34 @@ ASCII Code 00H Font
 
 Fig. 2-35 CGROM Address (1)
 
-![Fig. 2-35 CGROM Address 1](figures/x68000_technical_guide/tech_-000088.png)
+**Figure 2-35  CGROM address (1) - 8x8 font** (ASCII code 00H font)
+
+Pattern: 8 bits wide x 8 rows (rows 0-7). Stored as 16-bit words, MSB ... LSB; each word holds two rows (left half = MSB, right half = LSB).
+
+| Address | MSB row | LSB row |
+|---|---|---|
+| F3A000H | 0 | 1 |
+| F3A002H | 2 | 3 |
+| F3A004H | 4 | 5 |
+| F3A006H | 6 | 7 |
+| F3A008H | (next char) | |
+| F3A00AH | 2 | 3 |
+
+**Figure 2-36  CGROM address (2) - 8x16 font** (ASCII code 00H font)
+
+Pattern: 8 bits wide x 16 rows (rows 0-15). 16-bit words, MSB ... LSB; each word holds two rows.
+
+| Address | MSB row | LSB row |
+|---|---|---|
+| F3A800H | 0 | 1 |
+| F3A802H | 2 | 3 |
+| F3A804H | 4 | 5 |
+| F3A806H | 6 | 7 |
+| F3A808H | 8 | 9 |
+| F3A80AH | 10 | 11 |
+| F3A80CH | 12 | 13 |
+| F3A80EH | 14 | 15 |
+| F3A810H | (next char) 0 | 1 |
 
 (2) 8x16 Font
 
@@ -2743,7 +2933,30 @@ Near the table on the right:
 Bottom:
 "Fig. 2-37 CGROM Address (3)"
 
-!["Fig. 2-37 CGROM Address 3"](figures/x68000_technical_guide/tech_-000089.png)
+**Figure 2-37  CGROM address (3) - 16x16 font** (JIS code 2121H font)
+
+Pattern: 16 bits wide x 16 rows (rows 0-31 counting both halves). 16-bit words, MSB ... LSB; each word holds two rows.
+
+| Address | MSB row | LSB row |
+|---|---|---|
+| F00000H | 0 | 1 |
+| F00002H | 2 | 3 |
+| F00004H | 4 | 5 |
+| F00006H | 6 | 7 |
+| F00008H | 8 | 9 |
+| F0000AH | 10 | 11 |
+| F0000CH | 12 | 13 |
+| F0000EH | 14 | 15 |
+| F00010H | 16 | 17 |
+| F00012H | 18 | 19 |
+| F00014H | 20 | 21 |
+| F00016H | 22 | 23 |
+| F00018H | 24 | 25 |
+| F0001AH | 26 | 27 |
+| F0001CH | 28 | 29 |
+| F0001EH | 30 | 31 |
+
+(Left-side pattern grid shows columns 0..31 across 16 rows.)
 
 (4) 12x12 Font
 
@@ -2781,7 +2994,24 @@ Font of 00H
 
 Figure 2-38 CGROM Address (4)
 
-![Figure 2-38 CGROM Address 4](figures/x68000_technical_guide/tech_-000090.png)
+**Figure 2-38  CGROM address (4) - 12x12 font** (ASCII code 00H font)
+
+Pattern: 12 bits wide x 12 rows. 16-bit words, MSB ... LSB; each word holds two 12-bit row halves, with the low 4 bits = 0000.
+
+| Address | MSB row | LSB row | low nibble |
+|---|---|---|---|
+| F3B800H | 0 | 1 | 0000 |
+| F3B802H | 2 | 3 | 0000 |
+| F3B804H | 4 | 5 | 0000 |
+| F3B806H | 6 | 7 | 0000 |
+| F3B808H | 8 | 9 | 0000 |
+| F3B80AH | 10 | 11 | 0000 |
+| F3B80CH | 12 | 13 | 0000 |
+| F3B80EH | 14 | 15 | 0000 |
+| F3B810H | 16 | 17 | 0000 |
+| F3B812H | 18 | 19 | 0000 |
+| F3B814H | 20 | 21 | 0000 |
+| F3B816H | 22 | 23 | 0000 |
 
 Page 78
 
@@ -2804,7 +3034,33 @@ ASCII Code 00H Font
 
 Figure 2-39 CGROM Address (5)
 
-![Figure 2-39 CGROM Address 5](figures/x68000_technical_guide/tech_-000091.png)
+**Figure 2-39  CGROM address (5) - 12x24 font** (ASCII code 00H font)
+
+Pattern: 12 bits wide x 24 rows. 16-bit words, MSB ... LSB; each word holds two 12-bit row halves, low 4 bits = 0000.
+
+| Address | MSB row | LSB row | low nibble |
+|---|---|---|---|
+| F3D000H | 0 | 1 | 0000 |
+| F3D002H | 2 | 3 | 0000 |
+| F3D004H | 4 | 5 | 0000 |
+| ... | ... | ... | ... |
+| F3D02AH | 42 | 43 | 0000 |
+| F3D02CH | 44 | 45 | 0000 |
+| F3D02EH | 46 | 47 | 0000 |
+
+**Figure 2-40  CGROM address (6) - 24x24 font** (JIS code 2121H font)
+
+Pattern: 24 bits wide x 24 rows. 16-bit words, MSB ... LSB; each word holds two rows.
+
+| Address | MSB row | LSB row |
+|---|---|---|
+| F30000H | 0 | 1 |
+| F30002H | 2 | 3 |
+| F30004H | 4 | 5 |
+| ... | ... | ... |
+| F3002AH | 66 | 67 |
+| F3002CH | 68 | 69 |
+| F3002EH | 70 | 71 |
 
 (6)  24×24 Font
 
@@ -2841,7 +3097,19 @@ The X68000 supports the following computer screen display modes:
 
 Figure 2-25 Standard Resolution Mode
 
-![Figure 2-25 Standard Resolution Mode](figures/x68000_technical_guide/tech_-000092.png)
+**Table 2-25  Standard resolution modes**
+
+| Physical screen size in standard resolution mode | Actual display screen size |
+|---|---|
+| 512x256 (dots) | approx. 471x236 (dots) |
+| 256x256 | approx. 236x236 |
+| 512x512 | approx. 471x471 (interlaced) |
+
+**Figure 2-41  Standard resolution mode**
+
+- [Overscan]: The CRT screen (display area) is fully filled by the computer screen.
+- [Normal scan] (conventional display method): The computer screen sits inside the CRT screen (display area), surrounded by a border.
+- (Note: the area inside the dotted line is the overscanned computer screen.)
 
 [Overscan]
 [Normal Scan (usual display method)]
@@ -2871,7 +3139,18 @@ Table 2-26 Superimpose Mode
 
 Figure 2-42 Superimpose Mode
 
-![Figure 2-42 Superimpose Mode](figures/x68000_technical_guide/tech_-000093.png)
+**Table 2-26  Superimpose modes**
+
+| Mode | Resolution |
+|---|---|
+| Conventional superimpose mode | 512x256, 256x256 |
+| Pseudo high-resolution superimpose mode | 512x512 (interlaced) |
+
+**Figure 2-42  Superimpose mode**
+
+- [Conventional superimpose mode]: Within the CRT screen (display area), the odd-field rasters and even-field rasters both access the same memory address (same memory access). For TV-synchronized loads, both odd and even fields access the same memory data.
+- [Pseudo high-resolution superimpose mode]: Within the CRT screen (display area), the odd-field rasters and even-field rasters all access different memory (different memory access). For TV-synchronized loads, the odd and even fields access different memory data.
+- (Note: the area inside the dotted line is the overscanned computer screen.)
 
 [Conventional Superimpose Mode]      |         [Suspected High Resolution Superimpose Mode]
 
@@ -3418,7 +3697,21 @@ When the output of the EG is given a key-on, this EG changes as shown in the fig
 
 Set 1 out of 16 data for each tone. One data consists of 5 bits. When a key-on is given to the EG, the envelope amount decreases, and after the TA time, the envelope amount reaches 0 db. This attack time (TA) can be set to 3-11, 3-12, etc., according to the AR. Additionally, AR is keyed by KEY CODE. Please refer to Figure 3-3 for scaling.
 
-![Set 1 out of 16 data for each tone. One data consists of 5 bits. When a key-on is given to the EG, the envelope amount decreases, and after the TA time, the envelope amount reaches 0 db. This attack time TA can be set to 3-11, 3-12, etc., according to the AR. Additionally, AR is keyed by KEY CODE. Please refer to Figure 3-3 for scaling.](figures/x68000_technical_guide/tech_-000107.png)
+**AR : ATTACK RATE** (register at addresses 80H / 8FH)
+
+| Bit | D7 | D6 | D5 | D4 | D3 | D2 | D1 | D0 |
+|---|---|---|---|---|---|---|---|---|
+| Field | KS | KS | x | AR | AR | AR | AR | AR |
+
+(D7-D6 = KS, D5 = unused, D4-D0 = AR; 5-bit AR value.)
+
+**D1R : 1st DECAY RATE** (register at addresses A0H / BFH)
+
+| Bit | D7 | D6 | D5 | D4 | D3 | D2 | D1 | D0 |
+|---|---|---|---|---|---|---|---|---|
+| Field | x | x | AMS-EN | D1R | D1R | D1R | D1R | D1R |
+
+(D7-D6 = unused, D5 = AMS-EN, D4-D0 = D1R; 5-bit D1R value.)
 
 - DIR: 1st DECAY RATE
 
@@ -3432,7 +3725,29 @@ Set 1 out of 16 data for each tone. One data consists of 5 bits. When the EG's e
 
 1 Set the data to 4 for the sound, 1 Data will be 4 bits as shown above. When the EG moves to release while the key is off, it decays towards the maximum attenuation level (96db). This release time (TR) can be set according to RR in Table 3-11 and Table 3-12. Additionally, RR is scaled by KEY CODE, so please refer to Figure 3-3. The RR has one less bit compared to D1R and D2R, so the resolution worsens.
 
-![1 Set the data to 4 for the sound, 1 Data will be 4 bits as shown above. When the EG moves to release while the key is off, it decays towards the maximum attenuation level 96db. This release time TR can be set according to RR in Table 3-11 and Table 3-12. Additionally, RR is scaled by KEY CODE, so please refer to Figure 3-3. The RR has one less bit compared to D1R and D2R, so the resolution worsens.](figures/x68000_technical_guide/tech_-000108.png)
+**D2R : 2nd DECAY RATE** (register at addresses C0H / DFH)
+
+| Bit | D7 | D6 | D5 | D4 | D3 | D2 | D1 | D0 |
+|---|---|---|---|---|---|---|---|---|
+| Field | DT2 | DT2 | x | D2R | D2R | D2R | D2R | D2R |
+
+(D7-D6 = DT2, D5 = unused, D4-D0 = D2R; 5-bit D2R value.)
+
+**RR : RELEASE RATE** (register at addresses E0H / FFH)
+
+| Bit | D7 | D6 | D5 | D4 | D3 | D2 | D1 | D0 |
+|---|---|---|---|---|---|---|---|---|
+| Field | D1L | D1L | D1L | D1L | RR | RR | RR | RR |
+
+(D7-D4 = D1L, D3-D0 = RR; 4-bit RR value.)
+
+**KS : KEY SCALING** (register at addresses 80H / 9FH)
+
+| Bit | D7 | D6 | D5 | D4 | D3 | D2 | D1 | D0 |
+|---|---|---|---|---|---|---|---|---|
+| Field | KS | KS | x | AR | AR | AR | AR | AR |
+
+(D7-D6 = KS, D5 = unused, D4-D0 = AR; KS is a 2-bit field.)
 
 • KS: KEY SCALING
 
@@ -5685,15 +6000,11 @@ Additionally, regarding repeat, you can control the delay time before entering r
 (2) TV control remote signal output (refer to Table 5-3, Figure 5-5)
 In the X1 and X1turbo series, the remote control signal was output from the main unit's 80C49 on P27 (pin 38), but in the X68000, the same signal is output from the keyboard's 80C51 T1 terminal. In the X68000, the method of outputting this TV control remote signal uses key operations on the keyboard (such as the SHIFT key) to send the 1-byte data to the MFP via the main unit or 80C51. Thus, depending on whether the main unit or the keyboard control is enabled, it allows you to send or invalidate the TV control code (refer to Figure 5-13).
 
-![In the X1 and X1turbo series, the remote control signal was output from the main unit's 80C49 on P27 pin 38, but in the X68000, the same signal is output from the keyboard's 80C51 T1 terminal. In the X68000, the method of outputting this TV control remote signal uses key operations on the keyboard such as the SHIFT key to send the 1-byte data to the MFP via the main unit or 80C51. Thus, depending on whether the main unit or the keyboard control is enabled, it allows you to send or invalidate the TV control code refer to Figure 5-13.](figures/x68000_technical_guide/tech_-000172.png)
-
 Page 160
 
 > 6 reference). Also, TV control by OPT.2 keys and CFG on keys can be enabled or disabled in the same way (Figure 5-13 reference).
 > 
 > Additionally, if the keyboard is not connected to the main unit's connector, TV control will be possible even if a remote control signal is sent with software-based timing management while using the system port E8E003H D03 as "0". Conversely, if the keyboard is connected to the main unit, TV control is possible only when the system port E8E003H D03 is set to "0". For normal use, please set it to "0" (Figure 5-2 reference). The only available functions when entering TV control from the keyboard with a repeat enabled are volume up, volume down, channel up, and channel down.
-
-![> Additionally, if the keyboard is not connected to the main unit's connector, TV control will be possible even if a remote control signal is sent with software-based timing management while using the system port E8E003H D03 as "0". Conversely, if the keyboard is connected to the main unit, TV control is possible only when the system port E8E003H D03 is set to "0". For normal use, please set it to "0" Figure 5-2 reference. The only available functions when entering TV control from the keyboard with a repeat enabled are volume up, volume down, channel up, and channel down.](figures/x68000_technical_guide/tech_-000173.png)
 
 > 
 > (3) Keyboard LED control (Figure 5-8 reference)
@@ -5717,7 +6028,15 @@ Normally, the main loop scans the keys and outputs the key data, but if the main
 
 (6) Special Control Keys in Compact TV Mode (Refer to Fig. 5-11)
 
-![6 Special Control Keys in Compact TV Mode Refer to Fig. 5-11](figures/x68000_technical_guide/tech_-000174.png)
+**Table 5-2  X1-compatible TV control codes**
+
+The TV control keys shown below can also be used as X1-compatible TV control keys by sending 1 byte of data from the MFP to the 80C51.
+
+| Operation key | X68000 | X1 compatible mode |
+|---|---|---|
+| SHIFT + (key) | Superimpose / cancel-superimpose toggle key | Superimpose |
+| SHIFT + (key) | TV / external input switching toggle key | TV |
+| SHIFT + (key) | TV / computer screen switching toggle key | Computer |
 
 As shown in Table 5-2, 1 byte of data is sent from the MFP to the 80C51 regarding the control keys to use as TV controller keys on the X1 Compact.
 
@@ -6086,7 +6405,38 @@ Return
 
 Figure 5-14 Receive Buffer Full Interrupt Routine Flowchart
 
-![Figure 5-14 Receive Buffer Full Interrupt Routine Flowchart](figures/x68000_technical_guide/tech_-000183.png)
+**Figure 5-14  Receive Buffer Full interrupt routine flowchart**
+
+```
+              "1"
+               |
+               v
+  +-------------------------------------------+
+  | Set LED lighting control code in          |
+  | USART data register (E8802FH)             |
+  +-------------------------------------------+
+               |
+               v
+  +-------------------------------------------+
+  | Read transmit status register (E8802DH)   |
+  +-------------------------------------------+
+               |
+               v
+          /----------\   "0"
+         <  D07 check  >--------+
+          \----------/         | (loop back to read
+               | "1"           |  transmit status register)
+               v               
+  +-------------------------------------------+
+  | Set 04H in transmit status register       |
+  | (E8802DH)                                 |
+  +-------------------------------------------+
+               |
+               v
+           +--------+
+           | Return |
+           +--------+
+```
 
 Page: 171
 
@@ -6120,7 +6470,39 @@ Return
 
 Figure 5-15 Receive Error Interrupt Routine Flowchart
 
-![Figure 5-15 Receive Error Interrupt Routine Flowchart](figures/x68000_technical_guide/tech_-000184.png)
+**Figure 5-15  Receive Error interrupt routine flowchart**
+
+```
+  +-------------------------------------------+
+  | Read receive status register (E8802BH)    |
+  +-------------------------------------------+
+               |
+               v
+          /----------\   "1"    +----------------------------+    +---------------------------+    +--------+
+         <  D05 check  >------->| Read USART data register   |--->| Parity error processing   |--->| Return |
+          \----------/         | (E8802FH)                  |    +---------------------------+    +--------+
+               | "0"           +----------------------------+
+               v
+  +-------------------------------------------+
+  | Read USART data register (E8802FH)        |
+  +-------------------------------------------+
+               |
+               v
+          /----------\   "1"     /----------\   "1"    +-------------------+    +-----------------------+    +--------+
+         <   00H ?     >------->|  D02 check  >------->| Start bit         |--->| Break error           |--->| Return |
+          \----------/          \----------/          | detection         |    | processing            |    +--------+
+               | "N"                 | "0"            +-------------------+    +-----------------------+
+               v                     v
+  +------------------------+   +-------------------+    +-----------------+    +--------+
+  | Overrun error          |   | Stop bit          |--->| Error           |--->| Return |
+  | processing             |   | detection         |    | processing      |    +--------+
+  +------------------------+   +-------------------+    +-----------------+
+               |
+               v
+           +--------+
+           | Return |
+           +--------+
+```
 
 Note: 
 
@@ -6141,7 +6523,35 @@ Under-run error processing
 
 Figure 5-16 Transmit Error Interrupt Routine Flow Chart
 
-![Figure 5-16 Transmit Error Interrupt Routine Flow Chart](figures/x68000_technical_guide/tech_-000185.png)
+**Figure 5-16  Transmit Error interrupt routine flowchart**
+
+```
+  +-------------------------------------------+
+  | Read transmit status register (E8802DH)   |
+  +-------------------------------------------+
+               |
+               v
+          /----------\   "1"    +---------------------------+    +--------+
+         <  D04 check  >------->| Transmitter disable       |--->| Return |
+          \----------/         | detection                 |    +--------+
+               | "0"           +---------------------------+
+               v
+  +---------------------------+
+  | Transmitter enable        |
+  | detection                 |
+  +---------------------------+
+               |
+               v
+  +-------------------------------------------+
+  | Underrun error processing                 |
+  | (return to retransmit main routine)       |
+  +-------------------------------------------+
+               |
+               v
+           +--------+
+           | Return |
+           +--------+
+```
 
 2. Mouse
 

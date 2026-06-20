@@ -1074,7 +1074,25 @@ Reset Sequence:
 3. Once the reset signal is removed, the MPU fetches the long word data from the ROMs shown at the top of the memory map.
 4. At this time, the MPU executes instructions based on the program counter. Meanwhile, the IPL ROM 1 image disappears, and the system goes into the state shown in figure 3-2.
 
-![4. At this time, the MPU executes instructions based on the program counter. Meanwhile, the IPL ROM 1 image disappears, and the system goes into the state shown in figure 3-2.](figures/x68000_service_manual/serv_-000024.png)
+# 3-6. IPL
+
+- **IPL ROM address**: FC0000H - FFFFFFH (256 Kbytes)
+- **Access**:
+  1. Supervisor program, data area
+  2. Read only
+
+```
+   MSB        LSB          MSB        LSB
++-----------+ --- 000000H  +-----------+
+| IPL ROM1  |              |           |
+| image     |              |   Main    |
++-----------+ --- 00FFFEH  |   memory  |
+```
+
+**At reset:**
+
+1. At reset, the IPL ROM 1 area (FF****H) appears at the first 64 Kbytes of the memory map (000000H to 00FFFFH).
+2. The first 2 long words from the start of this IPL ROM 1 hold the program counter and ... (for the 68000 MPU to perform reset exception processing) [text continues beyond crop]
 
 > Note: The value of the program counter stored in the IPL ROM 1 must point within the address range of IPL ROM 1. This is because the hardware is designed so that accessing addresses (FF0000H-FFFFFFFH) makes the IPL ROM 1 image disappear from the top of the memory map. 
 > The ROM image appears in the memory map upon power-on reset or manual reset (Figure 3-1). (The ROM image does not appear for the 68000 MPU reset command execution.)
@@ -1093,7 +1111,38 @@ When accessing the screen, set the CRTC and sprite controller numbers regardless
 
 (Figure showing screen control block diagram)
 
-![Figure showing screen control block diagram](figures/x68000_service_manual/serv_-000025.png)
+# 4. Screen configuration and control
+
+# 4-1. Screen configuration
+
+This machine has three independent screens: text, graphics, and sprite. Control of the text screen and graphics screen is performed by the CRTC, and control of the sprite screen is performed by the sprite controller. In addition, screen control such as priority and translucency between the text, graphics, and sprite screens, special priority functions, palette functions for each screen, and screen display functions are performed by the video controller.
+
+However, when accessing the screen, the CRTC, sprite controller, and video controller must always be set up, regardless of whether they are used or not.
+
+**Fig. 4-1  Display control system block diagram**
+
+```
+  [Sprite V-RAM]
+        |
+        v
+  [Sprite                                    GREEN
+   Controller] ------>+----+      +-------+   +-----+
+        ^             |    |----->|       |-->| DAC |--+
+        |             +----+   16 | Video |  5+-----+  |
+        |    [Text V-RAM] ------->| Cont- |   RED      |  +-----+
+        |                        | roller|   +-----+   +->|     |
+  [CRTC]--[Graphic V-RAM]-->+--+ |       |-->| DAC |---->| AMP |
+            32              +--+ |       |  5+-----+   +->|     |
+                             16  |       |   BLUE      |  +-----+
+                                 |       |   +-----+   |
+                                 |       |-->| DAC |---+
+                                 +-------+  5+-----+    4
+                                                    System port
+```
+
+**1) Text screen (bitmap method)**
+
+(Illustration: a display screen within a larger virtual screen, with labels Up / Down / Left / Right; "display screen" inside "virtual screen".)
 
 **1) Text Screen (Bitmap Method)**
 
@@ -1539,7 +1588,31 @@ This machine uses the YM2151 as the FM sound source LSI and the MSM6258 as the v
 
 Fig. 7-1 Sound System Block Diagram
 
-![Fig. 7-1 Sound System Block Diagram](figures/x68000_service_manual/serv_-000040.png)
+**Figure 7-1  Sound System Block Diagram**
+
+```
+  Data <===> [Buffer] --+
+                        |
+                        v
+             +----------+----------+
+             |                     |
+             |   FM Sound Source   |        +-------+
+             |     (YM2151)        |------->| Amp   |---o Internal Speaker
+             |   Vcc1 Vss CLK(4MHz)|---+    +-------+---o Headphone Out
+             |                     |   |
+  Address ==>|   [Decoder]         |   +-------------o L line Out
+             |                     |   +-------------o R line Out
+             |   uPD8255           |                 o R TV AUDIO
+             |     PC              |                 o L TV AUDIO
+             |   Vcc1 Vss          |
+             |                     |     +---------+
+             |   ADPCM             |---->| PCM PAN |
+  Control ==>|     (MSM6258)       |     +---------+
+             |   Vcc1 Vss CLK(4MHz)|                 o line In
+             +---------------------+
+```
+
+Note: PCM PAN receives control from uPD8255 PC and ADPCM (MSM6258) output.
 
 Labels in the diagram:
 
@@ -1705,7 +1778,19 @@ In this device, it is possible to optionally use the floating-point arithmetic c
 
 ![Diagram of FPU signal block]
 
-![!Diagram of FPU signal block](figures/x68000_service_manual/serv_-000044.png)
+- 67-bit arithmetic unit
+- High-speed shift via 67-bit barrel shifter
+- 46 types of instructions
+- Fully compliant with the IEEE 754 standard
+- Support for functions not defined by the IEEE standard (trigonometric functions, transcendental functions, etc.)
+- 7 data types (byte, word and long-word integers; single-precision real; double-precision real; extended-precision real; packed decimal real)
+- On-chip ROM support for 22 constants (pi, e, etc.)
+- Virtual memory / machine operation
+- Efficient mechanisms for procedure calls, context switching, and interrupt processing
+- Parallel instruction execution with the main processor
+- Can be connected to a host processor that appears on an 8-bit, 16-bit, or 32-bit data bus
+
+The circuit automatically determines whether or not an FPU is installed in the IC socket on this unit's main board. Because of this, if no FPU is installed in the socket on the board, a CZ-6BP1 numeric processor board can be connected to the I/O slot to operate. However, if a processor board is installed in the I/O slot even though an FPU is installed in the socket on the board, the circuit will operate with the built-in FPU taking priority; since there is a risk of malfunction, this state must absolutely be avoided.
 
 **MC68881 Main Features**
 ● 8 80-bit floating-point data registers
@@ -1822,8 +1907,6 @@ DTACK**
 
 **Figure 8-3 MFP Block Diagram**
 
-![Figure 8-3 MFP Block Diagram](figures/x68000_service_manual/serv_-000046.png)
-
 Page 46
 
 <Features>
@@ -1902,7 +1985,17 @@ Stop 1 bit
 
 Fig. 8-6 MFP USART System Block Diagram
 
-![Fig. 8-6 MFP USART System Block Diagram](figures/x68000_service_manual/serv_-000048.png)
+**Figure 8-6  MFP USART System Block Diagram**
+
+```
+                  RC terminal -->+-----------+
+  TBO terminal ---+              |           |--> SI (keyboard receive data)
+                  |              | USART(x16)|--> SO (keyboard send data)
+                  TC terminal -->|           |--> RR (receive status)
+                                 +-----------+--> TR (send status)
+```
+
+Asynchronous communication: 2400 baud, start 1 bit, data 8 bits, no parity, stop 1 bit.
 
 Table 8-4 Details of MFP Channels
 
@@ -2000,7 +2093,51 @@ MSDATA
 
 In this manual, the RS-232C serial communication controller is used to support the mouse. We use the Z8530 SCC for the Z8000 family. The block diagram is shown in Fig. 8-7.
 
-![In this manual, the RS-232C serial communication controller is used to support the mouse. We use the Z8530 SCC for the Z8000 family. The block diagram is shown in Fig. 8-7.](figures/x68000_service_manual/serv_-000053.png)
+# 8-5. SCC
+
+This unit uses the Z8530SCC, a member of the Z8000 family, as the serial communication controller to support RS-232C and the mouse. The block diagram is shown in Figure 8-7.
+
+**Features**
+
+This SCC has 2 independent full-duplex channels, each equipped with 14 write registers, 7 read registers, and a baud rate generator.
+
+**(1) Channel A (RS-232C)**
+
+*Asynchronous (start-stop synchronous) mode*
+- 5, 6, 7, 8 bits/character
+- 1, 1.5, 2 stop bits/character
+- Even parity, odd parity, no parity
+- x1, x16, x32, x64 clock modes
+- Block generation and detection
+- Detection of parity, overrun, and framing errors
+
+*Synchronous mode*
+- Byte-oriented synchronous mode ...... character sync can be either internal or external
+  - 1 or 2 sync characters
+  - Sync characters are 6 or 8 bits
+  - Automatic insertion or deletion of sync characters
+  - CRC generation and comparison
+- SDLC/HDLC mode ... abort sequence generation and detection
+  - Automatic zero insertion and deletion
+  - Automatic flag insertion between messages
+  - Address field detection
+  - Residue processing of the information field
+  - CRC generation and comparison
+  - Entry by EOP detection in SDLC loop mode (on-loop) and exit
+- Data transfer rate ............... max 1.5 Mbits/sec (monosync, bisync)
+  - max 375 kbits/sec (FM encoding DPLL)
+  - max 187 kbits/sec (NRZI encoding DPLL)
+
+**(2) Channel B (mouse)**
+
+*Asynchronous communication*
+- Baud rate ............ 4800 baud
+- Start bit ......... 1 bit
+- Data bits ......... 8 bits
+- Parity ............ none
+- Stop bit ......... 2 bits
+- Data bus ......... RxDB
+- Control bus ... RTSB
 
 <Features>
 This SCC has 2 independent full-duplex channels, each with 14 write registers and 7 read registers, and a baud rate generator.
@@ -2124,7 +2261,35 @@ This RP5C15 has the following features with the same READ/WRITE sequence of the 
 
 *Figure 8-9 RTC Block Diagram*
 
-![*Figure 8-9 RTC Block Diagram*](figures/x68000_service_manual/serv_-000054.png)
+# 8-6. RTC
+
+This unit uses the RP5C15 as the real-time clock.
+
+**Figure 8-9  RTC Block Diagram**
+
+```
+  Address (4) ==>+--------+ CLKOUT (1Hz) clock --> [MFP (GPIP5) 7-level interrupt]
+  Data    (4) <=>|        |
+  Control     ==>| RP5C15 |---------------------> [POWER LED and TIMER LED blink clock]
+                 |        | ALARM (alarm signal,
+                 |        |  1Hz, 16Hz clock) ---> [MFP (GPIP0) 0-level interrupt, readout]
+                 +--------+
+  Battery backup   Vcc2   [Oscillator circuit] (32.768 kHz)
+```
+
+**Features**
+
+The RP5C15 is a real-time clock that allows setting and reading of the time, etc. using the same procedure as memory READ/WRITE. It has the following features:
+
+1. Can be directly connected to a 16-bit CPU, and high-speed access is also possible
+2. 4-bit bidirectional data bus (D00 - D03)
+3. 4-bit address input
+4. Built-in counters for time (hours, minutes, seconds) and calendar (leap year, year, month, day, day of week)
+5. Built-in alarm function
+6. All clock data is represented in BCD code
+7. Built-in +/-30 second Adjust function
+8. Battery backup possible (minimum 2.0V)
+9. Can output an alarm signal or a 16Hz or 1Hz timing pulse
 
 *Page -54-*
 
@@ -2139,7 +2304,30 @@ The 1Hz clock is output from the CLK OUT terminal and connected to the MFPO/GPIO
 9-1. Disk
 The device is equipped with two data-sided FDD (floppy disk drives). This FDD is controlled by FDC and µPD72065 is used. For SCSI interface machines, 80MBHDD is controlled by SCSI controller MB89352. Please refer to figure 9-1.
 
-![The device is equipped with two data-sided FDD floppy disk drives. This FDD is controlled by FDC and µPD72065 is used. For SCSI interface machines, 80MBHDD is controlled by SCSI controller MB89352. Please refer to figure 9-1.](figures/x68000_service_manual/serv_-000055.png)
+The battery for RP5C15 backup is normally connected to Vcc2, so when using the timer, etc., never turn off the rear power switch.
+
+# 9. Peripheral I/O
+
+# 9-1. Disk
+
+This unit has 2 built-in 5-inch 2HD (double-sided high-density) type FDDs (floppy disk drives), and uses the uPD72065 as the FDC controlling these FDDs. It also uses the MB89352 as the SCSI controller for controlling SCSI devices (this unit is 80MHDD). The block diagram is shown in Figure 9-1.
+
+**Table 9-1  Floppy Disk Specifications**
+
+| Capacity / Format | FDC input clock | Modulation method |
+| --- | --- | --- |
+| 128, 256, 512, 1024 Bytes/sector | 2HD (8MHz) | MFM |
+| 26, 16, 8 Sector/track | 2DD-2D (4MHz) | FM |
+| 77 Track/side | switchable | switchable |
+| 154 Track/disk | | |
+| (1.28 MBytes when formatted) | When connecting a 2DD-2D type FDC, use the expansion floppy disk connector. | |
+
+**FDD Features and Specifications**
+
+The FDD of this unit is equipped with the following unique functions:
+
+(1) Auto-eject function
+- Automatic ejection function for the media inserted in the specified drive
 
 Table 9-1 Floppy Disk Specifications
 
@@ -2220,7 +2408,37 @@ READ DATA
 
 Figure 9-1 FDD/HDD Peripheral Block Diagram
 
-![Figure 9-1 FDD/HDD Peripheral Block Diagram](figures/x68000_service_manual/serv_-000057.png)
+**Figure 9-1  FDD/HDD Peripheral Block Diagram**
+
+```
+  Address bus ==>+------------+                     ATN
+                 |   SCSI     |--Hard Disk Control--{SEL, RESET, REQ, BUSY,
+  Data bus    <=>| Controller |                      I/O, C/D, MSG}
+                 |            |--Hard Disk Data Bus--{D0~D7, DP}
+                 +------------+
+  - - - - - - - - - - - - - - - - - - - - - - - - HD (hard disk) - - - -
+                                                   FD (floppy disk)
+  Address bus ==>+------------+
+                 |   I/O      |--FDD Option Control--{OPTION SELECT 0~3,
+  Data bus    <=>| Controller |    EJECT, EJECT MASK, LED BLINK,
+                 |            |    FDD INT, ERR DISK, DISK IN}
+                 |            |---------------------{TRK00, WRITE PROTECT,
+                 |            |                      DRIVE SELECT 0~3}
+                 +-----+------+
+                       |       +-----------+
+                       +------>|   FDC     |--{READY, INDEX, DISK TYPE SELECT,
+                               | (uPD72065)|   DIRECTION, STEP, WRITE GATE,
+                               |           |   WRITE DATA, SIDE SELECT}
+                               +-----+-----+
+                                     |    +----------+
+                                     +--->|   VFO    |--{MOTOR ON, READ DATA}
+                                          | circuit  |
+                                          |(SED9420AC)|
+                                          +----------+
+                                            MSN/STD
+```
+
+Clocks/power: 2HD/2DD-2D switching, Vcc1, Vss, 16MHz.
 
 The labels next to specific arrows relate to signals or commands connecting different components in a hard disk and floppy disk drive control system.
 
@@ -2387,7 +2605,33 @@ Address -------> portA ------------> Joystick No.1
 
 Figure 9-2 Joystick Block Diagram
 
-![Figure 9-2 Joystick Block Diagram](figures/x68000_service_manual/serv_-000062.png)
+(2) Set printer output data
+- Set the 1-byte output data to the printer at E8C001H.
+
+(3) Printer data sample (rising edge of strobe signal)
+- Set bit D00 of E8C003H to "0", then set it to "1" to raise the strobe signal.
+
+# 9-3. Joystick
+
+In the X1 and X1turbo series, 2 joysticks were accessed using PSG register 14 and register 15, but in this unit, 2 joysticks can be used via the 8255 ports. When using these 2 joysticks (input), always set 92H to E9A007H of the 8255, and set the upper 4 bits (D04~D07) of portC at E9A005H to "0".
+
+**Figure 9-2  Joystick Block Diagram**
+
+```
+  Address ==>+-----------+
+  Data    <=>| uPD8255   |  portA <--> [Joystick No.1]
+  Control ==>|           |  portB <--> [Joystick No.2]
+             |           |  portC ---> [Voice synthesis PCM control]
+             +-----------+
+```
+
+**Table 9-6  Joystick Register Address Map**
+
+| Register Address | D7 | D6 | D5 | D4 | D3 | D2 | D1 | D0 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| E9A001H | * | <-- | --> | * | Joystick No.1 | | | |
+| E9A003H | * | <-- | --> | * | Joystick No.2 | | | |
+| E9A005H | IOC7 | IOC6 | IOC5 | IOC4 | Sampling Late | | PCM PAN | |
 
 Register Address  | D7 D6 D5 D4 D3 D2 D1 D0
 ------------------|------------------------
