@@ -47,31 +47,26 @@ This manual does not explain the usage of application programs related to the TX
 **Table of Contents**
 
 Chapter 1: Features and Precautions
-1. ITX Series Features ........................................................... 1
-2. Precautions for Use ........................................................... 3
 
-Chapter 2: Names and Roles of Each Part ...................................... 5
-
-Chapter 3: Connecting to the Computer ......................................... 7
-- Configuration Diagram of Hard Disk for X68000 ............................. 7
-- Relationship between ID Number and Device Number of Hard Disk for X68000... 7
-
-Chapter 4: Formatting .............................................................. 9
-1. Human68K Ver 2.0 .......................................................... 9
-2. OS-9/X68000 .......................................................... 18
-```
-   (1) Procedures for Initializing Hard Disk with Device Number “0” .......... 18
-   (2) Procedures for Initializing Hard Disk with Device Numbers “1” to “3” ... 23
-```
-3. MSX2 HD Interface ......................................................... 25
-
-Chapter 5: Troubleshooting ....................................................... 27
-1. When ITX Series Does Not Operate Even When Phone Is On .............. 27
-2. When Power Supply Is Provided to ITX Series but It Does Not Operate ... 27
-
-Chapter 6: Basic Specifications of ITX Series ................................... 29
-
-Chapter 7: Maintenance Guide ...................................................... 31
+|  |  |
+|:----|----:|
+| 1. ITX Series Features | 1 |
+| 2. Precautions for Use | 3 |
+| Chapter 2: Names and Roles of Each Part | 5 |
+| Chapter 3: Connecting to the Computer | 7 |
+| - Configuration Diagram of Hard Disk for X68000 | 7 |
+| - Relationship between ID Number and Device Number of Hard Disk for X68000 | 7 |
+| Chapter 4: Formatting | 9 |
+| 1. Human68K Ver 2.0 | 9 |
+| 2. OS-9/X68000 | 18 |
+| (1) Procedures for Initializing Hard Disk with Device Number “0” | 18 |
+| (2) Procedures for Initializing Hard Disk with Device Numbers “1” to “3” | 23 |
+| 3. MSX2 HD Interface | 25 |
+| Chapter 5: Troubleshooting | 27 |
+| 1. When ITX Series Does Not Operate Even When Phone Is On | 27 |
+| 2. When Power Supply Is Provided to ITX Series but It Does Not Operate | 27 |
+| Chapter 6: Basic Specifications of ITX Series | 29 |
+| Chapter 7: Maintenance Guide | 31 |
 
 Appendix: OS-9/X68000 Supplemental User Manual
 
@@ -1027,38 +1022,36 @@ Phone: (03) 260-1161
 
 Table of Contents
 
-Chapter 1: Precautions for Using OS-9/X68000 .......................................... 1
-1.1 Relationship Between ITX Series and Device Number ............ 1
-■ When connecting the ITX series to the X68000 series .......... 1
-● IT-X640 connecting two units ............................................ 1
-● IT-X640.IT
-X680 connecting .................................................................. 1
-● IT-X680 connecting two units ............................................. 2
-■ When connecting the internal hard disk type ITX68000 series .... 2
-ITX series connecting .............................................................. 2
-● IT-X640 connecting ..................................................... 2
-● IT-X680 connecting ..................................................... 2
-
-Chapter 2: How to Initialize the Additional Hard Disk ..................... 3
-2.1 Precautions (for device number "0") .......................................... 3
-◎ When the ITX series is connected to the X68000 series ................ 3
-◎ Hard Disk (20 MB) Internal Type X68000 series ............................ 3
-2.2 How to Initialize for Device Number "1" ...................................... 3
-2.3 How to Initialize for Device Number "2" ..................................... 5
-2.4 How to Initialize for Device Number "3" ...................................... 7
-
-Chapter 3: Registering the Additional Hard Disk to the System ...... 10
-3.1 Changing the StartUp File .......................................................... 10
-3.2 Creating the InitHD File .............................................................. 11
-
-Chapter 4: How to Manage When Mixed with Human68K (Ver 2.0) ... 15
-4.1 Startup Menu ...................................................................... 15
-
-Chapter 5: System Reconfiguration ............................................ 16
-5.1 How to Reconfigure the System ......................................... 16
-5.2 When the Device Number is "1" or More and Hard Disk Devices .... 16
-■Precautions When Creating a Project File .................................. 16
-■How to Execute a Project File .................................................. 17
+|  |  |
+|:----|----:|
+| Chapter 1: Precautions for Using OS-9/X68000 | 1 |
+| 1.1 Relationship Between ITX Series and Device Number | 1 |
+| ■ When connecting the ITX series to the X68000 series | 1 |
+| ● IT-X640 connecting two units | 1 |
+| **● IT-X640.IT** |  |
+| X680 connecting | 1 |
+| ● IT-X680 connecting two units | 2 |
+| ■ When connecting the internal hard disk type ITX68000 series | 2 |
+| ITX series connecting | 2 |
+| ● IT-X640 connecting | 2 |
+| ● IT-X680 connecting | 2 |
+| Chapter 2: How to Initialize the Additional Hard Disk | 3 |
+| 2.1 Precautions (for device number "0") | 3 |
+| ◎ When the ITX series is connected to the X68000 series | 3 |
+| ◎ Hard Disk (20 MB) Internal Type X68000 series | 3 |
+| 2.2 How to Initialize for Device Number "1" | 3 |
+| 2.3 How to Initialize for Device Number "2" | 5 |
+| 2.4 How to Initialize for Device Number "3" | 7 |
+| Chapter 3: Registering the Additional Hard Disk to the System | 10 |
+| 3.1 Changing the StartUp File | 10 |
+| 3.2 Creating the InitHD File | 11 |
+| Chapter 4: How to Manage When Mixed with Human68K (Ver 2.0) | 15 |
+| 4.1 Startup Menu | 15 |
+| Chapter 5: System Reconfiguration | 16 |
+| 5.1 How to Reconfigure the System | 16 |
+| 5.2 When the Device Number is "1" or More and Hard Disk Devices | 16 |
+| ■Precautions When Creating a Project File | 16 |
+| ■How to Execute a Project File | 17 |
 
 *(Blank page in the original.)*
 

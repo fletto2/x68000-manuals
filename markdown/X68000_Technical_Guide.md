@@ -85,130 +85,98 @@ Chapter 2 Screen Control  9
 
 Table of Contents
 
-4-5   PCG Area ................................................................. 47
-4-6   Details of Text Area (1) ................................................ 49
-4-7   Details of Text Area (2) ................................................ 50
-4-8   How to Access CPU ................................................... 51
-
-5   Video Controller ........................................................ 55
-5-1   Address Map of Video Controller Registers ................. 56
-5-2   Details of Video Controller Registers ......................... 57
-5-3   Special Mode Details ............................................... 65
-
-6   CGROM ........................................................................ 74
-6-1   CGROM Specifications .............................................. 74
-6-2   Address Map of CGROM .......................................... 75
-6-3   Configuration of CGROM Address ........................... 76
-
-7   Superimpose & Overscan ........................................ 80
-
-Chapter 3   Sound Functions ...................................... 83
-1   FM Sound Source ........................................................ 84
-1-1   Characteristics .......................................................... 84
-1-2   Block Diagram of FM Sound Source ........................ 84
-1-3   FM Sound Source Registers Configuration ............. 85
-1-4   Address Map of FM Sound Source Registers .......... 86
-1-5   Channels & Slots ...................................................... 87
-1-6   Details of FM Sound Source Registers .................... 87
-1-7   Method for Correcting the System Clock 
-       at 4MHz ................................................................. 111
-
-2   PSG Sound Source .................................................... 114
-2-1   Characteristics ........................................................ 114
-2-2   Address Map of PSG Sound Source Registers ........ 115
-2-3   Details of PSG Sound Source Registers ................... 115
-2-4   How to Access PSG Sound Source .......................... 117
-
-Contents
-
-Chapter 4: Peripheral LSI .......................................................... 119
-
-1. DMA Controller (Direct Memory Access Controller) …… 119
-```
-    1-1 Features ........................................................................... 120
-    1-2 DMAC Register Address Map ..................................... 121
-    1-3 Details of DMAC Registers ........................................ 122
-```
-2. MFP (Multi Function Peripheral) .................................... 123
-```
-    2-1 Features ........................................................................... 124
-    2-2 MFP Register Address Map ...................................... 125
-    2-3 Details of MFP Registers ......................................... 130
-```
-3. SCC (Serial Communication Controller) .......................... 139
-```
-    3-1 Features ........................................................................... 139
-    3-2 SCC Register Address Map ....................................... 141
-    3-3 Details of SCC Registers .......................................... 141
-```
-4. RTC (Real Time Clock) ....................................................... 142
-```
-    4-1 Features ........................................................................... 142
-    4-2 RTC Register Address Map ...................................... 144
-    4-3 Details of RTC Registers ......................................... 146
-```
-5. FDC (Floppy Disk Controller) ......................................... 148
-```
-    5-1 Disk Drive Features and Specifications ................. 148
-    5-2 Features of FDC .......................................................... 152
-    5-3 FDC Register Address Map ...................................... 153
-    5-4 Details of FDC Registers .......................................... 153
-    5-5 FDC Access ..................................................................... 156
-```
-
-Chapter 5: Other Hardware .................................................... 159
-
-1. Keyboard ................................................................................. 159
-```
-    1-1 Sub CPU ........................................................................... 160
-    1-2 Keyboard Data Processing Procedure ....................... 168
-```
-2. Mouse ...................................................................................... 174
-```
-    2-1 Mouse Data Transmission Procedure ....................... 175
-    2-2 Mouse Access .................................................................. 176
-```
+|  |  |
+|:----|----:|
+| 4-5   PCG Area | 47 |
+| 4-6   Details of Text Area (1) | 49 |
+| 4-7   Details of Text Area (2) | 50 |
+| 4-8   How to Access CPU | 51 |
+| 5   Video Controller | 55 |
+| 5-1   Address Map of Video Controller Registers | 56 |
+| 5-2   Details of Video Controller Registers | 57 |
+| 5-3   Special Mode Details | 65 |
+| 6   CGROM | 74 |
+| 6-1   CGROM Specifications | 74 |
+| 6-2   Address Map of CGROM | 75 |
+| 6-3   Configuration of CGROM Address | 76 |
+| 7   Superimpose & Overscan | 80 |
+| Chapter 3   Sound Functions | 83 |
+| 1   FM Sound Source | 84 |
+| 1-1   Characteristics | 84 |
+| 1-2   Block Diagram of FM Sound Source | 84 |
+| 1-3   FM Sound Source Registers Configuration | 85 |
+| 1-4   Address Map of FM Sound Source Registers | 86 |
+| 1-5   Channels & Slots | 87 |
+| 1-6   Details of FM Sound Source Registers | 87 |
+| **1-7   Method for Correcting the System Clock** |  |
+| at 4MHz | 111 |
+| 2   PSG Sound Source | 114 |
+| 2-1   Characteristics | 114 |
+| 2-2   Address Map of PSG Sound Source Registers | 115 |
+| 2-3   Details of PSG Sound Source Registers | 115 |
+| 2-4   How to Access PSG Sound Source | 117 |
+| **Contents** |  |
+| Chapter 4: Peripheral LSI | 119 |
+| 1. DMA Controller (Direct Memory Access Controller) | 119 |
+| 1-1 Features | 120 |
+| 1-2 DMAC Register Address Map | 121 |
+| 1-3 Details of DMAC Registers | 122 |
+| 2. MFP (Multi Function Peripheral) | 123 |
+| 2-1 Features | 124 |
+| 2-2 MFP Register Address Map | 125 |
+| 2-3 Details of MFP Registers | 130 |
+| 3. SCC (Serial Communication Controller) | 139 |
+| 3-1 Features | 139 |
+| 3-2 SCC Register Address Map | 141 |
+| 3-3 Details of SCC Registers | 141 |
+| 4. RTC (Real Time Clock) | 142 |
+| 4-1 Features | 142 |
+| 4-2 RTC Register Address Map | 144 |
+| 4-3 Details of RTC Registers | 146 |
+| 5. FDC (Floppy Disk Controller) | 148 |
+| 5-1 Disk Drive Features and Specifications | 148 |
+| 5-2 Features of FDC | 152 |
+| 5-3 FDC Register Address Map | 153 |
+| 5-4 Details of FDC Registers | 153 |
+| 5-5 FDC Access | 156 |
+| Chapter 5: Other Hardware | 159 |
+| 1. Keyboard | 159 |
+| 1-1 Sub CPU | 160 |
+| 1-2 Keyboard Data Processing Procedure | 168 |
+| 2. Mouse | 174 |
+| 2-1 Mouse Data Transmission Procedure | 175 |
+| 2-2 Mouse Access | 176 |
 
 Page [4]
 
 Contents
 
-3 Joystick .................................................................................................... 179
-3-1 Joystick Register Address Map ............................................. 179
-3-2 Joystick Register Details ........................................................ 180
-3-3 Joystick Access ....................................................................... 181
-
-4 Printer .................................................................................................... 181
-4-1 Printer Access .......................................................................... 182
-
-5 Switch and Others ................................................................................ 183
-5-1 Main Unit Switch ..................................................................... 183
-5-2 Power Supply ........................................................................... 184
-5-3 LED ............................................................................................ 185
-5-4 8255 Ports ............................................................................... 186
-
-Appendix .................................................................................................. 187
-```
-1 I/O Port Address List .................................................................... 187
-2 Reset ............................................................................................. 191
-3 System Port .................................................................................. 192
-```
-```
-    3-1 System Port Register Address Map .............................. 192
-    3-2 System Port Register Details ........................................ 192
-```
-4 Interrupts .................................................................................... 195
-```
-    4-1 68000 MPU Interrupts .................................................... 195
-    4-2 MFP Interrupts and Reading Report ......................... 195
-    4-3 Interrupt Vector Settings ............................................... 196
-```
-```
-5 IPL (Initial Program Loader) .................................................. 197
-6 Character Code Table ........................................................... 198
-```
-
-Index ....................................................................................................... 199
+|  |  |
+|:----|----:|
+| 3 Joystick | 179 |
+| 3-1 Joystick Register Address Map | 179 |
+| 3-2 Joystick Register Details | 180 |
+| 3-3 Joystick Access | 181 |
+| 4 Printer | 181 |
+| 4-1 Printer Access | 182 |
+| 5 Switch and Others | 183 |
+| 5-1 Main Unit Switch | 183 |
+| 5-2 Power Supply | 184 |
+| 5-3 LED | 185 |
+| 5-4 8255 Ports | 186 |
+| Appendix | 187 |
+| 1 I/O Port Address List | 187 |
+| 2 Reset | 191 |
+| 3 System Port | 192 |
+| 3-1 System Port Register Address Map | 192 |
+| 3-2 System Port Register Details | 192 |
+| 4 Interrupts | 195 |
+| 4-1 68000 MPU Interrupts | 195 |
+| 4-2 MFP Interrupts and Reading Report | 195 |
+| 4-3 Interrupt Vector Settings | 196 |
+| 5 IPL (Initial Program Loader) | 197 |
+| 6 Character Code Table | 198 |
+| Index | 199 |
 
 *(This page is too faint in the original to transcribe.)*
 
@@ -7420,24 +7388,29 @@ Kanji codes comply with JIS C-6226-1983. For details, please refer to the instru
 Index
 
 <Numbers>
-1/4 square characters ................74
 
-<A>
-ADPCM .................................3, 114, 115, 116
-AD converter............................114 
-AD transformation.......................34 
-ANK ....................................9 
+|  |  |
+|:----|----:|
+| 1/4 square characters | 74 |
+| **<A>** |  |
+| **ADPCM .................................3, 114, 115, 116** |  |
+| AD converter | 114 |
+| AD transformation | 34 |
+| ANK | 9 |
+| **<C>** |  |
+| **CGROM .................................2, 74** |  |
+| CGROM address | 76 |
+| CPU access | 51 |
+| CPU register | 53 |
+| CRC | 139 |
 
-<C>
-CGROM .................................2, 74 
-CGROM address..........................76 
-CPU access.............................51 
-CPU register...........................53 
-CRC ....................................139 
 CRTC .................................3, 9, 23, 24, 27, 57, 125, 130 
 CRTC register...........................26, 27 
-CRTC register address map...............26 
-CRTC special features...................33 
+
+|  |  |
+|:----|----:|
+| CRTC register address map | 26 |
+| CRTC special features | 33 |
 
 <D>
 DMAC .................................1, 3, 117, 119, 120, 121 
@@ -7446,17 +7419,18 @@ DMAC .................................1, 3, 117, 119, 120, 121
 FDC ...................................3, 90, 148, 152, 156 
 FDC register............................153 
 FM sound source.......................3, 83, 84, 85, 86, 87, 126 
-FM sound source register................90 
-FM sound source support.................117 
 
-<G>
-GPIB data register ....................130
-
-<I>
-8255 ................................116, 117, 179, 186 
-I/O controller...........................3 
-I/O port address.......................187 
-IPL ...................................197 
+|  |  |
+|:----|----:|
+| FM sound source register | 90 |
+| FM sound source support | 117 |
+| **<G>** |  |
+| GPIB data register | 130 |
+| **<I>** |  |
+| **8255 ................................116, 117, 179, 186** |  |
+| I/O controller | 3 |
+| I/O port address | 187 |
+| IPL | 197 |
 
 <J>
 JIS code ...............................74, 77 
@@ -7467,40 +7441,47 @@ LFO ....................................94
 
 <M>
 MFP ...............................1, 3, 27, 123, 124, 168, 177, 178, 195 
-MFP register ..........................130 
-NMI switch ...........................183 
 
-<P>
-PCG ....................................54 
-PCG7 access ............................46 
-PCG7 address....................47, 48, 50, 51 
-PCG area ........................36, 38, 44, 47 
-PCG board ........................47, 48 
-PPI ...................................3 
-PSG ..................................179 
+|  |  |
+|:----|----:|
+| MFP register | 130 |
+| NMI switch | 183 |
+| **<P>** |  |
+| PCG | 54 |
+| PCG7 access | 46 |
+| **PCG7 address....................47, 48, 50, 51** |  |
+| **PCG area ........................36, 38, 44, 47** |  |
+| **PCG board ........................47, 48** |  |
+| PPI | 3 |
+| PSG | 179 |
 
 <Q>
 QD ...................................51, 52, 54 
 
 <R>
-RAM ....................................4 
-ROM ....................................4 
-RS-232C ...............................2 
+
+|  |  |
+|:----|----:|
+| RAM | 4 |
+| ROM | 4 |
+| RS-232C | 2 |
+
 RTC ..........................3, 126, 142, 144, 184 
 
 <S>
 SAM .................................23, 34 
 SCC ................................3, 139, 174, 178 
-SCC register .........................141 
-SRAM ...............................184 
 
-<U>
-USART .....................124, 125, 126, 136 
-USART control register ............136
-
-<V>
-V-DISP .................... 23
-VRAM .....................1
+|  |  |
+|:----|----:|
+| SCC register | 141 |
+| SRAM | 184 |
+| **<U>** |  |
+| **USART .....................124, 125, 126, 136** |  |
+| USART control register | 136 |
+| **<V>** |  |
+| V-DISP | 23 |
+| VRAM | 1 |
 
 <X>
 X1 ....................... 9, 81, 162, 167, 179, 181
@@ -7508,33 +7489,39 @@ X1 ....................... 9, 81, 162, 167, 179, 181
 <A>
 Analog Simulator ................ 107, 108
 Access ................... 9, 29, 141
-Access Drive Select ................ 154
-Active Register ................ 130
-ASCII Code ................... 76
-Assumption ................... 86, 95, 96
-Address Setting .................. 12
-Address Bus ................... 119
-Address Field .................. 139
-Address Map .................. 12
-Analog RGB ................... 2
-Analog Data .................. 114
-Analog Processing ............... 139
-Alarm ................... 142, 143
 
-<I>
-Interrupt Switch Mask Function ........... 149
+|  |  |
+|:----|----:|
+| Access Drive Select | 154 |
+| Active Register | 130 |
+| ASCII Code | 76 |
+| **Assumption ................... 86, 95, 96** |  |
+| Address Setting | 12 |
+| Address Bus | 119 |
+| Address Field | 139 |
+| Address Map | 12 |
+| Analog RGB | 2 |
+| Analog Data | 114 |
+| Analog Processing | 139 |
+| **Alarm ................... 142, 143** |  |
+| **<I>** |  |
+| Interrupt Switch Mask Function | 149 |
+
 Phase Information .................. 92, 94, 101
 Event Count Mode .............. 130, 135
 Interface .................. 4, 114
 Interface .................. 2, 11, 14, 24, 34
 
 <U>
-Leap Year ................... 146
-Wait .................. 53, 54
 
-<E>
-Export .................. 95, 103
-Error Reset .................. 191
+|  |  |
+|:----|----:|
+| Leap Year | 146 |
+| **Wait .................. 53, 54** |  |
+| **<E>** |  |
+| **Export .................. 95, 103** |  |
+| Error Reset | 191 |
+
 Round Mode .................. 9, 27
 Enveloped .................. 101, 103
 
@@ -7544,23 +7531,26 @@ Oscillator .................. 2, 11, 48, 80
 Overflow .................. 86, 108, 109, 110, 111
 
 <O>
-Overrun .................. 139
-Overrun Error .................. 137
-Octal .................. 84, 86, 91, 113
-Offset .................. 9, 81, 115, 137
-Sound .................. 95, 100
-Synthesizer .................. 83, 90, 114
-Synthesizer Address .............. 117
-Synthesizer Register .............. 115
-Sound .................. 95, 100
 
-<K>
-Resolution .................. 45
-Counter .................. 125
-Expansion Slot 1/Expansion Slot 2 ............. 126
-Overlap .................. 63
-Image Input .................. 4, 34
-Image Size ................... 80
+|  |  |
+|:----|----:|
+| Overrun | 139 |
+| Overrun Error | 137 |
+| **Octal .................. 84, 86, 91, 113** |  |
+| **Offset .................. 9, 81, 115, 137** |  |
+| **Sound .................. 95, 100** |  |
+| **Synthesizer .................. 83, 90, 114** |  |
+| Synthesizer Address | 117 |
+| Synthesizer Register | 115 |
+| **Sound .................. 95, 100** |  |
+| **<K>** |  |
+| Resolution | 45 |
+| Counter | 125 |
+| Expansion Slot 1/Expansion Slot 2 | 126 |
+| Overlap | 63 |
+| **Image Input .................. 4, 34** |  |
+| Image Size | 80 |
+
 Image Control .................. 119, 140, 181, 185
 Display Mode Register .............. 36, 37, 42, 46, 53, 53
 
@@ -7568,19 +7558,25 @@ Display Mode Register .............. 36, 37, 42, 46, 53, 53
 Canvas ..................86, 90, 96
 Key On ..................86, 90, 95, 107, 108
 Keyhole ..................91, 163
-Key Scan .................. 160
-Key Skewing .................. 97
+
+|  |  |
+|:----|----:|
+| Key Scan | 160 |
+| Key Skewing | 97 |
+
 Key Field .................. 124, 125, 126, 130, 133, 142, 157, 178, 184
 
-Odds Field .................. 81
-Character Clock ........... 52, 54
-Carrier .................. 91
-Central Processing Unit .......... 10, 27
-Forced READY .......... 157
-Expected Resolution .......... 81
+|  |  |
+|:----|----:|
+| Odds Field | 81 |
+| **Character Clock ........... 52, 54** |  |
+| Carrier | 91 |
+| **Central Processing Unit .......... 10, 27** |  |
+| Forced READY | 157 |
+| Expected Resolution | 81 |
+| **<K>** |  |
+| Short Horizontal | 94 |
 
-<K>
-Short Horizontal .................. 94
 Clock ..................91, 103, 109, 111, 112, 126, 139, 143, 148
 Odd Field .............. 81
 Graphic .................. 18, 14, 21, 22, 70
@@ -7607,11 +7603,11 @@ High Resolution ..................................... 5, 9, 11, 14, 26, 28, 45, 
 
 High Resolution Clear .......................... 30, 33, 34
 
-High Brightness ....................................... 84
-
-Command Port .................................. 141, 142
-
-Control Signal ....................................... 169
+|  |  |
+|:----|----:|
+| High Brightness | 84 |
+| **Command Port .................................. 141, 142** |  |
+| Control Signal | 169 |
 
 Control Panel .................................. 119, 140
 
@@ -7619,83 +7615,66 @@ Control Register ......................... 25, 28
 
 Control Word Register ........ 116, 186
 
-Computer Screen ............................................. 27
-
-<Sa>
-
-Silkscreen Steel ............................................120
-
-Sign Table .......................................................... 93
-
-Significance ............................................................95
-
-Sound Function .......................................................83
-
-Sound CPU .............................................................. 160
-
-Triangle Mark............................................................. 94
+|  |  |
+|:----|----:|
+| Computer Screen | 27 |
+| **<Sa>** |  |
+| Silkscreen Steel | 120 |
+| Sign Table | 93 |
+| Significance | 95 |
+| Sound Function | 83 |
+| Sound CPU | 160 |
+| Triangle Mark | 94 |
 
 Sampling Count ............................ 114, 115, 116, 117
 
 <Shi>
 
-System ............................................................... 7
-
-System Report ......................................................... 192
+|  |  |
+|:----|----:|
+| System | 7 |
+| System Report | 192 |
 
 System Register ................................................81, 104, 107
 
 Frequency Counter ............................. 91, 104, 107
 
-Seal ..................................................... 107
-
-Serial Interface ......................................................... 33
-
-Flip Screen ........................................................... 60
+|  |  |
+|:----|----:|
+| Seal | 107 |
+| Serial Interface | 33 |
+| Flip Screen | 60 |
 
 Time Counter............... 91, 104, 107
 
 Joystick ............................................ 2, 116, 179, 186
 
-Joystick Controller .......................... 180
-
-Information Field ................................... 139
-
-<Se>
-
-Synchronization Signal ...................... 82
-
-Vertical Display Start Location .............. 44
-
-Switch .......................................................... 183
-
-Horizontal Position Fine Adjustment..... 27
+|  |  |
+|:----|----:|
+| Joystick Controller | 180 |
+| Information Field | 139 |
+| **<Se>** |  |
+| Synchronization Signal | 82 |
+| Vertical Display Start Location | 44 |
+| Switch | 183 |
+| Horizontal Position Fine Adjustment | 27 |
 
 Horizontal Position Signal ........................... 2, 14, 27, 52, 53, 71, 80
 
-Horizontal Display Area .............................................191
-
-Scroll ........................................................... 23
-
-Scroll Register ........................................................ 34
-
-Scro Compact disc ...................... 86, 92, 95, 96
-
-Star Bit............................................................ 140
-
-Status Register .................................................153
-
-Stop Bit........................................... 139, 140
-
-Stroke ........................................................... 183
-
-Sprite ................................... 1, 4, 6, 35
-
-Sprite Access ................. 46
-
-Sprite Virtual Resolution..................................... 40
-
-Sprite High Color Table ................................................... 49
+|  |  |
+|:----|----:|
+| Horizontal Display Area | 191 |
+| Scroll | 23 |
+| Scroll Register | 34 |
+| **Scro Compact disc ...................... 86, 92, 95, 96** |  |
+| Star Bit | 140 |
+| Status Register | 153 |
+| **Stop Bit........................................... 139, 140** |  |
+| Stroke | 183 |
+| **Sprite ................................... 1, 4, 6, 35** |  |
+| Sprite Access | 46 |
+| Sprite Virtual Resolution | 40 |
+| Sprite High Color Table | 49 |
 
 Sprite High Resolution Screen ............. 10, 60, 62
 
@@ -7717,120 +7696,125 @@ Slot .....................................4, 86, 88, 89, 101, 103
 
 Set ................................................... 91, 112
 
-Centronics ................................................. 181
-
-Full Angle ........................................ 139
-
-Full Width Character............................................. 74
-
-<Sou>
-
-Running Frequency............................................45
-
-Running Style ................................ ............81
+|  |  |
+|:----|----:|
+| Centronics | 181 |
+| Full Angle | 139 |
+| Full Width Character | 74 |
+| **<Sou>** |  |
+| Running Frequency | 45 |
+| Running Style | 81 |
 
 <Ta>
 
 Title ......................................... 109, 110, 111, 123, 124, 125, 127, 135, 168, 185
 
-Title Fill In ........................ 177
-
-First Horizontal Character..........................180
-
-Second Horizontal Character.......................74
+|  |  |
+|:----|----:|
+| Title Fill In | 177 |
+| First Horizontal Character | 180 |
+| Second Horizontal Character | 74 |
 
 Page 201
 
 <Ch>
 Channel......................................88,89,101,119,120,124,139,140
-Synchronization Mode........................139
 
-<Te>
-Definition....................................5
+|  |  |
+|:----|----:|
+| Synchronization Mode | 139 |
+| **<Te>** |  |
+| Definition | 5 |
+
 Text..........................................4,54
 Text NVRAM..................................11,13,23,33
 Text Area.................................36,39,39,43,44,49,50,51
 Text Screen............................5,9,10,11,23,33,60,62
-Text Sequence................................42
-Text Actual Screen........................12
-Text Scroll Register..................25,27
-Text Slot Address.......................12,13,72
-Text Star Copy..............................36
-TV Control................................4,160
-TV Control Code........................62
-Data Transmission Rate.................139
-Data Point.....................108,119,140,142
-Data Stack...................................153
-Device.............................86,95,96,100,103
-Disk.................................148
-Disk Drive...............................125
-Decoder.......................................4,52
-Digital Dropper...........................34
-Device.....................107,108,111
-Dual Port DRAM............4,23,32
-Power......................................184
-Power ON.................................127
 
-<To>
-Transparency..............................41
-Special Screen Control..................6
-Special Priority......2,6,55,59,64
-Special Transparent Mode..............69
-Special Mode.............................174
-Trackball....................................174
-Transceiver.................................138
-Synchronization Circuit........................24
-Synchronization Effect....................24
-Synchronization Access.................33
-Driver Control............154,156
+|  |  |
+|:----|----:|
+| Text Sequence | 42 |
+| Text Actual Screen | 12 |
+| **Text Scroll Register..................25,27** |  |
+| **Text Slot Address.......................12,13,72** |  |
+| Text Star Copy | 36 |
+| **TV Control................................4,160** |  |
+| TV Control Code | 62 |
+| Data Transmission Rate | 139 |
+| **Data Point.....................108,119,140,142** |  |
+| Data Stack | 153 |
+| **Device.............................86,95,96,100,103** |  |
+| Disk | 148 |
+| Disk Drive | 125 |
+| **Decoder.......................................4,52** |  |
+| Digital Dropper | 34 |
+| **Device.....................107,108,111** |  |
+| **Dual Port DRAM............4,23,32** |  |
+| Power | 184 |
+| Power ON | 127 |
+| **<To>** |  |
+| Transparency | 41 |
+| Special Screen Control | 6 |
+| **Special Priority......2,6,55,59,64** |  |
+| Special Transparent Mode | 69 |
+| Special Mode | 174 |
+| Trackball | 174 |
+| Transceiver | 138 |
+| Synchronization Circuit | 24 |
+| Synchronization Effect | 24 |
+| Synchronization Access | 33 |
+| **Driver Control............154,156** |  |
+| **<Na>** |  |
+| Internal Register | 120 |
+| **<No>** |  |
+| **Noise..............................84,86,94,103,104** |  |
+| Noise State Mode | 94 |
+| Noise Trace Mode | 24 |
+| **<Ha>** |  |
+| **Hard Disk.........................2,4** |  |
+| Half Character | 74 |
+| Semi-transparency | 62 |
 
-<Na>
-Internal Register.........................120
-
-<No>
-Noise..............................84,86,94,103,104
-Noise State Mode......................94
-Noise Trace Mode.....................24
-
-<Ha>
-Hard Disk.........................2,4
-Half Character..............................74
-Semi-transparency........................62
 Semi-transparent Mode........2,6,55,59
 Semi-transparent Attribute................64,65
 Semi-transparent Region Specification.....
-Hand Sync...............................174
-Byte Designation Mode..................139
-Byte Time Detailed Mode................139
-Binary.......................................107
-Backup Data............................39,47
-Background Code.......................54
-Background Display Control Register....46,54
-Background Scroll Register...36,37,42,53
-Background Turn Pattern................35
-Background Display........................35
-Battery Backup..........................142
+
+|  |  |
+|:----|----:|
+| Hand Sync | 174 |
+| Byte Designation Mode | 139 |
+| Byte Time Detailed Mode | 139 |
+| Binary | 107 |
+| **Backup Data............................39,47** |  |
+| Background Code | 54 |
+| **Background Display Control Register....46,54** |  |
+| **Background Scroll Register...36,37,42,53** |  |
+| Background Turn Pattern | 35 |
+| Background Display | 35 |
+| Battery Backup | 142 |
+
 Pattern Definition...............................
 Parity...........................139,140
-Parity Error......................................37
-Palette.............................................6
-Palette Address.....61,62,66,72
-Palette Configuration.....................71
-Palette Data........................60,61,65
-Power Switch...................126,184
 
-<Hi>
-Non Display Characters.................74
-Non Display Mode.....................139
-Display Control..................................44
-Display Screen..............................5
-Display Region Mode.......................40
-Display Priority Region.......................41
+|  |  |
+|:----|----:|
+| Parity Error | 37 |
+| Palette | 6 |
+| **Palette Address.....61,62,66,72** |  |
+| Palette Configuration | 71 |
+| **Palette Data........................60,61,65** |  |
+| **Power Switch...................126,184** |  |
+| **<Hi>** |  |
+| Non Display Characters | 74 |
+| Non Display Mode | 139 |
+| Display Control | 44 |
+| Display Screen | 5 |
+| Display Region Mode | 40 |
+| Display Priority Region | 41 |
+| **Symbol Resolution Degree** |  |
+| **..5, 9, 11, 14, 26, 28, 45, 46, 51, 54, 71, 80** |  |
+| Bit Map | 9 |
 
-**Symbol Resolution Degree**
-
-..5, 9, 11, 14, 26, 28, 45, 46, 51, 54, 71, 80   
-Bit Map...............................9   
 Video Controller.....................3, 9, 55, 69   
 Video Controller Register..........56, 57   
 Video Screen.......................27, 84, 86, 91, 94   
@@ -7838,76 +7822,70 @@ Video Screen.......................27, 84, 86, 91, 94
 **(a)**
 Feedback............................86, 101   
 Format.............................107, 148, 152   
-Font.......................................74   
-Label................................139   
-Flag.........................86, 110, 111, 139   
-Framing..............................139   
-Floppy Disk Drive.....................2, 185   
-Block Diagram........................7   
-Block Transfer....................120   
-Branch................................100, 107   
-Priority...1, 6, 35, 41, 55, 57, 60, 62, 63   
-Processor.............................125   
-Print...................2, 155, 181   
-Print Access.......................182   
-Plain.................11, 17, 29   
 
-**(i)**
-Vector....................................117   
-Transformation.............84, 107, 148   
+|  |  |
+|:----|----:|
+| Font | 74 |
+| Label | 139 |
+| **Flag.........................86, 110, 111, 139** |  |
+| Framing | 139 |
+| **Floppy Disk Drive.....................2, 185** |  |
+| Block Diagram | 7 |
+| Block Transfer | 120 |
+| **Branch................................100, 107** |  |
+| **Priority...1, 6, 35, 41, 55, 57, 60, 62, 63** |  |
+| Processor | 125 |
+| **Print...................2, 155, 181** |  |
+| Print Access | 182 |
+| **Plain.................11, 17, 29** |  |
+| **(i)** |  |
+| Vector | 117 |
+| **Transformation.............84, 107, 148** |  |
+| **(u)** |  |
+| Border Color | 55 |
+| Ball Point | 140 |
+| Point Generator | 141 |
+| Point | 32 |
+| Boarding | 182 |
+| **(e)** |  |
+| **Mouse.................2, 139, 159, 174** |  |
+| Mouse Access | 176 |
+| **Mouse Control.........162, 175, 177** |  |
+| **Mouse Data............175, 176, 178** |  |
+| Mouse Trackball | 2 |
+| **(o)** |  |
+| Main Memory | 120 |
+| Media | 156 |
+| Memory | 4 |
+| **Memory Map.....8, 11, 17, 18, 19, 20** |  |
+| **(k)** |  |
+| Mode Register | 36 |
+| Modulator | 91 |
+| Monochrome | 139 |
+| **(s)** |  |
+| User Domain | 191 |
+| **(ra)** |  |
+| **Raster Address........25, 27, 33, 125** |  |
+| Raster Copy Bit Mask | 33 |
+| **(tu)** |  |
+| Real-Time Clock | 142 |
+| **Reset.............87, 90, 183** |  |
+| Repeat | 160 |
+| Repeat Control | 167 |
+| Remote Control | 160 |
+| Resource | 96 |
+| **(na)** |  |
+| Rate | 97 |
+| Register Transfer | 53 |
+| **(ha)** |  |
+| **Interrupt.......................108, 110** |  |
+| **........117, 123, 124, 149, 153, 157, 168, 170, 183, 195** |  |
+| Interrupt Control | 131 |
+| Interrupt Wait Mode | 133 |
+| Interrupt Signal Status | 155 |
+| Interrupt Signal Mask | 155 |
+| Interrupt Vector | 196 |
 
-**(u)**
-Border Color.........................55   
-Ball Point...........................140   
-Point Generator.........................141   
-Point...........................32   
-Boarding..................................182   
-
-**(e)**
-Mouse.................2, 139, 159, 174   
-Mouse Access......................176   
-Mouse Control.........162, 175, 177   
-Mouse Data............175, 176, 178   
-Mouse Trackball....................2   
-
-**(o)**
-Main Memory......................120   
-Media.................................156   
-Memory.................................4   
-Memory Map.....8, 11, 17, 18, 19, 20   
-
-**(k)**
-Mode Register.....................36   
-Modulator.......................91   
-Monochrome.......................139   
-
-**(s)**
-User Domain.......................191   
-
-**(ra)**
-Raster Address........25, 27, 33, 125   
-Raster Copy Bit Mask............33   
-
-**(tu)**
-Real-Time Clock...................142   
-Reset.............87, 90, 183   
-Repeat................................160   
-Repeat Control.....................167   
-Remote Control.....................160   
-Resource.............................96   
-
-**(na)**
-Rate.................................97   
-Register Transfer....................53   
-
-**(ha)**
-Interrupt.......................108, 110   
-........117, 123, 124, 149, 153, 157, 168, 170, 183, 195   
-Interrupt Control.....................131   
-Interrupt Wait Mode...................133   
-Interrupt Signal Status...............155   
-Interrupt Signal Mask.................155   
-Interrupt Vector......................196   
 Interrupt Vector Register....133, 134, 133, 134
 
 Page 203
