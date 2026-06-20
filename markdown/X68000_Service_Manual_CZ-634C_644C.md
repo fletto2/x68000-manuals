@@ -1514,7 +1514,21 @@ D7 D6 D5 D4 D3 D2 D1 D0
 1-byte data from 80C51 to MFP
 Key code reference is in figure 3-2
 
-![Key code reference is in figure 3-2](figures/x68000_service_manual/serv_-000039.png)
+**Table 6-2  Key scan data format**
+
+```
+ D7  D6  D5  D4  D3  D2  D1  D0
++---+---+---+---+---+---+---+---+
+|   |   |   |   |   |   |   |   |
++---+---+---+---+---+---+---+---+
+  ^   <----- key code ----->   ^
+  |                            |
+  |   (D6..D0: key code)        
+D7: 0 = key pressed state
+    1 = key released state
+```
+
+1-byte data from 80C51 to MFP. For key correspondence codes, see Fig. 3-2.
 
 CZ-634C-TN
 CZ-644C-TN
@@ -1599,7 +1613,20 @@ In this book, the 63450 is used as the DMAC. This is an independent 4-channel DM
 
 **Figure 8-1 DMAC Block Diagram**
 
-![**Figure 8-1 DMAC Block Diagram**](figures/x68000_service_manual/serv_-000042.png)
+**Fig. 8-1  DMAC block diagram**
+
+```
+  +-----------+   address bus    +-----------+
+  |           | ---------------> |           |--[ Ch0 ]-- Internal 2HD
+  |   68000   |    data bus      |   63450   |
+  |           | <--------------> |           |--[ Ch0 ]-- SCSI device
+  |           |   control bus    |           |
+  |           | <--------------> |           |--[ Ch2 ]-- Memory-to-memory
+  +-----------+                  +-----------+
+   |    |   |                     |    |   |  --[ Ch3 ]-- Voice synthesis
+  CLK Vcc1 Vss                  CLK Vcc1 Vss
+ (10/16MHz)                      (10MHz)
+```
 
 - 68000  
 - Address Bus
