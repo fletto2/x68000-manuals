@@ -213,6 +213,8 @@ Names and Functions of Each Part of the ITX Series
 
 Front and Rear of the ITX Series
 
+![Front and rear of the ITX series](figures/sharp_hdd_unit_manual/man_-000011.png)
+
 1 Power Lamp (Green)
     Lights up when the power (electricity) switch is turned on.
 2 Access Lamp (Red)
