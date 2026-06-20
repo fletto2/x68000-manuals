@@ -4150,7 +4150,7 @@ Note: fM = 4000 kHz (YM2151 additional clock frequency).
 
 In other words, it can be changed between approximately 4.0 kHz to 125 kHz. The noise period at this time is:
 
-\[ T_{\text{noise}} = \frac{2^{17} - 1}{f_{\text{noise}}\ (\text{Hz})}\ (\text{sec}) \]
+T_noise = (2^(17) - 1)/(f_noise (Hz)) (sec)
 
 Therefore, the value ranges from approximately 32.8 sec to approximately 1.05 sec.
 
@@ -4325,9 +4325,9 @@ Page 108
 
 Given 8 bits, Timer B overflows with the following period:
 
-\[ TB (\text{ms}) = \frac{1024 \times (256 - \text{CLKB})}{fM (\text{kHz})} \]
+TB (ms) = (1024 × (256 - CLKB))/(fM (kHz))
 
-Note: \( fM (\text{kHz}) = 4000 \text{kHz (Clock frequency added to YM2151)} \)
+Note: ( fM (kHz) = 4000 kHz (Clock frequency added to YM2151) )
 
 - LOAD
 
